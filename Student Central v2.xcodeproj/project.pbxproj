@@ -13,6 +13,11 @@
 		65D052BB29844E4600BB5A5C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65D052B929844E4600BB5A5C /* Main.storyboard */; };
 		65D052BD29844E4700BB5A5C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65D052BC29844E4700BB5A5C /* Assets.xcassets */; };
 		65D052C029844E4700BB5A5C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65D052BE29844E4700BB5A5C /* LaunchScreen.storyboard */; };
+		65D052C8298B2E4500BB5A5C /* MapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D052C7298B2E4500BB5A5C /* MapsViewController.swift */; };
+		65D052CA298B2FBC00BB5A5C /* QuickLinksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D052C9298B2FBC00BB5A5C /* QuickLinksViewController.swift */; };
+		65D052CC298B315500BB5A5C /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D052CB298B315500BB5A5C /* ScheduleViewController.swift */; };
+		65D052CE298B337500BB5A5C /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D052CD298B337500BB5A5C /* CalendarViewController.swift */; };
+		65D052D0298B342500BB5A5C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D052CF298B342500BB5A5C /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +29,11 @@
 		65D052BC29844E4700BB5A5C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		65D052BF29844E4700BB5A5C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		65D052C129844E4700BB5A5C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		65D052C7298B2E4500BB5A5C /* MapsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapsViewController.swift; sourceTree = "<group>"; };
+		65D052C9298B2FBC00BB5A5C /* QuickLinksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickLinksViewController.swift; sourceTree = "<group>"; };
+		65D052CB298B315500BB5A5C /* ScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
+		65D052CD298B337500BB5A5C /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
+		65D052CF298B342500BB5A5C /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +69,11 @@
 				65D052B329844E4600BB5A5C /* AppDelegate.swift */,
 				65D052B529844E4600BB5A5C /* SceneDelegate.swift */,
 				65D052B729844E4600BB5A5C /* ViewController.swift */,
+				65D052C9298B2FBC00BB5A5C /* QuickLinksViewController.swift */,
+				65D052CB298B315500BB5A5C /* ScheduleViewController.swift */,
+				65D052CD298B337500BB5A5C /* CalendarViewController.swift */,
+				65D052CF298B342500BB5A5C /* SettingsViewController.swift */,
+				65D052C7298B2E4500BB5A5C /* MapsViewController.swift */,
 				65D052B929844E4600BB5A5C /* Main.storyboard */,
 				65D052BC29844E4700BB5A5C /* Assets.xcassets */,
 				65D052BE29844E4700BB5A5C /* LaunchScreen.storyboard */,
@@ -141,6 +156,11 @@
 				65D052B829844E4600BB5A5C /* ViewController.swift in Sources */,
 				65D052B429844E4600BB5A5C /* AppDelegate.swift in Sources */,
 				65D052B629844E4600BB5A5C /* SceneDelegate.swift in Sources */,
+				65D052CC298B315500BB5A5C /* ScheduleViewController.swift in Sources */,
+				65D052CA298B2FBC00BB5A5C /* QuickLinksViewController.swift in Sources */,
+				65D052CE298B337500BB5A5C /* CalendarViewController.swift in Sources */,
+				65D052C8298B2E4500BB5A5C /* MapsViewController.swift in Sources */,
+				65D052D0298B342500BB5A5C /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
