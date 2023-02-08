@@ -58,7 +58,7 @@ class ViewControllerResPage: UIViewController {
                 resources.append(res)
             }
         }
-        
+        someTableView.separatorStyle = .none
     }
 
     
@@ -83,4 +83,6 @@ extension ViewControllerResPage: UITableViewDataSource, UITableViewDelegate{
         resCat.text = resources[indexPath.row].category
         resCont.text = resources[indexPath.row].contact
     }
+    
+    
 }
