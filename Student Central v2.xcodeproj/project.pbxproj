@@ -18,6 +18,10 @@
 		65D052CC298B315500BB5A5C /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D052CB298B315500BB5A5C /* ScheduleViewController.swift */; };
 		65D052CE298B337500BB5A5C /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D052CD298B337500BB5A5C /* CalendarViewController.swift */; };
 		65D052D0298B342500BB5A5C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D052CF298B342500BB5A5C /* SettingsViewController.swift */; };
+		B2A808F52992E26A00174266 /* resALl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A808F42992E26A00174266 /* resALl.swift */; };
+		B2A808F72992E27400174266 /* TVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A808F62992E27400174266 /* TVC.swift */; };
+		B2A808F92992E28200174266 /* ViewControllerHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A808F82992E28200174266 /* ViewControllerHelp.swift */; };
+		B2A808FB2992E28D00174266 /* ViewControllerRess.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A808FA2992E28D00174266 /* ViewControllerRess.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +38,10 @@
 		65D052CB298B315500BB5A5C /* ScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
 		65D052CD298B337500BB5A5C /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		65D052CF298B342500BB5A5C /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		B2A808F42992E26A00174266 /* resALl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = resALl.swift; sourceTree = "<group>"; };
+		B2A808F62992E27400174266 /* TVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TVC.swift; sourceTree = "<group>"; };
+		B2A808F82992E28200174266 /* ViewControllerHelp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerHelp.swift; sourceTree = "<group>"; };
+		B2A808FA2992E28D00174266 /* ViewControllerRess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerRess.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,10 +84,22 @@
 				65D052C7298B2E4500BB5A5C /* MapsViewController.swift */,
 				65D052B929844E4600BB5A5C /* Main.storyboard */,
 				65D052BC29844E4700BB5A5C /* Assets.xcassets */,
+				B2A808F32992E20D00174266 /* Resources */,
 				65D052BE29844E4700BB5A5C /* LaunchScreen.storyboard */,
 				65D052C129844E4700BB5A5C /* Info.plist */,
 			);
 			path = "Student Central v2";
+			sourceTree = "<group>";
+		};
+		B2A808F32992E20D00174266 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B2A808F42992E26A00174266 /* resALl.swift */,
+				B2A808F62992E27400174266 /* TVC.swift */,
+				B2A808FA2992E28D00174266 /* ViewControllerRess.swift */,
+				B2A808F82992E28200174266 /* ViewControllerHelp.swift */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -153,11 +173,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2A808F92992E28200174266 /* ViewControllerHelp.swift in Sources */,
 				65D052B829844E4600BB5A5C /* ViewController.swift in Sources */,
+				B2A808F52992E26A00174266 /* resALl.swift in Sources */,
 				65D052B429844E4600BB5A5C /* AppDelegate.swift in Sources */,
+				B2A808F72992E27400174266 /* TVC.swift in Sources */,
 				65D052B629844E4600BB5A5C /* SceneDelegate.swift in Sources */,
 				65D052CC298B315500BB5A5C /* ScheduleViewController.swift in Sources */,
 				65D052CA298B2FBC00BB5A5C /* QuickLinksViewController.swift in Sources */,
+				B2A808FB2992E28D00174266 /* ViewControllerRess.swift in Sources */,
 				65D052CE298B337500BB5A5C /* CalendarViewController.swift in Sources */,
 				65D052C8298B2E4500BB5A5C /* MapsViewController.swift in Sources */,
 				65D052D0298B342500BB5A5C /* SettingsViewController.swift in Sources */,
