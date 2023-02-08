@@ -11,7 +11,7 @@
         <!--Home View Controller Scene-->
         <scene sceneID="L0u-Wk-b1H">
             <objects>
-                <viewController title="Home View Controller Scene" id="sQ8-9l-49k" customClass="ViewController" customModule="Student_Central" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Home View Controller Scene" id="sQ8-9l-49k" customClass="ViewController" customModule="Student_Central_v2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="w3r-Aw-eKq">
                         <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -141,7 +141,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="ZW8-DT-6VO">
-                                        <rect key="frame" x="97.5" y="195" width="375" height="180"/>
+                                        <rect key="frame" x="0.0" y="195" width="570" height="180"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZHu-X2-MSK">
                                                 <rect key="frame" x="0.0" y="0.0" width="180" height="180"/>
@@ -202,6 +202,32 @@
                                                     <segue destination="KME-OZ-Glw" kind="show" id="zAo-sq-ID2"/>
                                                 </connections>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hnU-uU-E2B">
+                                                <rect key="frame" x="390" y="0.0" width="180" height="180"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="180" id="Oty-yZ-XZy"/>
+                                                    <constraint firstAttribute="width" constant="180" id="UX4-jp-rRR"/>
+                                                </constraints>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="filled" image="calendar" catalog="system" imagePlacement="top" imagePadding="20">
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="50"/>
+                                                    <attributedString key="attributedTitle">
+                                                        <fragment content="Calendar">
+                                                            <attributes>
+                                                                <font key="NSFont" size="24" name="Helvetica"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                    </attributedString>
+                                                    <color key="baseBackgroundColor" red="0.69019609689999994" green="0.14901961389999999" blue="0.20784312490000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                </buttonConfiguration>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="15"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </button>
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="ZHu-X2-MSK" firstAttribute="top" secondItem="ZW8-DT-6VO" secondAttribute="top" id="34t-0g-FRJ"/>
@@ -254,16 +280,16 @@
         <!--Maps View Controller-->
         <scene sceneID="huM-7U-yV9">
             <objects>
-                <viewController id="oRL-XK-RWi" customClass="MapsViewController" customModule="Student_Central" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="oRL-XK-RWi" customClass="MapsViewController" customModule="Student_Central_v2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pnh-Em-qI5">
                         <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back" translatesAutoresizingMaskIntoConstraints="NO" id="Rao-H1-c4T">
-                                <rect key="frame" x="0.0" y="0.0" width="1112" height="1536"/>
+                                <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Maps" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ES3-LF-z0h">
-                                <rect key="frame" x="497" y="754.5" width="118.5" height="60"/>
+                                <rect key="frame" x="497" y="52.5" width="118.5" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="118.5" id="1RY-pY-hUa"/>
                                     <constraint firstAttribute="height" constant="60" id="RFe-Zq-Rxe"/>
@@ -273,7 +299,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="hyM-6a-JHi">
-                                <rect key="frame" x="263" y="844.5" width="586" height="32"/>
+                                <rect key="frame" x="263" y="142.5" width="586" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="31" id="Az2-5J-ZU8"/>
                                     <constraint firstAttribute="width" constant="586" id="IJK-qM-YK3"/>
@@ -287,7 +313,7 @@
                                 </connections>
                             </segmentedControl>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" maximumZoomScale="10" translatesAutoresizingMaskIntoConstraints="NO" id="5KA-6h-yFD">
-                                <rect key="frame" x="109" y="946" width="894" height="545"/>
+                                <rect key="frame" x="109" y="244" width="894" height="545"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Nlp-sJ-BUV">
                                         <rect key="frame" x="0.0" y="0.0" width="895" height="545"/>
@@ -307,7 +333,7 @@
                                 <viewLayoutGuide key="frameLayoutGuide" id="BJp-4c-aIk"/>
                             </scrollView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="0zP-UG-Fc2">
-                                <rect key="frame" x="462" y="890.5" width="188" height="30"/>
+                                <rect key="frame" x="462" y="188.5" width="188" height="30"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hand.draw.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="DEJ-CS-F3x">
                                         <rect key="frame" x="0.0" y="1.5" width="21" height="28"/>
@@ -358,7 +384,7 @@
         <!--Links View Controller-->
         <scene sceneID="w6N-5Q-znJ">
             <objects>
-                <viewController id="LmR-NY-Bz5" customClass="LinksViewController" customModule="Student_Central" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="LmR-NY-Bz5" customClass="LinksViewController" customModule="Student_Central_v2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aoM-8B-2Sh">
                         <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -593,16 +619,16 @@
         <!--Schedule View Controller-->
         <scene sceneID="3Ry-Ii-V51">
             <objects>
-                <viewController id="7WY-Ck-MwF" customClass="ScheduleViewController" customModule="Student_Central" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="7WY-Ck-MwF" customClass="ScheduleViewController" customModule="Student_Central_v2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YAe-XV-g7U">
                         <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back" translatesAutoresizingMaskIntoConstraints="NO" id="4mf-uF-Pa4">
-                                <rect key="frame" x="0.0" y="0.0" width="2048" height="834"/>
+                                <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Schedule" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hL9-BR-GtT">
-                                <rect key="frame" x="955.5" y="70" width="137.5" height="72"/>
+                                <rect key="frame" x="487.5" y="70" width="137.5" height="72"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="72" id="frh-xU-as6"/>
                                 </constraints>
@@ -611,10 +637,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="ywa-OD-IQu">
-                                <rect key="frame" x="101" y="174" width="1846" height="600"/>
+                                <rect key="frame" x="101" y="174" width="910" height="600"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cT4-yA-eBR" userLabel="ClassScheduleButton">
-                                        <rect key="frame" x="0.0" y="0.0" width="1846" height="124"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="910" height="124"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="124" id="07r-CN-BRL"/>
                                         </constraints>
@@ -624,7 +650,7 @@
                                         </buttonConfiguration>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LZd-F1-vMG">
-                                        <rect key="frame" x="0.0" y="158.5" width="1846" height="124"/>
+                                        <rect key="frame" x="0.0" y="158.5" width="910" height="124"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="124" id="lNV-NH-3pi"/>
                                         </constraints>
@@ -634,7 +660,7 @@
                                         </buttonConfiguration>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1RM-KF-nZv">
-                                        <rect key="frame" x="0.0" y="317.5" width="1846" height="124"/>
+                                        <rect key="frame" x="0.0" y="317.5" width="910" height="124"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="124" id="tEu-bT-fVy"/>
                                         </constraints>
@@ -644,7 +670,7 @@
                                         </buttonConfiguration>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uSw-E1-csW">
-                                        <rect key="frame" x="0.0" y="476" width="1846" height="124"/>
+                                        <rect key="frame" x="0.0" y="476" width="910" height="124"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="124" id="yg6-kc-35e"/>
                                         </constraints>
@@ -661,7 +687,7 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="qig-6y-4cq">
-                                <rect key="frame" x="116.5" y="174" width="1815" height="600"/>
+                                <rect key="frame" x="116.5" y="174" width="879" height="600"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="FBE-0f-d09">
                                         <rect key="frame" x="0.0" y="0.0" width="850" height="124"/>
@@ -710,7 +736,7 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="35F-zo-3z4">
-                                        <rect key="frame" x="0.0" y="158.5" width="889" height="124"/>
+                                        <rect key="frame" x="0.0" y="158.5" width="497" height="124"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ddY-RQ-JWP">
                                                 <rect key="frame" x="0.0" y="0.0" width="102" height="124"/>
@@ -722,10 +748,10 @@
                                                 <buttonConfiguration key="configuration" style="plain" image="Shuttle Icon"/>
                                             </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-20" translatesAutoresizingMaskIntoConstraints="NO" id="OsG-sN-Ls8">
-                                                <rect key="frame" x="117" y="0.0" width="772" height="124"/>
+                                                <rect key="frame" x="117" y="0.0" width="380" height="124"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z7k-B4-4VB">
-                                                        <rect key="frame" x="0.0" y="0.0" width="772" height="72"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="380" height="72"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="72" id="5ld-vM-6DB"/>
                                                         </constraints>
@@ -736,7 +762,7 @@
                                                         </buttonConfiguration>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZVP-Xa-hHX">
-                                                        <rect key="frame" x="0.0" y="52" width="772" height="72"/>
+                                                        <rect key="frame" x="0.0" y="52" width="380" height="72"/>
                                                         <color key="tintColor" systemColor="labelColor"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="View shuttle bus schedules">
@@ -754,7 +780,7 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="tgv-jK-PAI">
-                                        <rect key="frame" x="0.0" y="317.5" width="889" height="124"/>
+                                        <rect key="frame" x="0.0" y="317.5" width="507" height="124"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kmf-3C-aW2">
                                                 <rect key="frame" x="0.0" y="0.0" width="102" height="124"/>
@@ -766,10 +792,10 @@
                                                 <buttonConfiguration key="configuration" style="plain" image="Contact Icon"/>
                                             </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-20" translatesAutoresizingMaskIntoConstraints="NO" id="Nel-Hm-K1o">
-                                                <rect key="frame" x="117" y="0.0" width="772" height="124"/>
+                                                <rect key="frame" x="117" y="0.0" width="390" height="124"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MKi-8q-nF4">
-                                                        <rect key="frame" x="0.0" y="0.0" width="772" height="72"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="390" height="72"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="446" id="5Oy-I5-ULL"/>
                                                             <constraint firstAttribute="height" constant="72" id="6v7-04-lFw"/>
@@ -781,7 +807,7 @@
                                                         </buttonConfiguration>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hnj-JC-OhR">
-                                                        <rect key="frame" x="0.0" y="52" width="772" height="72"/>
+                                                        <rect key="frame" x="0.0" y="52" width="390" height="72"/>
                                                         <color key="tintColor" systemColor="labelColor"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="Email your teachers">
@@ -797,7 +823,7 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="NNN-f1-Kgv">
-                                        <rect key="frame" x="0.0" y="476" width="889" height="124"/>
+                                        <rect key="frame" x="0.0" y="476" width="428" height="124"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XiH-cZ-BNA">
                                                 <rect key="frame" x="0.0" y="0.0" width="102" height="124"/>
@@ -809,10 +835,10 @@
                                                 <buttonConfiguration key="configuration" style="plain" image="Calendar Icon"/>
                                             </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-20" translatesAutoresizingMaskIntoConstraints="NO" id="3qJ-pm-uxt">
-                                                <rect key="frame" x="117" y="0.0" width="772" height="124"/>
+                                                <rect key="frame" x="117" y="0.0" width="311" height="124"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MAX-FV-8sE">
-                                                        <rect key="frame" x="0.0" y="0.0" width="772" height="72"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="311" height="72"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="72" id="Nah-g2-Yl7"/>
                                                         </constraints>
@@ -823,7 +849,7 @@
                                                         </buttonConfiguration>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oEb-XF-3rF">
-                                                        <rect key="frame" x="0.0" y="52" width="772" height="72"/>
+                                                        <rect key="frame" x="0.0" y="52" width="311" height="72"/>
                                                         <color key="tintColor" systemColor="labelColor"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="View 2022-23 calendar">
@@ -965,7 +991,7 @@
         <!--Settings-->
         <scene sceneID="U7t-c8-xIt">
             <objects>
-                <tableViewController id="bnJ-WZ-n2F" customClass="SettingsViewController" customModule="Student_Central" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="bnJ-WZ-n2F" customClass="SettingsViewController" customModule="Student_Central_v2" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="l1S-Ii-aRU">
                         <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2296,7 +2322,7 @@ Cg
         <!--Student Help View Controller-->
         <scene sceneID="auu-L5-WBI">
             <objects>
-                <viewController title="Student Help View Controller" id="KME-OZ-Glw" customClass="HelpViewController" customModule="Student_Central" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Student Help View Controller" id="KME-OZ-Glw" customClass="HelpViewController" customModule="Student_Central_v2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PYz-5a-Jzs">
                         <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2515,6 +2541,7 @@ Cg
         <image name="Shuttle Icon" width="102" height="104"/>
         <image name="Sidekick1" width="175" height="175"/>
         <image name="back" width="2048" height="1536"/>
+        <image name="calendar" catalog="system" width="128" height="107"/>
         <image name="cross.circle.fill" catalog="system" width="128" height="123"/>
         <image name="gearshape.fill" catalog="system" width="128" height="123"/>
         <image name="hand.draw.fill" catalog="system" width="128" height="109"/>
