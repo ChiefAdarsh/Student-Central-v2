@@ -10,8 +10,9 @@ import UIKit
 class HelpViewController: UIViewController {
     var wordd : String = ""
     
-    @IBOutlet weak var PsychButton: UIButton!
-    @IBOutlet weak var SupportButton: UIButton!
+    
+    
+    @IBOutlet weak var chekchek: UIButton!
     @IBOutlet weak var FamilyButton: UIButton!
     @IBOutlet weak var DomesticButton: UIButton!
     @IBOutlet weak var SpecialtyButton: UIButton!
@@ -21,9 +22,14 @@ class HelpViewController: UIViewController {
     @IBOutlet weak var CrisisButton: UIButton!
     @IBOutlet weak var InoutButton: UIButton!
     
+    
+    @IBAction func chekcheckTap(_ sender: Any) {
+        wordd = "Psychiatrists"
+    }
     @IBAction func CrisisTap(_ sender: Any) {
         wordd = "Crisis Lines"
     }
+    
     
     @IBAction func InoutTap(_ sender: Any) {
         wordd = "Inpatient/Outpatient Mental Health Facilities"
@@ -47,16 +53,12 @@ class HelpViewController: UIViewController {
     @IBAction func domesticTap(_ sender: Any) {
         wordd = "Domestic Violence"
     }
-    @IBAction func psychTap(_ sender: Any) {
-        wordd = "Psychiatrists"
-    }
+    
     @IBAction func familyTap(_ sender: Any) {
         wordd = "Family Assistance"
     }
     
-    @IBAction func supportTap(_ sender: Any) {
-        wordd = "Support Groups and Resources"
-    }
+    
     
     
     override func viewDidLoad() {

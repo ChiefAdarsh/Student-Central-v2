@@ -260,10 +260,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back" translatesAutoresizingMaskIntoConstraints="NO" id="Rao-H1-c4T">
-                                <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
+                                <rect key="frame" x="0.0" y="0.0" width="1112" height="1536"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Maps" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ES3-LF-z0h">
-                                <rect key="frame" x="497" y="52.5" width="118.5" height="60"/>
+                                <rect key="frame" x="497" y="754.5" width="118.5" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="118.5" id="1RY-pY-hUa"/>
                                     <constraint firstAttribute="height" constant="60" id="RFe-Zq-Rxe"/>
@@ -273,7 +273,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="hyM-6a-JHi">
-                                <rect key="frame" x="263" y="142.5" width="586" height="32"/>
+                                <rect key="frame" x="263" y="844.5" width="586" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="31" id="Az2-5J-ZU8"/>
                                     <constraint firstAttribute="width" constant="586" id="IJK-qM-YK3"/>
@@ -287,7 +287,7 @@
                                 </connections>
                             </segmentedControl>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" maximumZoomScale="10" translatesAutoresizingMaskIntoConstraints="NO" id="5KA-6h-yFD">
-                                <rect key="frame" x="109" y="244" width="894" height="545"/>
+                                <rect key="frame" x="109" y="946" width="894" height="545"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Nlp-sJ-BUV">
                                         <rect key="frame" x="0.0" y="0.0" width="895" height="545"/>
@@ -307,7 +307,7 @@
                                 <viewLayoutGuide key="frameLayoutGuide" id="BJp-4c-aIk"/>
                             </scrollView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="0zP-UG-Fc2">
-                                <rect key="frame" x="462" y="188.5" width="188" height="30"/>
+                                <rect key="frame" x="462" y="890.5" width="188" height="30"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hand.draw.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="DEJ-CS-F3x">
                                         <rect key="frame" x="0.0" y="1.5" width="21" height="28"/>
@@ -2313,8 +2313,9 @@ Cg
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jqg-sF-Elk">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jqg-sF-Elk">
                                 <rect key="frame" x="71" y="515" width="464" height="49"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="gray" title="Inpatient/Outpatient Mental Health Facilities"/>
                                 <connections>
@@ -2322,8 +2323,9 @@ Cg
                                     <segue destination="8w8-oR-8Ju" kind="show" id="o7y-oE-Lmu"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8cx-8d-wob">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8cx-8d-wob">
                                 <rect key="frame" x="71" y="593" width="464" height="49"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="gray" title="Counseling Centers"/>
                                 <connections>
@@ -2331,8 +2333,9 @@ Cg
                                     <segue destination="8w8-oR-8Ju" kind="show" id="QDh-Jm-BSk"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ej1-SH-3Ji">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ej1-SH-3Ji">
                                 <rect key="frame" x="71" y="675" width="464" height="49"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="gray" title="Eating Disorders"/>
                                 <connections>
@@ -2340,8 +2343,9 @@ Cg
                                     <segue destination="8w8-oR-8Ju" kind="show" id="pPe-4M-Wnm"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lDl-N2-sd3">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lDl-N2-sd3">
                                 <rect key="frame" x="71" y="752" width="464" height="49"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="gray" title="Drug and Alchohol Abuse Resources"/>
                                 <connections>
@@ -2349,8 +2353,9 @@ Cg
                                     <segue destination="8w8-oR-8Ju" kind="show" id="gOp-FN-YIT"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DN8-fp-OJS">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DN8-fp-OJS">
                                 <rect key="frame" x="71" y="436" width="464" height="49"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="gray" title="Crisis Lines Phone Numbers"/>
                                 <connections>
@@ -2358,8 +2363,9 @@ Cg
                                     <segue destination="8w8-oR-8Ju" kind="show" id="5fm-Tw-hfc"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eRu-It-nPY">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eRu-It-nPY">
                                 <rect key="frame" x="581" y="436" width="464" height="49"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="gray" title="Specialty Counseling"/>
                                 <connections>
@@ -2367,8 +2373,9 @@ Cg
                                     <segue destination="8w8-oR-8Ju" kind="show" id="kTf-04-Idl"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MSH-iT-0ld">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MSH-iT-0ld">
                                 <rect key="frame" x="581" y="515" width="464" height="49"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="gray" title="Domestic Violence Resources"/>
                                 <connections>
@@ -2376,31 +2383,14 @@ Cg
                                     <segue destination="8w8-oR-8Ju" kind="show" id="qDl-YB-fhM"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bBY-Ud-c7n">
-                                <rect key="frame" x="581" y="593" width="464" height="49"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="gray" title="Psychiatrists"/>
-                                <connections>
-                                    <action selector="psychTap:" destination="KME-OZ-Glw" eventType="touchUpInside" id="1fM-62-b4A"/>
-                                    <segue destination="8w8-oR-8Ju" kind="show" id="AdQ-fW-3b2"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ebz-QA-Vp7">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ebz-QA-Vp7">
                                 <rect key="frame" x="581" y="675" width="464" height="49"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="gray" title="Family Assistance"/>
                                 <connections>
                                     <action selector="familyTap:" destination="KME-OZ-Glw" eventType="touchUpInside" id="CxX-vb-bIf"/>
                                     <segue destination="8w8-oR-8Ju" kind="show" id="rhZ-5Q-YPB"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SIE-9q-AgZ">
-                                <rect key="frame" x="581" y="752" width="464" height="49"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="gray" title="Support Group and Resources"/>
-                                <connections>
-                                    <action selector="supportTap:" destination="KME-OZ-Glw" eventType="touchUpInside" id="ahs-kB-cYe"/>
-                                    <segue destination="8w8-oR-8Ju" kind="show" id="bsr-1q-3Jp"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="lVs-CW-6t2">
@@ -2471,62 +2461,29 @@ Cg
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AEv-lU-2yv">
+                                <rect key="frame" x="581" y="593" width="464" height="49"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="gray" title="Psychiatrists"/>
+                                <connections>
+                                    <action selector="chekcheckTap:" destination="KME-OZ-Glw" eventType="touchUpInside" id="Nkc-bq-d7u"/>
+                                    <segue destination="8w8-oR-8Ju" kind="show" id="Ks1-ta-ueh"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="z9l-6m-0mT"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Jqg-sF-Elk" firstAttribute="top" secondItem="DN8-fp-OJS" secondAttribute="bottom" constant="30" id="0xo-MF-LOQ"/>
-                            <constraint firstItem="Ebz-QA-Vp7" firstAttribute="height" secondItem="DN8-fp-OJS" secondAttribute="height" id="1jb-sV-p8p"/>
-                            <constraint firstItem="DN8-fp-OJS" firstAttribute="top" secondItem="FtY-LG-HZD" secondAttribute="bottom" constant="40" id="5PV-vi-9oI"/>
                             <constraint firstAttribute="bottom" secondItem="pqQ-8F-Evg" secondAttribute="bottom" id="6Yu-uY-qo5"/>
-                            <constraint firstItem="8cx-8d-wob" firstAttribute="height" secondItem="DN8-fp-OJS" secondAttribute="height" id="9ei-lX-iJl"/>
-                            <constraint firstItem="bBY-Ud-c7n" firstAttribute="leading" secondItem="8cx-8d-wob" secondAttribute="trailing" constant="46" id="BBs-nI-xEO"/>
-                            <constraint firstItem="eRu-It-nPY" firstAttribute="leading" secondItem="DN8-fp-OJS" secondAttribute="trailing" constant="46" id="Bk1-Qs-UXq"/>
-                            <constraint firstItem="Jqg-sF-Elk" firstAttribute="height" secondItem="DN8-fp-OJS" secondAttribute="height" id="C5d-ZS-gvL"/>
-                            <constraint firstItem="MSH-iT-0ld" firstAttribute="leading" secondItem="Jqg-sF-Elk" secondAttribute="trailing" constant="46" id="DIL-hx-Bi8"/>
-                            <constraint firstItem="MSH-iT-0ld" firstAttribute="height" secondItem="DN8-fp-OJS" secondAttribute="height" id="GRT-GE-eGg"/>
-                            <constraint firstItem="Jqg-sF-Elk" firstAttribute="leading" secondItem="z9l-6m-0mT" secondAttribute="leading" constant="71" id="Hh0-qa-zOu"/>
-                            <constraint firstItem="Ebz-QA-Vp7" firstAttribute="width" secondItem="Jqg-sF-Elk" secondAttribute="width" id="I80-Eq-BFS"/>
                             <constraint firstItem="FtY-LG-HZD" firstAttribute="top" secondItem="lVs-CW-6t2" secondAttribute="bottom" constant="50" id="IbG-g9-bTo"/>
-                            <constraint firstItem="SIE-9q-AgZ" firstAttribute="height" secondItem="DN8-fp-OJS" secondAttribute="height" id="Ma3-UR-EcD"/>
-                            <constraint firstItem="Ej1-SH-3Ji" firstAttribute="height" secondItem="DN8-fp-OJS" secondAttribute="height" id="PaR-0M-AAq"/>
-                            <constraint firstItem="Ej1-SH-3Ji" firstAttribute="width" secondItem="Jqg-sF-Elk" secondAttribute="width" id="QDf-LE-ZDL"/>
-                            <constraint firstItem="lDl-N2-sd3" firstAttribute="leading" secondItem="z9l-6m-0mT" secondAttribute="leading" constant="71" id="R0E-tn-BZt"/>
-                            <constraint firstItem="lDl-N2-sd3" firstAttribute="top" secondItem="Ej1-SH-3Ji" secondAttribute="bottom" constant="28" id="Sd5-ov-10Y"/>
-                            <constraint firstItem="8cx-8d-wob" firstAttribute="top" secondItem="Jqg-sF-Elk" secondAttribute="bottom" constant="29" id="Tgu-Ir-hBt"/>
-                            <constraint firstItem="z9l-6m-0mT" firstAttribute="trailing" secondItem="SIE-9q-AgZ" secondAttribute="trailing" constant="67" id="UJy-bs-eSD"/>
-                            <constraint firstItem="eRu-It-nPY" firstAttribute="height" secondItem="DN8-fp-OJS" secondAttribute="height" id="Uaj-nL-Igp"/>
-                            <constraint firstItem="8cx-8d-wob" firstAttribute="leading" secondItem="z9l-6m-0mT" secondAttribute="leading" constant="71" id="VOZ-aO-nv2"/>
-                            <constraint firstItem="SIE-9q-AgZ" firstAttribute="leading" secondItem="lDl-N2-sd3" secondAttribute="trailing" constant="46" id="XhB-yd-wtx"/>
                             <constraint firstItem="T1j-mw-Bu3" firstAttribute="top" secondItem="PYz-5a-Jzs" secondAttribute="top" constant="64" id="XqY-9o-aIH"/>
-                            <constraint firstItem="MSH-iT-0ld" firstAttribute="top" secondItem="eRu-It-nPY" secondAttribute="bottom" constant="30" id="Y7u-Fb-N97"/>
-                            <constraint firstItem="8cx-8d-wob" firstAttribute="width" secondItem="Jqg-sF-Elk" secondAttribute="width" id="YdH-fu-jch"/>
-                            <constraint firstItem="lDl-N2-sd3" firstAttribute="height" secondItem="DN8-fp-OJS" secondAttribute="height" id="Zup-uM-YtS"/>
-                            <constraint firstItem="z9l-6m-0mT" firstAttribute="bottom" secondItem="lDl-N2-sd3" secondAttribute="bottom" constant="33" id="afh-2S-e4V"/>
-                            <constraint firstItem="Ebz-QA-Vp7" firstAttribute="top" secondItem="bBY-Ud-c7n" secondAttribute="bottom" constant="33" id="boT-oe-9dh"/>
-                            <constraint firstItem="z9l-6m-0mT" firstAttribute="bottom" secondItem="SIE-9q-AgZ" secondAttribute="bottom" constant="33" id="cOq-e9-JtE"/>
                             <constraint firstItem="lVs-CW-6t2" firstAttribute="centerX" secondItem="PYz-5a-Jzs" secondAttribute="centerX" id="df8-B3-egQ"/>
                             <constraint firstItem="pqQ-8F-Evg" firstAttribute="trailing" secondItem="z9l-6m-0mT" secondAttribute="trailing" id="e4e-AY-CfE"/>
-                            <constraint firstItem="Ebz-QA-Vp7" firstAttribute="leading" secondItem="Ej1-SH-3Ji" secondAttribute="trailing" constant="46" id="hmV-8u-olU"/>
-                            <constraint firstItem="SIE-9q-AgZ" firstAttribute="top" secondItem="Ebz-QA-Vp7" secondAttribute="bottom" constant="28" id="jgl-Wc-Vgg"/>
-                            <constraint firstItem="eRu-It-nPY" firstAttribute="width" secondItem="DN8-fp-OJS" secondAttribute="width" id="lbA-SK-a20"/>
-                            <constraint firstItem="DN8-fp-OJS" firstAttribute="leading" secondItem="z9l-6m-0mT" secondAttribute="leading" constant="71" id="mYV-Mu-5u1"/>
-                            <constraint firstItem="Ej1-SH-3Ji" firstAttribute="top" secondItem="8cx-8d-wob" secondAttribute="bottom" constant="33" id="n7Y-nZ-3p8"/>
-                            <constraint firstItem="z9l-6m-0mT" firstAttribute="trailing" secondItem="MSH-iT-0ld" secondAttribute="trailing" constant="67" id="ntd-Dk-8BZ"/>
-                            <constraint firstItem="Ej1-SH-3Ji" firstAttribute="leading" secondItem="z9l-6m-0mT" secondAttribute="leading" constant="71" id="o0j-U9-NgM"/>
-                            <constraint firstItem="bBY-Ud-c7n" firstAttribute="top" secondItem="MSH-iT-0ld" secondAttribute="bottom" constant="29" id="o5z-Dw-lCa"/>
                             <constraint firstItem="T1j-mw-Bu3" firstAttribute="centerX" secondItem="PYz-5a-Jzs" secondAttribute="centerX" id="o9S-vi-iU9"/>
-                            <constraint firstItem="SIE-9q-AgZ" firstAttribute="width" secondItem="Jqg-sF-Elk" secondAttribute="width" id="pGn-fv-MuP"/>
-                            <constraint firstItem="bBY-Ud-c7n" firstAttribute="height" secondItem="DN8-fp-OJS" secondAttribute="height" id="pq6-Gq-zb4"/>
                             <constraint firstItem="pqQ-8F-Evg" firstAttribute="leading" secondItem="z9l-6m-0mT" secondAttribute="leading" id="r4q-bj-ZMM"/>
-                            <constraint firstItem="z9l-6m-0mT" firstAttribute="trailing" secondItem="eRu-It-nPY" secondAttribute="trailing" constant="67" id="rdL-3j-v2r"/>
                             <constraint firstItem="lVs-CW-6t2" firstAttribute="top" secondItem="T1j-mw-Bu3" secondAttribute="bottom" constant="50" id="rii-gI-n9n"/>
-                            <constraint firstItem="MSH-iT-0ld" firstAttribute="width" secondItem="Jqg-sF-Elk" secondAttribute="width" id="s4X-B9-dRy"/>
-                            <constraint firstItem="z9l-6m-0mT" firstAttribute="trailing" secondItem="Ebz-QA-Vp7" secondAttribute="trailing" constant="67" id="td3-j8-9nt"/>
                             <constraint firstItem="FtY-LG-HZD" firstAttribute="centerX" secondItem="PYz-5a-Jzs" secondAttribute="centerX" id="uem-b1-Nvk"/>
-                            <constraint firstItem="bBY-Ud-c7n" firstAttribute="width" secondItem="Jqg-sF-Elk" secondAttribute="width" id="vXh-Aa-Gsp"/>
-                            <constraint firstItem="lDl-N2-sd3" firstAttribute="width" secondItem="Jqg-sF-Elk" secondAttribute="width" id="wD2-bT-LnF"/>
-                            <constraint firstItem="z9l-6m-0mT" firstAttribute="trailing" secondItem="bBY-Ud-c7n" secondAttribute="trailing" constant="67" id="wU2-5k-Oxc"/>
                             <constraint firstItem="pqQ-8F-Evg" firstAttribute="top" secondItem="PYz-5a-Jzs" secondAttribute="top" id="xNU-Ep-jOE"/>
                         </constraints>
                     </view>
@@ -2539,14 +2496,13 @@ Cg
                         <outlet property="EatingButton" destination="Ej1-SH-3Ji" id="azf-c4-871"/>
                         <outlet property="FamilyButton" destination="Ebz-QA-Vp7" id="Rq5-LN-DVQ"/>
                         <outlet property="InoutButton" destination="Jqg-sF-Elk" id="fY5-Zr-FZ7"/>
-                        <outlet property="PsychButton" destination="bBY-Ud-c7n" id="zd8-AL-i17"/>
                         <outlet property="SpecialtyButton" destination="eRu-It-nPY" id="oAS-g1-qSI"/>
-                        <outlet property="SupportButton" destination="SIE-9q-AgZ" id="BaY-fq-ZvX"/>
+                        <outlet property="chekchek" destination="AEv-lU-2yv" id="h8a-yj-xXs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rMN-HR-SOW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1393" y="1090"/>
+            <point key="canvasLocation" x="1392.6258992805756" y="1089.9280575539569"/>
         </scene>
         <!--View Controller Res Page-->
         <scene sceneID="ihk-KG-5O1">
@@ -2566,18 +2522,18 @@ Cg
                                 <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="someCell" id="upj-um-sp5" customClass="TVC" customModule="funn" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="556" height="45.5"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="someCell" id="upj-um-sp5" customClass="TVC" customModule="Student_Central_v2" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="556" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="upj-um-sp5" id="1KW-ws-QLR">
-                                            <rect key="frame" x="0.0" y="0.0" width="556" height="45.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="556" height="45"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0mK-vT-JJ8">
-                                                    <rect key="frame" x="0.0" y="0.0" width="556" height="45.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="556" height="45"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ACt-yl-lLR">
-                                                            <rect key="frame" x="22" y="11" width="512" height="21.5"/>
+                                                            <rect key="frame" x="22" y="11" width="512" height="21"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="512" id="YEH-X9-SaN"/>
                                                             </constraints>
