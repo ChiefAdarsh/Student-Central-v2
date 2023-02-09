@@ -144,7 +144,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="ZW8-DT-6VO">
-                                        <rect key="frame" x="97.5" y="195" width="375" height="180"/>
+                                        <rect key="frame" x="0.0" y="195" width="570" height="180"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZHu-X2-MSK">
                                                 <rect key="frame" x="0.0" y="0.0" width="180" height="180"/>
@@ -204,6 +204,32 @@
                                                 <connections>
                                                     <segue destination="KME-OZ-Glw" kind="show" id="zAo-sq-ID2"/>
                                                 </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hnU-uU-E2B">
+                                                <rect key="frame" x="390" y="0.0" width="180" height="180"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="180" id="Oty-yZ-XZy"/>
+                                                    <constraint firstAttribute="width" constant="180" id="UX4-jp-rRR"/>
+                                                </constraints>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="filled" image="calendar" catalog="system" imagePlacement="top" imagePadding="20">
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="50"/>
+                                                    <attributedString key="attributedTitle">
+                                                        <fragment content="Calendar">
+                                                            <attributes>
+                                                                <font key="NSFont" size="24" name="Helvetica"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                    </attributedString>
+                                                    <color key="baseBackgroundColor" red="0.69019609689999994" green="0.14901961389999999" blue="0.20784312490000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                </buttonConfiguration>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="15"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -602,7 +628,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back" translatesAutoresizingMaskIntoConstraints="NO" id="4mf-uF-Pa4">
-                                <rect key="frame" x="0.0" y="0.0" width="1102" height="834"/>
+
+                                <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
+
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Schedule" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hL9-BR-GtT">
                                 <rect key="frame" x="487.5" y="70" width="137.5" height="72"/>
@@ -3574,6 +3602,7 @@ Cg
         <image name="Springer_crop" width="350" height="350"/>
         <image name="Watermark" width="500" height="116"/>
         <image name="back" width="2048" height="1536"/>
+        <image name="calendar" catalog="system" width="128" height="107"/>
         <image name="cross.circle.fill" catalog="system" width="128" height="123"/>
         <image name="gearshape.fill" catalog="system" width="128" height="123"/>
         <image name="hand.draw.fill" catalog="system" width="128" height="109"/>
