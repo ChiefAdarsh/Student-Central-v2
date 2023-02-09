@@ -27,6 +27,10 @@ class TeacherViewController: UIViewController, UINavigationControllerDelegate, M
     @IBOutlet var teacher8Label: UILabel!
     @IBOutlet var mail8Label: UILabel!
     
+    @IBOutlet var CounselorButton: UIButton!
+    
+    @IBOutlet var AdminButton: UIButton!
+    
     var teacherLabels: [UILabel?] {
         return [
             teacher1Label,
@@ -117,6 +121,15 @@ class TeacherViewController: UIViewController, UINavigationControllerDelegate, M
 //        }
     }
     
+    @IBAction func CounselorSwitch(_ sender: Any) {
+        var targetViewController = storyboard!.instantiateViewController(withIdentifier: "cscreen") as! UIViewController
+        self.navigationController?.pushViewController(targetViewController, animated: true)
+    }
+    
+    @IBAction func AdminSwitch(_ sender: Any) {
+        var targetViewController = storyboard!.instantiateViewController(withIdentifier: "prince") as! UIViewController
+        self.navigationController?.pushViewController(targetViewController, animated: true)
+    }
     // Change layout of in and out of school buttons to vertical
     // or horizontal based on device orientation
     

@@ -292,8 +292,7 @@ func createAdmins() {
 
     // COUNSELORS
 
-    admin = Admin(imgStr: "Cinelli_crop", adminType: AdminType.Counselor, lastName: "Cinelli", firstName: "Ann", username: "acinelli", callExt: 6112, adminTypeDetailed: "Lead Counselor (Rod-Som)")
-    adminList.append(admin)
+    
 
     admin = Admin(imgStr: "Abreu_crop", adminType: AdminType.Counselor, lastName: "Abreu", firstName: "Cheryl", username: "cabreu", callExt: 6132, adminTypeDetailed: "Counselor (A-Cham)")
     adminList.append(admin)
@@ -303,15 +302,20 @@ func createAdmins() {
 
     admin = Admin(imgStr: "Kennington_crop", adminType: AdminType.Counselor, lastName: "Kennington", firstName: "Michael", username: "mkennington", callExt: 6133, adminTypeDetailed: "Counselor (Goy-Kiv)")
     adminList.append(admin)
+    
+    admin = Admin(imgStr: "Crumpton_crop", adminType: AdminType.Counselor, lastName: "Crumpton", firstName: "Heather", username: "hcrumpton", callExt: 6135, adminTypeDetailed: "Counselor (Kiw-Nah)")
+    adminList.append(admin)
 
     admin = Admin(imgStr: "Oh_crop", adminType: AdminType.Counselor, lastName: "Oh", firstName: "Lindsey", username: "loh", callExt: 6136, adminTypeDetailed: "Counselor (Nal-Roc)")
+    adminList.append(admin)
+    
+    admin = Admin(imgStr: "Cinelli_crop", adminType: AdminType.Counselor, lastName: "Cinelli", firstName: "Ann", username: "acinelli", callExt: 6112, adminTypeDetailed: "Lead Counselor (Rod-Som)")
     adminList.append(admin)
 
     admin = Admin(imgStr: "Tremethick_crop", adminType: AdminType.Counselor, lastName: "Tremethick", firstName: "Keith", username: "ktremethick", callExt: 6131, adminTypeDetailed: "Counselor (Son-Z)")
     adminList.append(admin)
 
-    admin = Admin(imgStr: "Crumpton_crop", adminType: AdminType.Counselor, lastName: "Crumpton", firstName: "Heather", username: "hcrumpton", callExt: 6135, adminTypeDetailed: "Counselor (Kiw-Nah)")
-    adminList.append(admin)
+    
 
     // Sort
     
