@@ -11,7 +11,7 @@
         <!--Home View Controller Scene-->
         <scene sceneID="L0u-Wk-b1H">
             <objects>
-                <viewController title="Home View Controller Scene" id="sQ8-9l-49k" customClass="ViewController" customModule="Student_Central" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Home View Controller Scene" id="sQ8-9l-49k" customClass="ViewController" customModule="Student_Central_v2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="w3r-Aw-eKq">
                         <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -199,7 +199,7 @@
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
-                                                    <segue destination="KME-OZ-Glw" kind="show" id="zAo-sq-ID2"/>
+                                                    <segue destination="sE5-bR-Rbm" kind="show" id="u7f-1U-R33"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -254,7 +254,7 @@
         <!--Maps View Controller-->
         <scene sceneID="huM-7U-yV9">
             <objects>
-                <viewController id="oRL-XK-RWi" customClass="MapsViewController" customModule="Student_Central" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="oRL-XK-RWi" customClass="MapsViewController" customModule="Student_Central_v2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pnh-Em-qI5">
                         <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -358,7 +358,7 @@
         <!--Links View Controller-->
         <scene sceneID="w6N-5Q-znJ">
             <objects>
-                <viewController id="LmR-NY-Bz5" customClass="LinksViewController" customModule="Student_Central" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="LmR-NY-Bz5" customClass="LinksViewController" customModule="Student_Central_v2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aoM-8B-2Sh">
                         <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -593,16 +593,16 @@
         <!--Schedule View Controller-->
         <scene sceneID="3Ry-Ii-V51">
             <objects>
-                <viewController id="7WY-Ck-MwF" customClass="ScheduleViewController" customModule="Student_Central" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="7WY-Ck-MwF" customClass="ScheduleViewController" customModule="Student_Central_v2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YAe-XV-g7U">
                         <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back" translatesAutoresizingMaskIntoConstraints="NO" id="4mf-uF-Pa4">
-                                <rect key="frame" x="0.0" y="0.0" width="2048" height="834"/>
+                                <rect key="frame" x="0.0" y="0.0" width="1123" height="834"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Schedule" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hL9-BR-GtT">
-                                <rect key="frame" x="955.5" y="70" width="137.5" height="72"/>
+                                <rect key="frame" x="498" y="70" width="137.5" height="72"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="72" id="frh-xU-as6"/>
                                 </constraints>
@@ -611,10 +611,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="ywa-OD-IQu">
-                                <rect key="frame" x="101" y="174" width="1846" height="600"/>
+                                <rect key="frame" x="101" y="174" width="931" height="600"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cT4-yA-eBR" userLabel="ClassScheduleButton">
-                                        <rect key="frame" x="0.0" y="0.0" width="1846" height="124"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="931" height="124"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="124" id="07r-CN-BRL"/>
                                         </constraints>
@@ -624,7 +624,7 @@
                                         </buttonConfiguration>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LZd-F1-vMG">
-                                        <rect key="frame" x="0.0" y="158.5" width="1846" height="124"/>
+                                        <rect key="frame" x="0.0" y="158.5" width="931" height="124"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="124" id="lNV-NH-3pi"/>
                                         </constraints>
@@ -634,7 +634,7 @@
                                         </buttonConfiguration>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1RM-KF-nZv">
-                                        <rect key="frame" x="0.0" y="317.5" width="1846" height="124"/>
+                                        <rect key="frame" x="0.0" y="317.5" width="931" height="124"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="124" id="tEu-bT-fVy"/>
                                         </constraints>
@@ -644,7 +644,7 @@
                                         </buttonConfiguration>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uSw-E1-csW">
-                                        <rect key="frame" x="0.0" y="476" width="1846" height="124"/>
+                                        <rect key="frame" x="0.0" y="476" width="931" height="124"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="124" id="yg6-kc-35e"/>
                                         </constraints>
@@ -661,7 +661,7 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="qig-6y-4cq">
-                                <rect key="frame" x="116.5" y="174" width="1815" height="600"/>
+                                <rect key="frame" x="116.5" y="174" width="900" height="600"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="FBE-0f-d09">
                                         <rect key="frame" x="0.0" y="0.0" width="850" height="124"/>
@@ -965,7 +965,7 @@
         <!--Settings-->
         <scene sceneID="U7t-c8-xIt">
             <objects>
-                <tableViewController id="bnJ-WZ-n2F" customClass="SettingsViewController" customModule="Student_Central" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="bnJ-WZ-n2F" customClass="SettingsViewController" customModule="Student_Central_v2" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="l1S-Ii-aRU">
                         <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2296,7 +2296,7 @@ Cg
         <!--Student Help View Controller-->
         <scene sceneID="auu-L5-WBI">
             <objects>
-                <viewController title="Student Help View Controller" id="KME-OZ-Glw" customClass="HelpViewController" customModule="Student_Central" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Student Help View Controller" id="KME-OZ-Glw" customClass="HelpViewController" customModule="Student_Central_v2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PYz-5a-Jzs">
                         <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2379,6 +2379,9 @@ Cg
                                                 <buttonConfiguration key="configuration" style="filled" title="Food" cornerStyle="small">
                                                     <color key="baseBackgroundColor" red="0.63529413940000001" green="0.20000001789999999" blue="0.2235293984" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 </buttonConfiguration>
+                                                <connections>
+                                                    <segue destination="sE5-bR-Rbm" kind="show" id="ybf-wN-v9g"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FrC-vI-syY">
                                                 <rect key="frame" x="220" y="0.0" width="200" height="150"/>
@@ -2499,7 +2502,37 @@ Cg
             </objects>
             <point key="canvasLocation" x="1393" y="1090"/>
         </scene>
+        <!--Meal Providers View Controller-->
+        <scene sceneID="sdr-91-pt2">
+            <objects>
+                <viewController id="sE5-bR-Rbm" customClass="MealProvidersViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fRo-tN-q8w">
+                        <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="mealproviderslight" translatesAutoresizingMaskIntoConstraints="NO" id="kpZ-df-Rqr">
+                                <rect key="frame" x="0.0" y="22.5" width="1112" height="789"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="4aK-Zs-MoT"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="kpZ-df-Rqr" firstAttribute="centerY" secondItem="fRo-tN-q8w" secondAttribute="centerY" id="0k1-Ar-Pap"/>
+                            <constraint firstItem="kpZ-df-Rqr" firstAttribute="centerX" secondItem="fRo-tN-q8w" secondAttribute="centerX" id="VVi-YY-0wz"/>
+                            <constraint firstItem="4aK-Zs-MoT" firstAttribute="bottom" secondItem="kpZ-df-Rqr" secondAttribute="bottom" constant="22.5" id="de5-Ul-UBq"/>
+                            <constraint firstItem="kpZ-df-Rqr" firstAttribute="leading" secondItem="4aK-Zs-MoT" secondAttribute="leading" id="nW9-G0-Tgr"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Na1-nK-wEg"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MmK-p1-Pp7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2064.9280575539569" y="1090.6474820143885"/>
+        </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="u7f-1U-R33"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="Calendar Icon" width="102" height="102"/>
         <image name="Clever1" width="175" height="175"/>
@@ -2520,6 +2553,7 @@ Cg
         <image name="hand.draw.fill" catalog="system" width="128" height="109"/>
         <image name="list.bullet.rectangle.portrait.fill" catalog="system" width="115" height="128"/>
         <image name="map.fill" catalog="system" width="128" height="110"/>
+        <image name="mealproviderslight" width="1414" height="820"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="safari.fill" catalog="system" width="128" height="123"/>
         <systemColor name="labelColor">
