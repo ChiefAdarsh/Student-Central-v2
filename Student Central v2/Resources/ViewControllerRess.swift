@@ -39,6 +39,9 @@ class ViewControllerResPage: UIViewController {
     @IBOutlet weak var resCont: UILabel!
     @IBOutlet weak var someTableView: UITableView!
     
+    @IBOutlet weak var resAddInfo: UILabel!
+    @IBOutlet weak var resAddress: UILabel!
+    @IBOutlet weak var resWeb: UILabel!
     
     var order: String = ""
     var resources = [Resource]()
@@ -79,9 +82,17 @@ extension ViewControllerResPage: UITableViewDataSource, UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        var addy = ""
+        if(resources[indexPath.row].address != ""){
+           addy = resources[indexPath.row].address + " " + resources[indexPath.row].city + ", " + resources[indexPath.row].state + " " + resources[indexPath.row].zip
+        }
+        
         resName.text = resources[indexPath.row].name
         resCat.text = resources[indexPath.row].category
         resCont.text = resources[indexPath.row].contact
+        resWeb.text = resources[indexPath.row].website
+        resAddress.text = addy
+        resAddInfo.text = resources[indexPath.row].addInfo
     }
     
     
