@@ -63,6 +63,18 @@
 			path = Contact;
 			sourceTree = "<group>";
 		};
+		65C019FD29958CCC002E1AC7 /* Home Screen Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				65D052C7298B2E4500BB5A5C /* MapsViewController.swift */,
+				65D052CF298B342500BB5A5C /* SettingsViewController.swift */,
+				65D052CD298B337500BB5A5C /* CalendarViewController.swift */,
+				65D052C9298B2FBC00BB5A5C /* QuickLinksViewController.swift */,
+				65D052CB298B315500BB5A5C /* ScheduleViewController.swift */,
+			);
+			path = "Home Screen Buttons";
+			sourceTree = "<group>";
+		};
 		65D052A729844E4600BB5A5C = {
 			isa = PBXGroup;
 			children = (
@@ -85,11 +97,7 @@
 				65D052B329844E4600BB5A5C /* AppDelegate.swift */,
 				65D052B529844E4600BB5A5C /* SceneDelegate.swift */,
 				65D052B729844E4600BB5A5C /* ViewController.swift */,
-				65D052C9298B2FBC00BB5A5C /* QuickLinksViewController.swift */,
-				65D052CB298B315500BB5A5C /* ScheduleViewController.swift */,
-				65D052CD298B337500BB5A5C /* CalendarViewController.swift */,
-				65D052CF298B342500BB5A5C /* SettingsViewController.swift */,
-				65D052C7298B2E4500BB5A5C /* MapsViewController.swift */,
+				65C019FD29958CCC002E1AC7 /* Home Screen Buttons */,
 				65266EE229942E28001778AF /* Contact */,
 				65D052B929844E4600BB5A5C /* Main.storyboard */,
 				65D052BC29844E4700BB5A5C /* Assets.xcassets */,
