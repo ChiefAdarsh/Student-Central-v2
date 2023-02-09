@@ -12,6 +12,7 @@ class HelpViewController: UIViewController {
     
     
     
+    
     @IBOutlet weak var chekchek: UIButton!
     @IBOutlet weak var FamilyButton: UIButton!
     @IBOutlet weak var DomesticButton: UIButton!
@@ -22,12 +23,18 @@ class HelpViewController: UIViewController {
     @IBOutlet weak var CrisisButton: UIButton!
     @IBOutlet weak var InoutButton: UIButton!
     
+    @IBOutlet var bropLEASE: UIButton!
+    
     
     @IBAction func chekcheckTap(_ sender: Any) {
         wordd = "Psychiatrists"
     }
     @IBAction func CrisisTap(_ sender: Any) {
         wordd = "Crisis Lines"
+    }
+    
+    @IBAction func bropLEASETap(_ sender: Any) {
+        wordd = "Support Groups and Resources"
     }
     
     
