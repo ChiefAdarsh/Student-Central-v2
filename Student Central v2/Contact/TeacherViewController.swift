@@ -1,12 +1,41 @@
 //
-//  TeacherViewController.swift
-//  Student Central v2
+//  Contact Counselor.swift
+//  Student Central
 //
-//  Created by Adarsh Goura on 2/7/23.
+//  Created by Adarsh Goura on 11/28/22.
 //
 
 import UIKit
 import MessageUI
+
+var idfkatp = true
+var isSelected = false
+var selectedTeacher = ""
+var selectedTeacherEmail = ""
+
+class CounselorViewController: UIViewController {
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        // Do any additional setup after loading the view.
+    }
+    func rotation() {
+        
+    }
+    
+
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+    }
+    */
+
+}
 
 class TeacherViewController: UIViewController, UINavigationControllerDelegate, MFMailComposeViewControllerDelegate {
     @IBOutlet var sv: UIStackView!
@@ -27,9 +56,8 @@ class TeacherViewController: UIViewController, UINavigationControllerDelegate, M
     @IBOutlet var teacher8Label: UILabel!
     @IBOutlet var mail8Label: UILabel!
     
-    @IBOutlet var CounselorButton: UIButton!
-    
-    @IBOutlet var AdminButton: UIButton!
+    @IBOutlet var CButton: UIButton!
+    @IBOutlet var AButton: UIButton!
     
     var teacherLabels: [UILabel?] {
         return [
@@ -121,15 +149,6 @@ class TeacherViewController: UIViewController, UINavigationControllerDelegate, M
 //        }
     }
     
-    @IBAction func CounselorSwitch(_ sender: Any) {
-        var targetViewController = storyboard!.instantiateViewController(withIdentifier: "cscreen") as! UIViewController
-        self.navigationController?.pushViewController(targetViewController, animated: true)
-    }
-    
-    @IBAction func AdminSwitch(_ sender: Any) {
-        var targetViewController = storyboard!.instantiateViewController(withIdentifier: "prince") as! UIViewController
-        self.navigationController?.pushViewController(targetViewController, animated: true)
-    }
     // Change layout of in and out of school buttons to vertical
     // or horizontal based on device orientation
     
@@ -158,406 +177,460 @@ class TeacherViewController: UIViewController, UINavigationControllerDelegate, M
         let email: String
     }
     
+    @IBAction func CounselorButton(_ sender: Any) {
+        var targetViewController = storyboard!.instantiateViewController(withIdentifier: "cscreen") as! UIViewController
+               self.navigationController?.pushViewController(targetViewController, animated: true)
+    }
+    
+    @IBAction func AdminButton(_ sender: Any) {
+        var targetViewController = storyboard!.instantiateViewController(withIdentifier: "prince") as! UIViewController
+                self.navigationController?.pushViewController(targetViewController, animated: true)
+    }
     @IBAction func buttonOne(_ sender: UIButton) {
-        guard teacher1Label.text! != "TEACHER #1" else {
-            let alertController = UIAlertController(title: "Teacher Name", message: "Please enter your 1st period teacher first and last name", preferredStyle: .alert)
-            alertController.addTextField { textField in
-                textField.placeholder = "Enter Teacher First and Last Name"
-            }
-            let saveAction = UIAlertAction(title: "Save", style: UIAlertAction.Style.default, handler: { alert -> Void in
-                let textField = alertController.textFields![0] as UITextField
-                let txt = textField.text!.lowercased()
-                guard let _ = txt.firstIndex(of: " ") else {
-                    let alertController2 = UIAlertController(title: "Invalid Teacher Name", message: "Please enter a valid teacher name", preferredStyle: .alert)
-                    alertController2.addAction(UIAlertAction.init(title: "Ok", style: .default, handler: nil))
-                    self.present(alertController2, animated: true, completion: nil)
-                    return
-                }
-                
-                self.teacher1Label.text = txt.capitalized
-                let index = txt.index(after: txt.firstIndex(of: " ")!)
-                self.mailOne.text = String(txt[txt.startIndex]) + txt[index..<txt.endIndex] + "@coppellisd.com"
-                
-                let newTeacher = Teacher(name: self.teacher1Label.text!, email: self.mailOne.text!)
-                let jsonEncoder = JSONEncoder()
-                if let jsonData = try? jsonEncoder.encode(newTeacher),
-                    let jsonString = String(data: jsonData, encoding: .utf8) {
-                    print(jsonString)
+        Task { @MainActor in
+            guard teacher1Label.text! != "TEACHER #1" else {
+                func searchForTeacher() async {
+                    var targetViewController = await storyboard!.instantiateViewController(withIdentifier: "teacherSearchTable") as! TeacherSearchViewController
+                    await self.navigationController?.showDetailViewController(targetViewController, sender: self)
                     
-                    try? jsonData.write(to: self.archiveURLs[0],
-                       options: .noFileProtection)
+//                    try? await Task.sleep(nanoseconds: 5 * 1_000_000_000)
+                    while isSelected == false {
+                        // Do nothing
+                    }
                 }
-            })
-            let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.default, handler: {(action : UIAlertAction!) -> Void in })
+                print("Pushed")
+                await searchForTeacher()
+
+                if isSelected {
+                    self.teacher1Label.text = selectedTeacher
+                    if let i = teacherNames.firstIndex(of: selectedTeacher) {
+                        self.mailOne.text = teacherEmails[i]
+                    } else {
+                        self.mailOne.text = "Error"
+                    }
+                    
+                    let newTeacher = Teacher(name: self.teacher1Label.text!, email: self.mailOne.text!)
+                    let jsonEncoder = JSONEncoder()
+                    if let jsonData = try? jsonEncoder.encode(newTeacher),
+                       let jsonString = String(data: jsonData, encoding: .utf8) {
+                        print(jsonString)
+
+                        try? jsonData.write(to: self.archiveURLs[0], options: .noFileProtection)
+                    }
+                } else {
+                    self.mailOne.text = "There's been an error, please hold to try again"
+                }
+
+                isSelected = false
+                
+                
+                return
+            }
             
-            alertController.addAction(saveAction)
-            alertController.addAction(cancelAction)
-            present(alertController, animated: true, completion: nil)
-            return
-        }
-        
-        if MFMailComposeViewController.canSendMail() {
-            let message = MFMailComposeViewController()
-            message.mailComposeDelegate = self
-            let mailTo = mailOne.text!
-            message.setToRecipients([mailTo])
-            present(message, animated: true, completion: nil)
-            
-        } else {
-            let alertController = UIAlertController(title: "Mail Not Enabled", message: "Your device is not configured to send email", preferredStyle: .alert)
-            alertController.addAction(UIAlertAction(title: "Ok", style: .default))
-            present(alertController, animated: true, completion: nil)
+            if MFMailComposeViewController.canSendMail() {
+                let message = MFMailComposeViewController()
+                message.mailComposeDelegate = self
+                let mailTo = mailOne.text!
+                message.setToRecipients([mailTo])
+                present(message, animated: true, completion: nil)
+                
+            } else {
+                let alertController = UIAlertController(title: "Mail Not Enabled", message: "Your device is not configured to send email", preferredStyle: .alert)
+                alertController.addAction(UIAlertAction(title: "Ok", style: .default))
+                present(alertController, animated: true, completion: nil)
+            }
         }
     }
     
     @IBAction func buttonTwo(_ sender: UIButton) {
-        guard teacher2Label.text! != "TEACHER #2" else {
-            let alertController = UIAlertController(title: "Teacher Name", message: "Please enter your 2nd period teacher first and last name", preferredStyle: .alert)
-            alertController.addTextField { textField in
-                textField.placeholder = "Enter Teacher First and Last Name"
-            }
-            let saveAction = UIAlertAction(title: "Save", style: UIAlertAction.Style.default, handler: { alert -> Void in
-                let textField = alertController.textFields![0] as UITextField
-                let txt = textField.text!.lowercased()
-                guard let _ = txt.firstIndex(of: " ") else {
-                    let alertController2 = UIAlertController(title: "Invalid Teacher Name", message: "Please enter a valid teacher name", preferredStyle: .alert)
-                    alertController2.addAction(UIAlertAction.init(title: "Ok", style: .default, handler: nil))
-                    self.present(alertController2, animated: true, completion: nil)
-                    return
-                }
-                
-                self.teacher2Label.text = txt.capitalized
-                let index = txt.index(after: txt.firstIndex(of: " ")!)
-                self.mailTwo.text = String(txt[txt.startIndex]) + txt[index..<txt.endIndex] + "@coppellisd.com"
-                
-                let newTeacher = Teacher(name: self.teacher2Label.text!, email: self.mailTwo.text!)
-                let jsonEncoder = JSONEncoder()
-                if let jsonData = try? jsonEncoder.encode(newTeacher),
-                    let jsonString = String(data: jsonData, encoding: .utf8) {
-                    print(jsonString)
+        Task { @MainActor in
+            guard teacher2Label.text! != "TEACHER #2" else {
+                func searchForTeacher() async {
+                    var targetViewController = await storyboard!.instantiateViewController(withIdentifier: "teacherSearchTable") as! TeacherSearchViewController
+                    await self.navigationController?.showDetailViewController(targetViewController, sender: self)
                     
-                    try? jsonData.write(to: self.archiveURLs[1],
-                       options: .noFileProtection)
+//                    try? await Task.sleep(nanoseconds: 5 * 1_000_000_000)
+                    while isSelected == false {
+                        // Do nothing
+                    }
                 }
-            })
-            let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.default, handler: {(action : UIAlertAction!) -> Void in })
+                print("Pushed")
+                await searchForTeacher()
+
+                if isSelected {
+                    self.teacher2Label.text = selectedTeacher
+                    if let i = teacherNames.firstIndex(of: selectedTeacher) {
+                        self.mailTwo.text = teacherEmails[i]
+                    } else {
+                        self.mailTwo.text = "Error"
+                    }
+                    
+                    let newTeacher = Teacher(name: self.teacher2Label.text!, email: self.mailTwo.text!)
+                    let jsonEncoder = JSONEncoder()
+                    if let jsonData = try? jsonEncoder.encode(newTeacher),
+                       let jsonString = String(data: jsonData, encoding: .utf8) {
+                        print(jsonString)
+
+                        try? jsonData.write(to: self.archiveURLs[1], options: .noFileProtection)
+                    }
+                } else {
+                    self.mailTwo.text = "There's been an error, please hold to try again"
+                }
+
+                isSelected = false
+                
+                
+                return
+            }
             
-            alertController.addAction(saveAction)
-            alertController.addAction(cancelAction)
-            present(alertController, animated: true, completion: nil)
-            return
-        }
-        if MFMailComposeViewController.canSendMail() {
-            let message = MFMailComposeViewController()
-            message.mailComposeDelegate = self
-            let mailTo = mailTwo.text!
-            message.setToRecipients([mailTo])
-            present(message, animated: true, completion: nil)
-            
-        } else {
-            let alertController = UIAlertController(title: "Mail Not Enabled", message: "Your device is not configured to send email", preferredStyle: .alert)
-            alertController.addAction(UIAlertAction(title: "Ok", style: .default))
-            present(alertController, animated: true, completion: nil)
+            if MFMailComposeViewController.canSendMail() {
+                let message = MFMailComposeViewController()
+                message.mailComposeDelegate = self
+                let mailTo = mailTwo.text!
+                message.setToRecipients([mailTo])
+                present(message, animated: true, completion: nil)
+                
+            } else {
+                let alertController = UIAlertController(title: "Mail Not Enabled", message: "Your device is not configured to send email", preferredStyle: .alert)
+                alertController.addAction(UIAlertAction(title: "Ok", style: .default))
+                present(alertController, animated: true, completion: nil)
+            }
         }
     }
     
     @IBAction func buttonThree(_ sender: UIButton) {
-        guard teacher3Label.text! != "TEACHER #3" else {
-            let alertController = UIAlertController(title: "Teacher Name", message: "Please enter your 3rd period teacher first and last name", preferredStyle: .alert)
-            alertController.addTextField { textField in
-                textField.placeholder = "Enter Teacher First and Last Name"
+        Task { @MainActor in
+            guard teacher3Label.text! != "TEACHER #3" else {
+                func searchForTeacher() async {
+                    var targetViewController = await storyboard!.instantiateViewController(withIdentifier: "teacherSearchTable") as! TeacherSearchViewController
+                    await self.navigationController?.showDetailViewController(targetViewController, sender: self)
+                    
+//                    try? await Task.sleep(nanoseconds: 5 * 1_000_000_000)
+                    while isSelected == false {
+                        // Do nothing
+                    }
+                }
+                print("Pushed")
+                await searchForTeacher()
+
+                if isSelected {
+                    self.teacher3Label.text = selectedTeacher
+                    if let i = teacherNames.firstIndex(of: selectedTeacher) {
+                        self.mailThree.text = teacherEmails[i]
+                    } else {
+                        self.mailThree.text = "Error"
+                    }
+                    
+                    let newTeacher = Teacher(name: self.teacher3Label.text!, email: self.mailThree.text!)
+                    let jsonEncoder = JSONEncoder()
+                    if let jsonData = try? jsonEncoder.encode(newTeacher),
+                       let jsonString = String(data: jsonData, encoding: .utf8) {
+                        print(jsonString)
+
+                        try? jsonData.write(to: self.archiveURLs[2], options: .noFileProtection)
+                    }
+                } else {
+                    self.mailThree.text = "There's been an error, please hold to try again"
+                }
+
+                isSelected = false
+                
+                
+                return
             }
-            let saveAction = UIAlertAction(title: "Save", style: UIAlertAction.Style.default, handler: { alert -> Void in
-                let textField = alertController.textFields![0] as UITextField
-                let txt = textField.text!.lowercased()
-                guard let _ = txt.firstIndex(of: " ") else {
-                    let alertController2 = UIAlertController(title: "Invalid Teacher Name", message: "Please enter a valid teacher name", preferredStyle: .alert)
-                    alertController2.addAction(UIAlertAction.init(title: "Ok", style: .default, handler: nil))
-                    self.present(alertController2, animated: true, completion: nil)
-                    return
-                }
-                
-                self.teacher3Label.text = txt.capitalized
-                let index = txt.index(after: txt.firstIndex(of: " ")!)
-                self.mailThree.text = String(txt[txt.startIndex]) + txt[index..<txt.endIndex] + "@coppellisd.com"
-                
-                let newTeacher = Teacher(name: self.teacher3Label.text!, email: self.mailThree.text!)
-                let jsonEncoder = JSONEncoder()
-                if let jsonData = try? jsonEncoder.encode(newTeacher),
-                    let jsonString = String(data: jsonData, encoding: .utf8) {
-                    print(jsonString)
-                                    
-                    try? jsonData.write(to: self.archiveURLs[2], options: .noFileProtection)
-                }
-            })
-            let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.default, handler: {(action : UIAlertAction!) -> Void in })
             
-            alertController.addAction(saveAction)
-            alertController.addAction(cancelAction)
-            present(alertController, animated: true, completion: nil)
-            return
-        }
-        if MFMailComposeViewController.canSendMail() {
-            let message = MFMailComposeViewController()
-            message.mailComposeDelegate = self
-            let mailTo = mailThree.text!
-            message.setToRecipients([mailTo])
-            present(message, animated: true, completion: nil)
-            
-        } else {
-            let alertController = UIAlertController(title: "Mail Not Enabled", message: "Your device is not configured to send email", preferredStyle: .alert)
-            alertController.addAction(UIAlertAction(title: "Ok", style: .default))
-            present(alertController, animated: true, completion: nil)
+            if MFMailComposeViewController.canSendMail() {
+                let message = MFMailComposeViewController()
+                message.mailComposeDelegate = self
+                let mailTo = mailThree.text!
+                message.setToRecipients([mailTo])
+                present(message, animated: true, completion: nil)
+                
+            } else {
+                let alertController = UIAlertController(title: "Mail Not Enabled", message: "Your device is not configured to send email", preferredStyle: .alert)
+                alertController.addAction(UIAlertAction(title: "Ok", style: .default))
+                present(alertController, animated: true, completion: nil)
+            }
         }
     }
     
     @IBAction func buttonFour(_ sender: UIButton) {
-        guard teacher4Label.text! != "TEACHER #4" else {
-            let alertController = UIAlertController(title: "Teacher Name", message: "Please enter your 4th period teacher first and last name", preferredStyle: .alert)
-            alertController.addTextField { textField in
-                textField.placeholder = "Enter Teacher First and Last Name"
+        Task { @MainActor in
+            guard teacher4Label.text! != "TEACHER #4" else {
+                func searchForTeacher() async {
+                    var targetViewController = await storyboard!.instantiateViewController(withIdentifier: "teacherSearchTable") as! TeacherSearchViewController
+                    await self.navigationController?.showDetailViewController(targetViewController, sender: self)
+                    
+//                    try? await Task.sleep(nanoseconds: 5 * 1_000_000_000)
+                    while isSelected == false {
+                        // Do nothing
+                    }
+                }
+                print("Pushed")
+                await searchForTeacher()
+
+                if isSelected {
+                    self.teacher4Label.text = selectedTeacher
+                    if let i = teacherNames.firstIndex(of: selectedTeacher) {
+                        self.mailFour.text = teacherEmails[i]
+                    } else {
+                        self.mailFour.text = "Error"
+                    }
+                    
+                    let newTeacher = Teacher(name: self.teacher4Label.text!, email: self.mailFour.text!)
+                    let jsonEncoder = JSONEncoder()
+                    if let jsonData = try? jsonEncoder.encode(newTeacher),
+                       let jsonString = String(data: jsonData, encoding: .utf8) {
+                        print(jsonString)
+
+                        try? jsonData.write(to: self.archiveURLs[3], options: .noFileProtection)
+                    }
+                } else {
+                    self.mailFour.text = "There's been an error, please hold to try again"
+                }
+
+                isSelected = false
+                
+                
+                return
             }
-            let saveAction = UIAlertAction(title: "Save", style: UIAlertAction.Style.default, handler: { alert -> Void in
-                let textField = alertController.textFields![0] as UITextField
-                let txt = textField.text!.lowercased()
-                guard let _ = txt.firstIndex(of: " ") else {
-                    let alertController2 = UIAlertController(title: "Invalid Teacher Name", message: "Please enter a valid teacher name", preferredStyle: .alert)
-                    alertController2.addAction(UIAlertAction.init(title: "Ok", style: .default, handler: nil))
-                    self.present(alertController2, animated: true, completion: nil)
-                    return
-                }
-                
-                self.teacher4Label.text = txt.capitalized
-                let index = txt.index(after: txt.firstIndex(of: " ")!)
-                self.mailFour.text = String(txt[txt.startIndex]) + txt[index..<txt.endIndex] + "@coppellisd.com"
-                
-                let newTeacher = Teacher(name: self.teacher4Label.text!, email: self.mailFour.text!)
-                let jsonEncoder = JSONEncoder()
-                if let jsonData = try? jsonEncoder.encode(newTeacher),
-                    let jsonString = String(data: jsonData, encoding: .utf8) {
-                    print(jsonString)
-                                    
-                    try? jsonData.write(to: self.archiveURLs[3], options: .noFileProtection)
-                }
-            })
-            let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.default, handler: {(action : UIAlertAction!) -> Void in })
             
-            alertController.addAction(saveAction)
-            alertController.addAction(cancelAction)
-            present(alertController, animated: true, completion: nil)
-            return
-        }
-        if MFMailComposeViewController.canSendMail() {
-            let message = MFMailComposeViewController()
-            message.mailComposeDelegate = self
-            let mailTo = mailFour.text!
-            message.setToRecipients([mailTo])
-            present(message, animated: true, completion: nil)
-            
-        } else {
-            let alertController = UIAlertController(title: "Mail Not Enabled", message: "Your device is not configured to send email", preferredStyle: .alert)
-            alertController.addAction(UIAlertAction(title: "Ok", style: .default))
-            present(alertController, animated: true, completion: nil)
+            if MFMailComposeViewController.canSendMail() {
+                let message = MFMailComposeViewController()
+                message.mailComposeDelegate = self
+                let mailTo = mailFour.text!
+                message.setToRecipients([mailTo])
+                present(message, animated: true, completion: nil)
+                
+            } else {
+                let alertController = UIAlertController(title: "Mail Not Enabled", message: "Your device is not configured to send email", preferredStyle: .alert)
+                alertController.addAction(UIAlertAction(title: "Ok", style: .default))
+                present(alertController, animated: true, completion: nil)
+            }
         }
     }
     
     @IBAction func buttonFive(_ sender: UIButton) {
-        guard teacher5Label.text! != "TEACHER #5" else {
-            let alertController = UIAlertController(title: "Teacher Name", message: "Please enter your 5th period teacher first and last name", preferredStyle: .alert)
-            alertController.addTextField { textField in
-                textField.placeholder = "Enter Teacher First and Last Name"
+        Task { @MainActor in
+            guard teacher5Label.text! != "TEACHER #5" else {
+                func searchForTeacher() async {
+                    var targetViewController = await storyboard!.instantiateViewController(withIdentifier: "teacherSearchTable") as! TeacherSearchViewController
+                    await self.navigationController?.showDetailViewController(targetViewController, sender: self)
+                    
+//                    try? await Task.sleep(nanoseconds: 5 * 1_000_000_000)
+                    while isSelected == false {
+                        // Do nothing
+                    }
+                }
+                print("Pushed")
+                await searchForTeacher()
+
+                if isSelected {
+                    self.teacher5Label.text = selectedTeacher
+                    if let i = teacherNames.firstIndex(of: selectedTeacher) {
+                        self.mailFive.text = teacherEmails[i]
+                    } else {
+                        self.mailFive.text = "Error"
+                    }
+                    
+                    let newTeacher = Teacher(name: self.teacher5Label.text!, email: self.mailFive.text!)
+                    let jsonEncoder = JSONEncoder()
+                    if let jsonData = try? jsonEncoder.encode(newTeacher),
+                       let jsonString = String(data: jsonData, encoding: .utf8) {
+                        print(jsonString)
+
+                        try? jsonData.write(to: self.archiveURLs[4], options: .noFileProtection)
+                    }
+                } else {
+                    self.mailFive.text = "There's been an error, please hold to try again"
+                }
+
+                isSelected = false
+                
+                
+                return
             }
-            let saveAction = UIAlertAction(title: "Save", style: UIAlertAction.Style.default, handler: { alert -> Void in
-                let textField = alertController.textFields![0] as UITextField
-                let txt = textField.text!.lowercased()
-                guard let _ = txt.firstIndex(of: " ") else {
-                    let alertController2 = UIAlertController(title: "Invalid Teacher Name", message: "Please enter a valid teacher name", preferredStyle: .alert)
-                    alertController2.addAction(UIAlertAction.init(title: "Ok", style: .default, handler: nil))
-                    self.present(alertController2, animated: true, completion: nil)
-                    return
-                }
-                
-                self.teacher5Label.text = txt.capitalized
-                let index = txt.index(after: txt.firstIndex(of: " ")!)
-                self.mailFive.text = String(txt[txt.startIndex]) + txt[index..<txt.endIndex] + "@coppellisd.com"
-                
-                let newTeacher = Teacher(name: self.teacher5Label.text!, email: self.mailFive.text!)
-                let jsonEncoder = JSONEncoder()
-                if let jsonData = try? jsonEncoder.encode(newTeacher),
-                    let jsonString = String(data: jsonData, encoding: .utf8) {
-                    print(jsonString)
-                                    
-                    try? jsonData.write(to: self.archiveURLs[4], options: .noFileProtection)
-                }
-            })
-            let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.default, handler: {(action : UIAlertAction!) -> Void in })
             
-            alertController.addAction(saveAction)
-            alertController.addAction(cancelAction)
-            present(alertController, animated: true, completion: nil)
-            return
-        }
-        if MFMailComposeViewController.canSendMail() {
-            let message = MFMailComposeViewController()
-            message.mailComposeDelegate = self
-            let mailTo = mailFive.text!
-            message.setToRecipients([mailTo])
-            present(message, animated: true, completion: nil)
-            
-        } else {
-            let alertController = UIAlertController(title: "Mail Not Enabled", message: "Your device is not configured to send email", preferredStyle: .alert)
-            alertController.addAction(UIAlertAction(title: "Ok", style: .default))
-            present(alertController, animated: true, completion: nil)
+            if MFMailComposeViewController.canSendMail() {
+                let message = MFMailComposeViewController()
+                message.mailComposeDelegate = self
+                let mailTo = mailFive.text!
+                message.setToRecipients([mailTo])
+                present(message, animated: true, completion: nil)
+                
+            } else {
+                let alertController = UIAlertController(title: "Mail Not Enabled", message: "Your device is not configured to send email", preferredStyle: .alert)
+                alertController.addAction(UIAlertAction(title: "Ok", style: .default))
+                present(alertController, animated: true, completion: nil)
+            }
         }
     }
     
     @IBAction func buttonSix(_ sender: UIButton) {
-        guard teacher6Label.text! != "TEACHER #6" else {
-            let alertController = UIAlertController(title: "Teacher Name", message: "Please enter your 6th period teacher first and last name", preferredStyle: .alert)
-            alertController.addTextField { textField in
-                textField.placeholder = "Enter Teacher First and Last Name"
+        Task { @MainActor in
+            guard teacher6Label.text! != "TEACHER #6" else {
+                func searchForTeacher() async {
+                    var targetViewController = await storyboard!.instantiateViewController(withIdentifier: "teacherSearchTable") as! TeacherSearchViewController
+                    await self.navigationController?.showDetailViewController(targetViewController, sender: self)
+                    
+//                    try? await Task.sleep(nanoseconds: 5 * 1_000_000_000)
+                    while isSelected == false {
+                        // Do nothing
+                    }
+                }
+                print("Pushed")
+                await searchForTeacher()
+
+                if isSelected {
+                    self.teacher6Label.text = selectedTeacher
+                    if let i = teacherNames.firstIndex(of: selectedTeacher) {
+                        self.mailSix.text = teacherEmails[i]
+                    } else {
+                        self.mailSix.text = "Error"
+                    }
+                    
+                    let newTeacher = Teacher(name: self.teacher6Label.text!, email: self.mailSix.text!)
+                    let jsonEncoder = JSONEncoder()
+                    if let jsonData = try? jsonEncoder.encode(newTeacher),
+                       let jsonString = String(data: jsonData, encoding: .utf8) {
+                        print(jsonString)
+
+                        try? jsonData.write(to: self.archiveURLs[5], options: .noFileProtection)
+                    }
+                } else {
+                    self.mailSix.text = "There's been an error, please hold to try again"
+                }
+
+                isSelected = false
+                
+                
+                return
             }
-            let saveAction = UIAlertAction(title: "Save", style: UIAlertAction.Style.default, handler: { alert -> Void in
-                let textField = alertController.textFields![0] as UITextField
-                let txt = textField.text!.lowercased()
-                guard let _ = txt.firstIndex(of: " ") else {
-                    let alertController2 = UIAlertController(title: "Invalid Teacher Name", message: "Please enter a valid teacher name", preferredStyle: .alert)
-                    alertController2.addAction(UIAlertAction.init(title: "Ok", style: .default, handler: nil))
-                    self.present(alertController2, animated: true, completion: nil)
-                    return
-                }
-                
-                self.teacher6Label.text = txt.capitalized
-                let index = txt.index(after: txt.firstIndex(of: " ")!)
-                self.mailSix.text = String(txt[txt.startIndex]) + txt[index..<txt.endIndex] + "@coppellisd.com"
-                
-                let newTeacher = Teacher(name: self.teacher6Label.text!, email: self.mailSix.text!)
-                let jsonEncoder = JSONEncoder()
-                if let jsonData = try? jsonEncoder.encode(newTeacher),
-                    let jsonString = String(data: jsonData, encoding: .utf8) {
-                    print(jsonString)
-                                    
-                    try? jsonData.write(to: self.archiveURLs[5], options: .noFileProtection)
-                }
-            })
-            let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.default, handler: {(action : UIAlertAction!) -> Void in })
             
-            alertController.addAction(saveAction)
-            alertController.addAction(cancelAction)
-            present(alertController, animated: true, completion: nil)
-            return
-        }
-        if MFMailComposeViewController.canSendMail() {
-            let message = MFMailComposeViewController()
-            message.mailComposeDelegate = self
-            let mailTo = mailSix.text!
-            message.setToRecipients([mailTo])
-            present(message, animated: true, completion: nil)
-            
-        } else {
-            let alertController = UIAlertController(title: "Mail Not Enabled", message: "Your device is not configured to send email", preferredStyle: .alert)
-            alertController.addAction(UIAlertAction(title: "Ok", style: .default))
-            present(alertController, animated: true, completion: nil)
+            if MFMailComposeViewController.canSendMail() {
+                let message = MFMailComposeViewController()
+                message.mailComposeDelegate = self
+                let mailTo = mailSix.text!
+                message.setToRecipients([mailTo])
+                present(message, animated: true, completion: nil)
+                
+            } else {
+                let alertController = UIAlertController(title: "Mail Not Enabled", message: "Your device is not configured to send email", preferredStyle: .alert)
+                alertController.addAction(UIAlertAction(title: "Ok", style: .default))
+                present(alertController, animated: true, completion: nil)
+            }
         }
     }
     
     @IBAction func buttonSeven(_ sender: UIButton) {
-        guard teacher7Label.text! != "TEACHER #7" else {
-            let alertController = UIAlertController(title: "Teacher Name", message: "Please enter your 7th period teacher first and last name", preferredStyle: .alert)
-            alertController.addTextField { textField in
-                textField.placeholder = "Enter Teacher First and Last Name"
+        Task { @MainActor in
+            guard teacher7Label.text! != "TEACHER #7" else {
+                func searchForTeacher() async {
+                    var targetViewController = await storyboard!.instantiateViewController(withIdentifier: "teacherSearchTable") as! TeacherSearchViewController
+                    await self.navigationController?.showDetailViewController(targetViewController, sender: self)
+                    
+//                    try? await Task.sleep(nanoseconds: 5 * 1_000_000_000)
+                    while isSelected == false {
+                        // Do nothing
+                    }
+                }
+                print("Pushed")
+                await searchForTeacher()
+
+                if isSelected {
+                    self.teacher7Label.text = selectedTeacher
+                    if let i = teacherNames.firstIndex(of: selectedTeacher) {
+                        self.mailSeven.text = teacherEmails[i]
+                    } else {
+                        self.mailSeven.text = "Error"
+                    }
+                    
+                    let newTeacher = Teacher(name: self.teacher7Label.text!, email: self.mailSeven.text!)
+                    let jsonEncoder = JSONEncoder()
+                    if let jsonData = try? jsonEncoder.encode(newTeacher),
+                       let jsonString = String(data: jsonData, encoding: .utf8) {
+                        print(jsonString)
+
+                        try? jsonData.write(to: self.archiveURLs[6], options: .noFileProtection)
+                    }
+                } else {
+                    self.mailSeven.text = "There's been an error, please hold to try again"
+                }
+
+                isSelected = false
+                
+                
+                return
             }
-            let saveAction = UIAlertAction(title: "Save", style: UIAlertAction.Style.default, handler: { alert -> Void in
-                let textField = alertController.textFields![0] as UITextField
-                let txt = textField.text!.lowercased()
-                guard let _ = txt.firstIndex(of: " ") else {
-                    let alertController2 = UIAlertController(title: "Invalid Teacher Name", message: "Please enter a valid teacher name", preferredStyle: .alert)
-                    alertController2.addAction(UIAlertAction.init(title: "Ok", style: .default, handler: nil))
-                    self.present(alertController2, animated: true, completion: nil)
-                    return
-                }
-                
-                self.teacher7Label.text = txt.capitalized
-                let index = txt.index(after: txt.firstIndex(of: " ")!)
-                self.mailSeven.text = String(txt[txt.startIndex]) + txt[index..<txt.endIndex] + "@coppellisd.com"
-                
-                let newTeacher = Teacher(name: self.teacher7Label.text!, email: self.mailSeven.text!)
-                let jsonEncoder = JSONEncoder()
-                if let jsonData = try? jsonEncoder.encode(newTeacher),
-                    let jsonString = String(data: jsonData, encoding: .utf8) {
-                    print(jsonString)
-                                    
-                    try? jsonData.write(to: self.archiveURLs[6], options: .noFileProtection)
-                }
-            })
-            let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.default, handler: {(action : UIAlertAction!) -> Void in })
             
-            alertController.addAction(saveAction)
-            alertController.addAction(cancelAction)
-            present(alertController, animated: true, completion: nil)
-            return
-        }
-        if MFMailComposeViewController.canSendMail() {
-            let message = MFMailComposeViewController()
-            message.mailComposeDelegate = self
-            let mailTo = mailSeven.text!
-            message.setToRecipients([mailTo])
-            present(message, animated: true, completion: nil)
-            
-        } else {
-            let alertController = UIAlertController(title: "Mail Not Enabled", message: "Your device is not configured to send email", preferredStyle: .alert)
-            alertController.addAction(UIAlertAction(title: "Ok", style: .default))
-            present(alertController, animated: true, completion: nil)
+            if MFMailComposeViewController.canSendMail() {
+                let message = MFMailComposeViewController()
+                message.mailComposeDelegate = self
+                let mailTo = mailSeven.text!
+                message.setToRecipients([mailTo])
+                present(message, animated: true, completion: nil)
+                
+            } else {
+                let alertController = UIAlertController(title: "Mail Not Enabled", message: "Your device is not configured to send email", preferredStyle: .alert)
+                alertController.addAction(UIAlertAction(title: "Ok", style: .default))
+                present(alertController, animated: true, completion: nil)
+            }
         }
     }
     
     @IBAction func buttonEight(_ sender: UIButton) {
-        guard teacher8Label.text! != "TEACHER #8" else {
-            let alertController = UIAlertController(title: "Teacher Name", message: "Please enter your 8th period teacher first and last name", preferredStyle: .alert)
-            alertController.addTextField { textField in
-                textField.placeholder = "Enter Teacher First and Last Name"
+        Task { @MainActor in
+            guard teacher8Label.text! != "TEACHER #8" else {
+                func searchForTeacher() async {
+                    var targetViewController = await storyboard!.instantiateViewController(withIdentifier: "teacherSearchTable") as! TeacherSearchViewController
+                    await self.navigationController?.showDetailViewController(targetViewController, sender: self)
+                    
+//                    try? await Task.sleep(nanoseconds: 5 * 1_000_000_000)
+                    while isSelected == false {
+                        // Do nothing
+                    }
+                }
+                print("Pushed")
+                await searchForTeacher()
+
+                if isSelected {
+                    self.teacher8Label.text = selectedTeacher
+                    if let i = teacherNames.firstIndex(of: selectedTeacher) {
+                        self.mailEight.text = teacherEmails[i]
+                    } else {
+                        self.mailEight.text = "Error"
+                    }
+                    
+                    let newTeacher = Teacher(name: self.teacher8Label.text!, email: self.mailEight.text!)
+                    let jsonEncoder = JSONEncoder()
+                    if let jsonData = try? jsonEncoder.encode(newTeacher),
+                       let jsonString = String(data: jsonData, encoding: .utf8) {
+                        print(jsonString)
+
+                        try? jsonData.write(to: self.archiveURLs[7], options: .noFileProtection)
+                    }
+                } else {
+                    self.mailEight.text = "There's been an error, please hold to try again"
+                }
+
+                isSelected = false
+                
+                
+                return
             }
-            let saveAction = UIAlertAction(title: "Save", style: UIAlertAction.Style.default, handler: { alert -> Void in
-                let textField = alertController.textFields![0] as UITextField
-                let txt = textField.text!.lowercased()
-                guard let _ = txt.firstIndex(of: " ") else {
-                    let alertController2 = UIAlertController(title: "Invalid Teacher Name", message: "Please enter a valid teacher name", preferredStyle: .alert)
-                    alertController2.addAction(UIAlertAction.init(title: "Ok", style: .default, handler: nil))
-                    self.present(alertController2, animated: true, completion: nil)
-                    return
-                }
-                
-                self.teacher8Label.text = txt.capitalized
-                let index = txt.index(after: txt.firstIndex(of: " ")!)
-                self.mailEight.text = String(txt[txt.startIndex]) + txt[index..<txt.endIndex] + "@coppellisd.com"
-                
-                let newTeacher = Teacher(name: self.teacher8Label.text!, email: self.mailEight.text!)
-                let jsonEncoder = JSONEncoder()
-                if let jsonData = try? jsonEncoder.encode(newTeacher),
-                    let jsonString = String(data: jsonData, encoding: .utf8) {
-                    print(jsonString)
-                                    
-                    try? jsonData.write(to: self.archiveURLs[7], options: .noFileProtection)
-                }
-            })
-            let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.default, handler: {(action : UIAlertAction!) -> Void in })
             
-            alertController.addAction(saveAction)
-            alertController.addAction(cancelAction)
-            present(alertController, animated: true, completion: nil)
-            return
-        }
-        if MFMailComposeViewController.canSendMail() {
-            let message = MFMailComposeViewController()
-            message.mailComposeDelegate = self
-            let mailTo = mailEight.text!
-            message.setToRecipients([mailTo])
-            self.present(message, animated: true, completion: nil)
-            
-        } else {
-            let alertController = UIAlertController(title: "Mail Not Enabled", message: "Your device is not configured to send email", preferredStyle: .alert)
-            alertController.addAction(UIAlertAction(title: "Ok", style: .default))
-            present(alertController, animated: true, completion: nil)
+            if MFMailComposeViewController.canSendMail() {
+                let message = MFMailComposeViewController()
+                message.mailComposeDelegate = self
+                let mailTo = mailEight.text!
+                message.setToRecipients([mailTo])
+                present(message, animated: true, completion: nil)
+                
+            } else {
+                let alertController = UIAlertController(title: "Mail Not Enabled", message: "Your device is not configured to send email", preferredStyle: .alert)
+                alertController.addAction(UIAlertAction(title: "Ok", style: .default))
+                present(alertController, animated: true, completion: nil)
+            }
         }
     }
     
@@ -650,292 +723,124 @@ class TeacherViewController: UIViewController, UINavigationControllerDelegate, M
         // Do any additional setup after loading the view.
     }
     @objc func handleTap1(sender: UILongPressGestureRecognizer) {
-        let alertController = UIAlertController(title: "Teacher Name", message: "Please enter your 1st period teacher first and last name", preferredStyle: .alert)
-        alertController.addTextField { textField in
-            textField.placeholder = "Enter Teacher First and Last Name"
-        }
-        let saveAction = UIAlertAction(title: "Save", style: UIAlertAction.Style.default, handler: { alert -> Void in
-            let textField = alertController.textFields![0] as UITextField
-            let txt = textField.text!.lowercased()
-            guard let _ = txt.firstIndex(of: " ") else {
-                let alertController2 = UIAlertController(title: "Invalid Teacher Name", message: "Please enter a valid teacher name", preferredStyle: .alert)
-                alertController2.addAction(UIAlertAction.init(title: "Ok", style: .default, handler: nil))
-                self.present(alertController2, animated: true, completion: nil)
-                return
-            }
+        print("omg it work")
+        print(archiveURLs[0])
+        let newTeacher = Teacher(name: "TEACHER #1", email: "teacher1@coppellisd.com")
+        let jsonEncoder = JSONEncoder()
+        if let jsonData = try? jsonEncoder.encode(newTeacher),
+           let jsonString = String(data: jsonData, encoding: .utf8) {
+            print(jsonString)
             
-            self.teacher1Label.text = txt.capitalized
-            let index = txt.index(after: txt.firstIndex(of: " ")!)
-            self.mailOne.text = String(txt[txt.startIndex]) + txt[index..<txt.endIndex] + "@coppellisd.com"
-            
-            let newTeacher = Teacher(name: self.teacher1Label.text!, email: self.mailOne.text!)
-            let jsonEncoder = JSONEncoder()
-            if let jsonData = try? jsonEncoder.encode(newTeacher),
-                let jsonString = String(data: jsonData, encoding: .utf8) {
-                print(jsonString)
-                
-                try? jsonData.write(to: self.archiveURLs[0],
-                   options: .noFileProtection)
-            }
-        })
-        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.default, handler: {(action : UIAlertAction!) -> Void in })
-        
-        alertController.addAction(saveAction)
-        alertController.addAction(cancelAction)
-        present(alertController, animated: true, completion: nil)
+            try? jsonData.write(to: self.archiveURLs[0],
+                                options: .noFileProtection)
         }
+        self.viewDidLoad()
+    }
     
     @objc func handleTap2(sender: UILongPressGestureRecognizer) {
-        let alertController = UIAlertController(title: "Teacher Name", message: "Please enter your 2nd period teacher first and last name", preferredStyle: .alert)
-        alertController.addTextField { textField in
-            textField.placeholder = "Enter Teacher First and Last Name"
-        }
-        let saveAction = UIAlertAction(title: "Save", style: UIAlertAction.Style.default, handler: { alert -> Void in
-            let textField = alertController.textFields![0] as UITextField
-            let txt = textField.text!.lowercased()
-            guard let _ = txt.firstIndex(of: " ") else {
-                let alertController2 = UIAlertController(title: "Invalid Teacher Name", message: "Please enter a valid teacher name", preferredStyle: .alert)
-                alertController2.addAction(UIAlertAction.init(title: "Ok", style: .default, handler: nil))
-                self.present(alertController2, animated: true, completion: nil)
-                return
-            }
+        print("omg it work")
+        print(archiveURLs[1])
+        let newTeacher = Teacher(name: "TEACHER #2", email: "teacher2@coppellisd.com")
+        let jsonEncoder = JSONEncoder()
+        if let jsonData = try? jsonEncoder.encode(newTeacher),
+           let jsonString = String(data: jsonData, encoding: .utf8) {
+            print(jsonString)
             
-            self.teacher2Label.text = txt.capitalized
-            let index = txt.index(after: txt.firstIndex(of: " ")!)
-            self.mailTwo.text = String(txt[txt.startIndex]) + txt[index..<txt.endIndex] + "@coppellisd.com"
-            
-            let newTeacher = Teacher(name: self.teacher2Label.text!, email: self.mailTwo.text!)
-            let jsonEncoder = JSONEncoder()
-            if let jsonData = try? jsonEncoder.encode(newTeacher),
-                let jsonString = String(data: jsonData, encoding: .utf8) {
-                print(jsonString)
-                
-                try? jsonData.write(to: self.archiveURLs[1],
-                   options: .noFileProtection)
-            }
-        })
-        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.default, handler: {(action : UIAlertAction!) -> Void in })
-        
-        alertController.addAction(saveAction)
-        alertController.addAction(cancelAction)
-        present(alertController, animated: true, completion: nil)
+            try? jsonData.write(to: self.archiveURLs[1],
+                                options: .noFileProtection)
         }
+        self.viewDidLoad()
+    }
     
     @objc func handleTap3(sender: UILongPressGestureRecognizer) {
-        let alertController = UIAlertController(title: "Teacher Name", message: "Please enter your 3rd period teacher first and last name", preferredStyle: .alert)
-        alertController.addTextField { textField in
-            textField.placeholder = "Enter Teacher First and Last Name"
-        }
-        let saveAction = UIAlertAction(title: "Save", style: UIAlertAction.Style.default, handler: { alert -> Void in
-            let textField = alertController.textFields![0] as UITextField
-            let txt = textField.text!.lowercased()
-            guard let _ = txt.firstIndex(of: " ") else {
-                let alertController2 = UIAlertController(title: "Invalid Teacher Name", message: "Please enter a valid teacher name", preferredStyle: .alert)
-                alertController2.addAction(UIAlertAction.init(title: "Ok", style: .default, handler: nil))
-                self.present(alertController2, animated: true, completion: nil)
-                return
-            }
+        print("omg it work")
+        print(archiveURLs[2])
+        let newTeacher = Teacher(name: "TEACHER #3", email: "teacher3@coppellisd.com")
+        let jsonEncoder = JSONEncoder()
+        if let jsonData = try? jsonEncoder.encode(newTeacher),
+           let jsonString = String(data: jsonData, encoding: .utf8) {
+            print(jsonString)
             
-            self.teacher3Label.text = txt.capitalized
-            let index = txt.index(after: txt.firstIndex(of: " ")!)
-            self.mailThree.text = String(txt[txt.startIndex]) + txt[index..<txt.endIndex] + "@coppellisd.com"
-            
-            let newTeacher = Teacher(name: self.teacher3Label.text!, email: self.mailThree.text!)
-            let jsonEncoder = JSONEncoder()
-            if let jsonData = try? jsonEncoder.encode(newTeacher),
-                let jsonString = String(data: jsonData, encoding: .utf8) {
-                print(jsonString)
-                
-                try? jsonData.write(to: self.archiveURLs[2],
-                   options: .noFileProtection)
-            }
-        })
-        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.default, handler: {(action : UIAlertAction!) -> Void in })
-        
-        alertController.addAction(saveAction)
-        alertController.addAction(cancelAction)
-        present(alertController, animated: true, completion: nil)
+            try? jsonData.write(to: self.archiveURLs[2],
+                                options: .noFileProtection)
         }
+        self.viewDidLoad()
+    }
     
     @objc func handleTap4(sender: UILongPressGestureRecognizer) {
-        let alertController = UIAlertController(title: "Teacher Name", message: "Please enter your 4th period teacher first and last name", preferredStyle: .alert)
-        alertController.addTextField { textField in
-            textField.placeholder = "Enter Teacher First and Last Name"
-        }
-        let saveAction = UIAlertAction(title: "Save", style: UIAlertAction.Style.default, handler: { alert -> Void in
-            let textField = alertController.textFields![0] as UITextField
-            let txt = textField.text!.lowercased()
-            guard let _ = txt.firstIndex(of: " ") else {
-                let alertController2 = UIAlertController(title: "Invalid Teacher Name", message: "Please enter a valid teacher name", preferredStyle: .alert)
-                alertController2.addAction(UIAlertAction.init(title: "Ok", style: .default, handler: nil))
-                self.present(alertController2, animated: true, completion: nil)
-                return
-            }
+        print("omg it work")
+        print(archiveURLs[3])
+        let newTeacher = Teacher(name: "TEACHER #4", email: "teacher4@coppellisd.com")
+        let jsonEncoder = JSONEncoder()
+        if let jsonData = try? jsonEncoder.encode(newTeacher),
+           let jsonString = String(data: jsonData, encoding: .utf8) {
+            print(jsonString)
             
-            self.teacher4Label.text = txt.capitalized
-            let index = txt.index(after: txt.firstIndex(of: " ")!)
-            self.mailFour.text = String(txt[txt.startIndex]) + txt[index..<txt.endIndex] + "@coppellisd.com"
-            
-            let newTeacher = Teacher(name: self.teacher4Label.text!, email: self.mailFour.text!)
-            let jsonEncoder = JSONEncoder()
-            if let jsonData = try? jsonEncoder.encode(newTeacher),
-                let jsonString = String(data: jsonData, encoding: .utf8) {
-                print(jsonString)
-                
-                try? jsonData.write(to: self.archiveURLs[3],
-                   options: .noFileProtection)
-            }
-        })
-        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.default, handler: {(action : UIAlertAction!) -> Void in })
-        
-        alertController.addAction(saveAction)
-        alertController.addAction(cancelAction)
-        present(alertController, animated: true, completion: nil)
+            try? jsonData.write(to: self.archiveURLs[3],
+                                options: .noFileProtection)
         }
+        self.viewDidLoad()
+    }
     
     @objc func handleTap5(sender: UILongPressGestureRecognizer) {
-        let alertController = UIAlertController(title: "Teacher Name", message: "Please enter your 5th period teacher first and last name", preferredStyle: .alert)
-        alertController.addTextField { textField in
-            textField.placeholder = "Enter Teacher First and Last Name"
-        }
-        let saveAction = UIAlertAction(title: "Save", style: UIAlertAction.Style.default, handler: { alert -> Void in
-            let textField = alertController.textFields![0] as UITextField
-            let txt = textField.text!.lowercased()
-            guard let _ = txt.firstIndex(of: " ") else {
-                let alertController2 = UIAlertController(title: "Invalid Teacher Name", message: "Please enter a valid teacher name", preferredStyle: .alert)
-                alertController2.addAction(UIAlertAction.init(title: "Ok", style: .default, handler: nil))
-                self.present(alertController2, animated: true, completion: nil)
-                return
-            }
+        print("omg it work")
+        print(archiveURLs[4])
+        let newTeacher = Teacher(name: "TEACHER #5", email: "teacher5@coppellisd.com")
+        let jsonEncoder = JSONEncoder()
+        if let jsonData = try? jsonEncoder.encode(newTeacher),
+           let jsonString = String(data: jsonData, encoding: .utf8) {
+            print(jsonString)
             
-            self.teacher5Label.text = txt.capitalized
-            let index = txt.index(after: txt.firstIndex(of: " ")!)
-            self.mailFive.text = String(txt[txt.startIndex]) + txt[index..<txt.endIndex] + "@coppellisd.com"
-            
-            let newTeacher = Teacher(name: self.teacher5Label.text!, email: self.mailFive.text!)
-            let jsonEncoder = JSONEncoder()
-            if let jsonData = try? jsonEncoder.encode(newTeacher),
-                let jsonString = String(data: jsonData, encoding: .utf8) {
-                print(jsonString)
-                
-                try? jsonData.write(to: self.archiveURLs[4],
-                   options: .noFileProtection)
-            }
-        })
-        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.default, handler: {(action : UIAlertAction!) -> Void in })
-        
-        alertController.addAction(saveAction)
-        alertController.addAction(cancelAction)
-        present(alertController, animated: true, completion: nil)
+            try? jsonData.write(to: self.archiveURLs[4],
+                                options: .noFileProtection)
         }
+        self.viewDidLoad()
+    }
     
     @objc func handleTap6(sender: UILongPressGestureRecognizer) {
-        let alertController = UIAlertController(title: "Teacher Name", message: "Please enter your 6th period teacher first and last name", preferredStyle: .alert)
-        alertController.addTextField { textField in
-            textField.placeholder = "Enter Teacher First and Last Name"
-        }
-        let saveAction = UIAlertAction(title: "Save", style: UIAlertAction.Style.default, handler: { alert -> Void in
-            let textField = alertController.textFields![0] as UITextField
-            let txt = textField.text!.lowercased()
-            guard let _ = txt.firstIndex(of: " ") else {
-                let alertController2 = UIAlertController(title: "Invalid Teacher Name", message: "Please enter a valid teacher name", preferredStyle: .alert)
-                alertController2.addAction(UIAlertAction.init(title: "Ok", style: .default, handler: nil))
-                self.present(alertController2, animated: true, completion: nil)
-                return
-            }
+        print("omg it work")
+        print(archiveURLs[5])
+        let newTeacher = Teacher(name: "TEACHER #6", email: "teacher6@coppellisd.com")
+        let jsonEncoder = JSONEncoder()
+        if let jsonData = try? jsonEncoder.encode(newTeacher),
+           let jsonString = String(data: jsonData, encoding: .utf8) {
+            print(jsonString)
             
-            self.teacher6Label.text = txt.capitalized
-            let index = txt.index(after: txt.firstIndex(of: " ")!)
-            self.mailSix.text = String(txt[txt.startIndex]) + txt[index..<txt.endIndex] + "@coppellisd.com"
-            
-            let newTeacher = Teacher(name: self.teacher6Label.text!, email: self.mailSix.text!)
-            let jsonEncoder = JSONEncoder()
-            if let jsonData = try? jsonEncoder.encode(newTeacher),
-                let jsonString = String(data: jsonData, encoding: .utf8) {
-                print(jsonString)
-                
-                try? jsonData.write(to: self.archiveURLs[5],
-                   options: .noFileProtection)
-            }
-        })
-        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.default, handler: {(action : UIAlertAction!) -> Void in })
-        
-        alertController.addAction(saveAction)
-        alertController.addAction(cancelAction)
-        present(alertController, animated: true, completion: nil)
+            try? jsonData.write(to: self.archiveURLs[5],
+                                options: .noFileProtection)
         }
+        self.viewDidLoad()
+    }
     
     @objc func handleTap7(sender: UILongPressGestureRecognizer) {
-        let alertController = UIAlertController(title: "Teacher Name", message: "Please enter your 7th period teacher first and last name", preferredStyle: .alert)
-        alertController.addTextField { textField in
-            textField.placeholder = "Enter Teacher First and Last Name"
-        }
-        let saveAction = UIAlertAction(title: "Save", style: UIAlertAction.Style.default, handler: { alert -> Void in
-            let textField = alertController.textFields![0] as UITextField
-            let txt = textField.text!.lowercased()
-            guard let _ = txt.firstIndex(of: " ") else {
-                let alertController2 = UIAlertController(title: "Invalid Teacher Name", message: "Please enter a valid teacher name", preferredStyle: .alert)
-                alertController2.addAction(UIAlertAction.init(title: "Ok", style: .default, handler: nil))
-                self.present(alertController2, animated: true, completion: nil)
-                return
-            }
+        print("omg it work")
+        print(archiveURLs[6])
+        let newTeacher = Teacher(name: "TEACHER #7", email: "teacher7@coppellisd.com")
+        let jsonEncoder = JSONEncoder()
+        if let jsonData = try? jsonEncoder.encode(newTeacher),
+           let jsonString = String(data: jsonData, encoding: .utf8) {
+            print(jsonString)
             
-            self.teacher7Label.text = txt.capitalized
-            let index = txt.index(after: txt.firstIndex(of: " ")!)
-            self.mailSeven.text = String(txt[txt.startIndex]) + txt[index..<txt.endIndex] + "@coppellisd.com"
-            
-            let newTeacher = Teacher(name: self.teacher7Label.text!, email: self.mailSeven.text!)
-            let jsonEncoder = JSONEncoder()
-            if let jsonData = try? jsonEncoder.encode(newTeacher),
-                let jsonString = String(data: jsonData, encoding: .utf8) {
-                print(jsonString)
-                
-                try? jsonData.write(to: self.archiveURLs[6],
-                   options: .noFileProtection)
-            }
-        })
-        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.default, handler: {(action : UIAlertAction!) -> Void in })
-        
-        alertController.addAction(saveAction)
-        alertController.addAction(cancelAction)
-        present(alertController, animated: true, completion: nil)
+            try? jsonData.write(to: self.archiveURLs[6],
+                                options: .noFileProtection)
         }
+        self.viewDidLoad()
+    }
     
     @objc func handleTap8(sender: UILongPressGestureRecognizer) {
-        let alertController = UIAlertController(title: "Teacher Name", message: "Please enter your 8th period teacher first and last name", preferredStyle: .alert)
-        alertController.addTextField { textField in
-            textField.placeholder = "Enter Teacher First and Last Name"
-        }
-        let saveAction = UIAlertAction(title: "Save", style: UIAlertAction.Style.default, handler: { alert -> Void in
-            let textField = alertController.textFields![0] as UITextField
-            let txt = textField.text!.lowercased()
-            guard let _ = txt.firstIndex(of: " ") else {
-                let alertController2 = UIAlertController(title: "Invalid Teacher Name", message: "Please enter a valid teacher name", preferredStyle: .alert)
-                alertController2.addAction(UIAlertAction.init(title: "Ok", style: .default, handler: nil))
-                self.present(alertController2, animated: true, completion: nil)
-                return
-            }
+        print("omg it work")
+        print(archiveURLs[7])
+        let newTeacher = Teacher(name: "TEACHER #8", email: "teacher8@coppellisd.com")
+        let jsonEncoder = JSONEncoder()
+        if let jsonData = try? jsonEncoder.encode(newTeacher),
+           let jsonString = String(data: jsonData, encoding: .utf8) {
+            print(jsonString)
             
-            self.teacher8Label.text = txt.capitalized
-            let index = txt.index(after: txt.firstIndex(of: " ")!)
-            self.mailEight.text = String(txt[txt.startIndex]) + txt[index..<txt.endIndex] + "@coppellisd.com"
-            
-            let newTeacher = Teacher(name: self.teacher8Label.text!, email: self.mailEight.text!)
-            let jsonEncoder = JSONEncoder()
-            if let jsonData = try? jsonEncoder.encode(newTeacher),
-                let jsonString = String(data: jsonData, encoding: .utf8) {
-                print(jsonString)
-                
-                try? jsonData.write(to: self.archiveURLs[7],
-                   options: .noFileProtection)
-            }
-        })
-        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.default, handler: {(action : UIAlertAction!) -> Void in })
-        
-        alertController.addAction(saveAction)
-        alertController.addAction(cancelAction)
-        present(alertController, animated: true, completion: nil)
+            try? jsonData.write(to: self.archiveURLs[7],
+                                options: .noFileProtection)
         }
+        self.viewDidLoad()
+    }
 
     /*
     // MARK: - Navigation
@@ -947,4 +852,142 @@ class TeacherViewController: UIViewController, UINavigationControllerDelegate, M
     }
     */
 
+}
+
+class TeacherSearchViewController: UITableViewController {
+
+    @IBOutlet var searchBar: UISearchBar!
+    var filteredData = [String]()
+    var searched = false
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        // Uncomment the following line to preserve selection between presentations
+        // self.clearsSelectionOnViewWillAppear = false
+
+        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
+
+    // MARK: - Table view data source
+
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        // #warning Incomplete implementation, return the number of sections
+        return 1
+    }
+
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // #warning Incomplete implementation, return the number of rows
+        if searched {
+            return filteredData.count
+        } else {
+            return teacherNames.count
+        }
+    }
+
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "teacherSearchCell", for: indexPath)
+
+        // Configure the cell...
+        if searched {
+            for i in 0...(filteredData.count - 1) {
+                if indexPath.row == i {
+                    cell.textLabel?.text = filteredData[i]
+                }
+            }
+        } else {
+            for i in 0...(teacherNames.count - 1) {
+                if indexPath.row == i {
+                    cell.textLabel?.text = teacherNames[i]
+                }
+            }
+        }
+
+        return cell
+    }
+    
+    override func tableView(_ tableView: UITableView,didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        if searched {
+            for i in 0...(filteredData.count - 1) {
+                if indexPath[1] == i {
+                    selectedTeacher = filteredData[i]
+                }
+            }
+        } else {
+            for i in 0...(teacherNames.count - 1) {
+                if indexPath[1] == i {
+                    selectedTeacher = teacherNames[i]
+                }
+            }
+        }
+        self.dismiss(animated: true)
+        isSelected = true
+    }
+    
+
+    /*
+    // Override to support conditional editing of the table view.
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        // Return false if you do not want the specified item to be editable.
+        return true
+    }
+    */
+
+    /*
+    // Override to support editing the table view.
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            // Delete the row from the data source
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        } else if editingStyle == .insert {
+            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+        }
+    }
+    */
+
+    /*
+    // Override to support rearranging the table view.
+    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
+
+    }
+    */
+
+    /*
+    // Override to support conditional rearranging of the table view.
+    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        // Return false if you do not want the item to be re-orderable.
+        return true
+    }
+    */
+
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+    }
+    */
+
+}
+
+extension TeacherSearchViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText != "" {
+            print(searchText)
+            filteredData = []
+//            filteredData = teacherNames.filter({$0.lowercased().uppercased().contains(searchText.uppercased().lowercased())})
+            for name in teacherNames {
+                if name.lowercased().contains(searchText.lowercased()) {
+                    filteredData.append(name)
+                }
+            }
+            print(filteredData)
+        }
+        searched = true
+        tableView.reloadData()
+    }
 }
