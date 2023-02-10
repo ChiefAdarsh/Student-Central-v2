@@ -64,6 +64,12 @@ class HelpViewController: UIViewController {
     @IBAction func familyTap(_ sender: Any) {
         wordd = "Family Assistance"
     }
+    @IBAction func housingTap(_ sender: Any) {
+        wordd = "Housing"
+    }
+    @IBAction func shelterTap(_ sender: Any) {
+        wordd = "Shelter"
+    }
     
     
     
