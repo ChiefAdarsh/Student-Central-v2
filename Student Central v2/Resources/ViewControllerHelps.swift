@@ -8,11 +8,14 @@
 import UIKit
 
 class HelpViewController: UIViewController {
+    
+
     var wordd : String = ""
     
     
     
     
+    @IBOutlet var stackView: UIStackView!
     @IBOutlet weak var chekchek: UIButton!
     @IBOutlet weak var FamilyButton: UIButton!
     @IBOutlet weak var DomesticButton: UIButton!
@@ -75,7 +78,24 @@ class HelpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         wordd = ""
+        let size = UIScreen.main.bounds.size
+        if size.height < size.width {
+            stackView.axis = .horizontal
+        } else {
+            stackView.axis = .vertical
+        }
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        guard let _ = stackView else { return }
+        
+        if UIDevice.current.orientation.isLandscape {
+            stackView.axis = .horizontal
+        } else {
+            stackView.axis = .vertical
+        }
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
                 if let nextViewController = segue.destination as? ViewControllerResPage {
