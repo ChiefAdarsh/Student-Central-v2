@@ -8,13 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		65142E262996D86D003FACC3 /* Teacher Files.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65142E252996D86D003FACC3 /* Teacher Files.swift */; };
+		6521756D299ACD87000A04F9 /* ViewControllerRess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65217569299ACD87000A04F9 /* ViewControllerRess.swift */; };
+		6521756E299ACD87000A04F9 /* ViewControllerHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6521756A299ACD87000A04F9 /* ViewControllerHelp.swift */; };
+		6521756F299ACD87000A04F9 /* TVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6521756B299ACD87000A04F9 /* TVC.swift */; };
+		65217570299ACD87000A04F9 /* resALl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6521756C299ACD87000A04F9 /* resALl.swift */; };
+		65217574299ACEDD000A04F9 /* MedicalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65217573299ACEDD000A04F9 /* MedicalViewController.swift */; };
 		65266EE129942125001778AF /* AdminViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65266EE029942125001778AF /* AdminViewController.swift */; };
 		656FE02F2992D0D5002BAEEF /* TeacherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656FE02E2992D0D5002BAEEF /* TeacherViewController.swift */; };
 		656FE0312992EA50002BAEEF /* CounselorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656FE0302992EA50002BAEEF /* CounselorViewController.swift */; };
-		65B174792996DC2900B8E0BD /* TVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B174752996DC2900B8E0BD /* TVC.swift */; };
-		65B1747A2996DC2900B8E0BD /* ViewControllerHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B174762996DC2900B8E0BD /* ViewControllerHelp.swift */; };
-		65B1747B2996DC2900B8E0BD /* ViewControllerRess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B174772996DC2900B8E0BD /* ViewControllerRess.swift */; };
-		65B1747C2996DC2900B8E0BD /* resALl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B174782996DC2900B8E0BD /* resALl.swift */; };
 		65D052B429844E4600BB5A5C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D052B329844E4600BB5A5C /* AppDelegate.swift */; };
 		65D052B629844E4600BB5A5C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D052B529844E4600BB5A5C /* SceneDelegate.swift */; };
 		65D052B829844E4600BB5A5C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D052B729844E4600BB5A5C /* ViewController.swift */; };
@@ -30,13 +31,14 @@
 
 /* Begin PBXFileReference section */
 		65142E252996D86D003FACC3 /* Teacher Files.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Teacher Files.swift"; sourceTree = "<group>"; };
+		65217569299ACD87000A04F9 /* ViewControllerRess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerRess.swift; sourceTree = "<group>"; };
+		6521756A299ACD87000A04F9 /* ViewControllerHelp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerHelp.swift; sourceTree = "<group>"; };
+		6521756B299ACD87000A04F9 /* TVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TVC.swift; sourceTree = "<group>"; };
+		6521756C299ACD87000A04F9 /* resALl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = resALl.swift; sourceTree = "<group>"; };
+		65217573299ACEDD000A04F9 /* MedicalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicalViewController.swift; sourceTree = "<group>"; };
 		65266EE029942125001778AF /* AdminViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminViewController.swift; sourceTree = "<group>"; };
 		656FE02E2992D0D5002BAEEF /* TeacherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherViewController.swift; sourceTree = "<group>"; };
 		656FE0302992EA50002BAEEF /* CounselorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounselorViewController.swift; sourceTree = "<group>"; };
-		65B174752996DC2900B8E0BD /* TVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TVC.swift; path = "../../../Student-Central-v2/Student Central v2/Resources/TVC.swift"; sourceTree = "<group>"; };
-		65B174762996DC2900B8E0BD /* ViewControllerHelp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewControllerHelp.swift; path = "../../../Student-Central-v2/Student Central v2/Resources/ViewControllerHelp.swift"; sourceTree = "<group>"; };
-		65B174772996DC2900B8E0BD /* ViewControllerRess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewControllerRess.swift; path = "../../../Student-Central-v2/Student Central v2/Resources/ViewControllerRess.swift"; sourceTree = "<group>"; };
-		65B174782996DC2900B8E0BD /* resALl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = resALl.swift; path = "../../../Student-Central-v2/Student Central v2/Resources/resALl.swift"; sourceTree = "<group>"; };
 		65D052B029844E4600BB5A5C /* Student Central v2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Student Central v2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		65D052B329844E4600BB5A5C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		65D052B529844E4600BB5A5C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -76,10 +78,11 @@
 		65B174742996DBFA00B8E0BD /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				65B174782996DC2900B8E0BD /* resALl.swift */,
-				65B174752996DC2900B8E0BD /* TVC.swift */,
-				65B174762996DC2900B8E0BD /* ViewControllerHelp.swift */,
-				65B174772996DC2900B8E0BD /* ViewControllerRess.swift */,
+				6521756C299ACD87000A04F9 /* resALl.swift */,
+				6521756B299ACD87000A04F9 /* TVC.swift */,
+				6521756A299ACD87000A04F9 /* ViewControllerHelp.swift */,
+				65217573299ACEDD000A04F9 /* MedicalViewController.swift */,
+				65217569299ACD87000A04F9 /* ViewControllerRess.swift */,
 				65142E252996D86D003FACC3 /* Teacher Files.swift */,
 			);
 			path = Resources;
@@ -206,17 +209,18 @@
 				65D052B429844E4600BB5A5C /* AppDelegate.swift in Sources */,
 				65D052B629844E4600BB5A5C /* SceneDelegate.swift in Sources */,
 				65D052CC298B315500BB5A5C /* ScheduleViewController.swift in Sources */,
+				6521756D299ACD87000A04F9 /* ViewControllerRess.swift in Sources */,
 				65142E262996D86D003FACC3 /* Teacher Files.swift in Sources */,
-				65B1747B2996DC2900B8E0BD /* ViewControllerRess.swift in Sources */,
 				656FE0312992EA50002BAEEF /* CounselorViewController.swift in Sources */,
 				65D052CA298B2FBC00BB5A5C /* QuickLinksViewController.swift in Sources */,
 				65D052CE298B337500BB5A5C /* CalendarViewController.swift in Sources */,
-				65B1747C2996DC2900B8E0BD /* resALl.swift in Sources */,
+				65217570299ACD87000A04F9 /* resALl.swift in Sources */,
 				656FE02F2992D0D5002BAEEF /* TeacherViewController.swift in Sources */,
 				65D052C8298B2E4500BB5A5C /* MapsViewController.swift in Sources */,
 				65D052D0298B342500BB5A5C /* SettingsViewController.swift in Sources */,
-				65B174792996DC2900B8E0BD /* TVC.swift in Sources */,
-				65B1747A2996DC2900B8E0BD /* ViewControllerHelp.swift in Sources */,
+				6521756F299ACD87000A04F9 /* TVC.swift in Sources */,
+				6521756E299ACD87000A04F9 /* ViewControllerHelp.swift in Sources */,
+				65217574299ACEDD000A04F9 /* MedicalViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
