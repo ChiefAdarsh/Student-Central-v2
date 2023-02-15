@@ -11,7 +11,8 @@ class LinksViewController: UIViewController {
     @IBOutlet var Clever: UIButton!
     @IBOutlet var coppellISD: UIButton!
     @IBOutlet var stackView: UIStackView!
-
+    @IBOutlet var labelStack1: [UIButton]!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -22,6 +23,30 @@ class LinksViewController: UIViewController {
         } else {
             stackView.axis = .vertical
         }
+        
+        let deviceType = UIDevice.current.model
+        if deviceType == "iPad" {
+            print("hello")
+            // iPad
+            Clever.titleLabel!.font = .systemFont(ofSize: 130)
+            
+            
+        }
+        else if deviceType == "iPhone" {
+            print("hello2")
+            Clever.titleLabel!.font = .systemFont(ofSize: 70)
+            // iPhone
+            for i in labelStack1 {
+                let renderer = UIGraphicsImageRenderer(size: CGSize(width: 80, height: 80))
+                let image = i.imageView!.image!
+                let resizedImage = renderer.image { context in image.draw(in: CGRect(origin: .zero, size: CGSize(width: 80, height: 80))) }
+                i.setImage(resizedImage.withRenderingMode(.alwaysTemplate), for: .normal)
+
+            }
+            
+            
+        }
+
     }
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
