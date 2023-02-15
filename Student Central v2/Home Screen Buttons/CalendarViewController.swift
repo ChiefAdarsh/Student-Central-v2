@@ -13,7 +13,7 @@ class CalendarViewController: UIViewController, UIScrollViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpScrollView()
-        imageView.image = UIImage(named:"calendar")
+        imageView.image = UIImage(named:"CHS_Calender_23-1")
     }
     
     func setUpScrollView() {
