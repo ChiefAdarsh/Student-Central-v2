@@ -8,7 +8,7 @@
 import UIKit
 import MessageUI
 
-var idfkatp = true
+var isDismissed = false
 var isSelected = false
 var selectedTeacher = ""
 var selectedTeacherEmail = ""
@@ -56,8 +56,8 @@ class TeacherViewController: UIViewController, UINavigationControllerDelegate, M
     @IBOutlet var teacher8Label: UILabel!
     @IBOutlet var mail8Label: UILabel!
     
-    @IBOutlet var CButton: UIButton!
-    @IBOutlet var AButton: UIButton!
+    @IBOutlet var CounselorButton: UIButton!
+    @IBOutlet var AdminButton: UIButton!
     
     var teacherLabels: [UILabel?] {
         return [
@@ -157,6 +157,17 @@ class TeacherViewController: UIViewController, UINavigationControllerDelegate, M
         rotation()
     }
     
+    @IBAction func CounselorButton(_ sender: Any) {
+        var targetViewController = storyboard!.instantiateViewController(withIdentifier: "cscreen") as! UIViewController
+               self.navigationController?.pushViewController(targetViewController, animated: true)
+    }
+    
+    @IBAction func AdminButton(_ sender: Any) {
+        var targetViewController = storyboard!.instantiateViewController(withIdentifier: "prince") as! UIViewController
+                self.navigationController?.pushViewController(targetViewController, animated: true)
+    }
+
+    
     @IBOutlet weak var mailOne: UILabel!
     @IBOutlet weak var mailTwo: UILabel!
     @IBOutlet weak var mailThree: UILabel!
@@ -177,25 +188,20 @@ class TeacherViewController: UIViewController, UINavigationControllerDelegate, M
         let email: String
     }
     
-    @IBAction func CounselorButton(_ sender: Any) {
-        var targetViewController = storyboard!.instantiateViewController(withIdentifier: "cscreen") as! UIViewController
-               self.navigationController?.pushViewController(targetViewController, animated: true)
-    }
-    
-    @IBAction func AdminButton(_ sender: Any) {
-        var targetViewController = storyboard!.instantiateViewController(withIdentifier: "prince") as! UIViewController
-                self.navigationController?.pushViewController(targetViewController, animated: true)
-    }
     @IBAction func buttonOne(_ sender: UIButton) {
         Task { @MainActor in
             guard teacher1Label.text! != "TEACHER #1" else {
+                isDismissed = false
+                isSelected = false
                 func searchForTeacher() async {
-                    var targetViewController = await storyboard!.instantiateViewController(withIdentifier: "teacherSearchTable") as! TeacherSearchViewController
+                    let targetViewController = await storyboard!.instantiateViewController(withIdentifier: "teacherSearchTable") as! TeacherSearchViewController
                     await self.navigationController?.showDetailViewController(targetViewController, sender: self)
                     
 //                    try? await Task.sleep(nanoseconds: 5 * 1_000_000_000)
                     while isSelected == false {
-                        // Do nothing
+                        if isDismissed {
+                            break
+                        }
                     }
                 }
                 print("Pushed")
@@ -203,6 +209,7 @@ class TeacherViewController: UIViewController, UINavigationControllerDelegate, M
 
                 if isSelected {
                     self.teacher1Label.text = selectedTeacher
+                    print("HI HI THIS IS THE TEACHER :\(self.teacher1Label.text)")
                     if let i = teacherNames.firstIndex(of: selectedTeacher) {
                         self.mailOne.text = teacherEmails[i]
                     } else {
@@ -217,12 +224,15 @@ class TeacherViewController: UIViewController, UINavigationControllerDelegate, M
 
                         try? jsonData.write(to: self.archiveURLs[0], options: .noFileProtection)
                     }
+                    viewDidLoad()
+                    viewWillAppear(true)
+                    viewDidAppear(true)
                 } else {
-                    self.mailOne.text = "There's been an error, please hold to try again"
+                    isDismissed = false
                 }
 
                 isSelected = false
-                
+                viewDidLoad()
                 
                 return
             }
@@ -245,13 +255,17 @@ class TeacherViewController: UIViewController, UINavigationControllerDelegate, M
     @IBAction func buttonTwo(_ sender: UIButton) {
         Task { @MainActor in
             guard teacher2Label.text! != "TEACHER #2" else {
+                isDismissed = false
+                isSelected = false
                 func searchForTeacher() async {
-                    var targetViewController = await storyboard!.instantiateViewController(withIdentifier: "teacherSearchTable") as! TeacherSearchViewController
+                    let targetViewController = await storyboard!.instantiateViewController(withIdentifier: "teacherSearchTable") as! TeacherSearchViewController
                     await self.navigationController?.showDetailViewController(targetViewController, sender: self)
                     
 //                    try? await Task.sleep(nanoseconds: 5 * 1_000_000_000)
                     while isSelected == false {
-                        // Do nothing
+                        if isDismissed {
+                            break
+                        }
                     }
                 }
                 print("Pushed")
@@ -274,7 +288,7 @@ class TeacherViewController: UIViewController, UINavigationControllerDelegate, M
                         try? jsonData.write(to: self.archiveURLs[1], options: .noFileProtection)
                     }
                 } else {
-                    self.mailTwo.text = "There's been an error, please hold to try again"
+                    isDismissed = false
                 }
 
                 isSelected = false
@@ -301,13 +315,17 @@ class TeacherViewController: UIViewController, UINavigationControllerDelegate, M
     @IBAction func buttonThree(_ sender: UIButton) {
         Task { @MainActor in
             guard teacher3Label.text! != "TEACHER #3" else {
+                isDismissed = false
+                isSelected = false
                 func searchForTeacher() async {
-                    var targetViewController = await storyboard!.instantiateViewController(withIdentifier: "teacherSearchTable") as! TeacherSearchViewController
+                    let targetViewController = await storyboard!.instantiateViewController(withIdentifier: "teacherSearchTable") as! TeacherSearchViewController
                     await self.navigationController?.showDetailViewController(targetViewController, sender: self)
                     
 //                    try? await Task.sleep(nanoseconds: 5 * 1_000_000_000)
                     while isSelected == false {
-                        // Do nothing
+                        if isDismissed {
+                            break
+                        }
                     }
                 }
                 print("Pushed")
@@ -330,7 +348,7 @@ class TeacherViewController: UIViewController, UINavigationControllerDelegate, M
                         try? jsonData.write(to: self.archiveURLs[2], options: .noFileProtection)
                     }
                 } else {
-                    self.mailThree.text = "There's been an error, please hold to try again"
+                    isDismissed = false
                 }
 
                 isSelected = false
@@ -357,13 +375,17 @@ class TeacherViewController: UIViewController, UINavigationControllerDelegate, M
     @IBAction func buttonFour(_ sender: UIButton) {
         Task { @MainActor in
             guard teacher4Label.text! != "TEACHER #4" else {
+                isDismissed = false
+                isSelected = false
                 func searchForTeacher() async {
-                    var targetViewController = await storyboard!.instantiateViewController(withIdentifier: "teacherSearchTable") as! TeacherSearchViewController
+                    let targetViewController = await storyboard!.instantiateViewController(withIdentifier: "teacherSearchTable") as! TeacherSearchViewController
                     await self.navigationController?.showDetailViewController(targetViewController, sender: self)
                     
 //                    try? await Task.sleep(nanoseconds: 5 * 1_000_000_000)
                     while isSelected == false {
-                        // Do nothing
+                        if isDismissed {
+                            break
+                        }
                     }
                 }
                 print("Pushed")
@@ -386,7 +408,7 @@ class TeacherViewController: UIViewController, UINavigationControllerDelegate, M
                         try? jsonData.write(to: self.archiveURLs[3], options: .noFileProtection)
                     }
                 } else {
-                    self.mailFour.text = "There's been an error, please hold to try again"
+                    isDismissed = false
                 }
 
                 isSelected = false
@@ -413,13 +435,17 @@ class TeacherViewController: UIViewController, UINavigationControllerDelegate, M
     @IBAction func buttonFive(_ sender: UIButton) {
         Task { @MainActor in
             guard teacher5Label.text! != "TEACHER #5" else {
+                isDismissed = false
+                isSelected = false
                 func searchForTeacher() async {
-                    var targetViewController = await storyboard!.instantiateViewController(withIdentifier: "teacherSearchTable") as! TeacherSearchViewController
+                    let targetViewController = await storyboard!.instantiateViewController(withIdentifier: "teacherSearchTable") as! TeacherSearchViewController
                     await self.navigationController?.showDetailViewController(targetViewController, sender: self)
                     
 //                    try? await Task.sleep(nanoseconds: 5 * 1_000_000_000)
                     while isSelected == false {
-                        // Do nothing
+                        if isDismissed {
+                            break
+                        }
                     }
                 }
                 print("Pushed")
@@ -442,7 +468,7 @@ class TeacherViewController: UIViewController, UINavigationControllerDelegate, M
                         try? jsonData.write(to: self.archiveURLs[4], options: .noFileProtection)
                     }
                 } else {
-                    self.mailFive.text = "There's been an error, please hold to try again"
+                    isDismissed = false
                 }
 
                 isSelected = false
@@ -469,13 +495,17 @@ class TeacherViewController: UIViewController, UINavigationControllerDelegate, M
     @IBAction func buttonSix(_ sender: UIButton) {
         Task { @MainActor in
             guard teacher6Label.text! != "TEACHER #6" else {
+                isDismissed = false
+                isSelected = false
                 func searchForTeacher() async {
-                    var targetViewController = await storyboard!.instantiateViewController(withIdentifier: "teacherSearchTable") as! TeacherSearchViewController
+                    let targetViewController = await storyboard!.instantiateViewController(withIdentifier: "teacherSearchTable") as! TeacherSearchViewController
                     await self.navigationController?.showDetailViewController(targetViewController, sender: self)
                     
 //                    try? await Task.sleep(nanoseconds: 5 * 1_000_000_000)
                     while isSelected == false {
-                        // Do nothing
+                        if isDismissed {
+                            break
+                        }
                     }
                 }
                 print("Pushed")
@@ -498,7 +528,7 @@ class TeacherViewController: UIViewController, UINavigationControllerDelegate, M
                         try? jsonData.write(to: self.archiveURLs[5], options: .noFileProtection)
                     }
                 } else {
-                    self.mailSix.text = "There's been an error, please hold to try again"
+                    isDismissed = false
                 }
 
                 isSelected = false
@@ -525,13 +555,17 @@ class TeacherViewController: UIViewController, UINavigationControllerDelegate, M
     @IBAction func buttonSeven(_ sender: UIButton) {
         Task { @MainActor in
             guard teacher7Label.text! != "TEACHER #7" else {
+                isDismissed = false
+                isSelected = false
                 func searchForTeacher() async {
-                    var targetViewController = await storyboard!.instantiateViewController(withIdentifier: "teacherSearchTable") as! TeacherSearchViewController
+                    let targetViewController = await storyboard!.instantiateViewController(withIdentifier: "teacherSearchTable") as! TeacherSearchViewController
                     await self.navigationController?.showDetailViewController(targetViewController, sender: self)
                     
 //                    try? await Task.sleep(nanoseconds: 5 * 1_000_000_000)
                     while isSelected == false {
-                        // Do nothing
+                        if isDismissed {
+                            break
+                        }
                     }
                 }
                 print("Pushed")
@@ -554,7 +588,7 @@ class TeacherViewController: UIViewController, UINavigationControllerDelegate, M
                         try? jsonData.write(to: self.archiveURLs[6], options: .noFileProtection)
                     }
                 } else {
-                    self.mailSeven.text = "There's been an error, please hold to try again"
+                    isDismissed = false
                 }
 
                 isSelected = false
@@ -581,13 +615,17 @@ class TeacherViewController: UIViewController, UINavigationControllerDelegate, M
     @IBAction func buttonEight(_ sender: UIButton) {
         Task { @MainActor in
             guard teacher8Label.text! != "TEACHER #8" else {
+                isDismissed = false
+                isSelected = false
                 func searchForTeacher() async {
-                    var targetViewController = await storyboard!.instantiateViewController(withIdentifier: "teacherSearchTable") as! TeacherSearchViewController
+                    let targetViewController = await storyboard!.instantiateViewController(withIdentifier: "teacherSearchTable") as! TeacherSearchViewController
                     await self.navigationController?.showDetailViewController(targetViewController, sender: self)
                     
 //                    try? await Task.sleep(nanoseconds: 5 * 1_000_000_000)
                     while isSelected == false {
-                        // Do nothing
+                        if isDismissed {
+                            break
+                        }
                     }
                 }
                 print("Pushed")
@@ -610,7 +648,7 @@ class TeacherViewController: UIViewController, UINavigationControllerDelegate, M
                         try? jsonData.write(to: self.archiveURLs[7], options: .noFileProtection)
                     }
                 } else {
-                    self.mailEight.text = "There's been an error, please hold to try again"
+                    isDismissed = false
                 }
 
                 isSelected = false
@@ -735,6 +773,8 @@ class TeacherViewController: UIViewController, UINavigationControllerDelegate, M
                                 options: .noFileProtection)
         }
         self.viewDidLoad()
+        isSelected = true
+        isDismissed = false
     }
     
     @objc func handleTap2(sender: UILongPressGestureRecognizer) {
@@ -868,6 +908,11 @@ class TeacherSearchViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        isDismissed = true
+        super.viewWillDisappear(animated)
+    }
 
     // MARK: - Table view data source
 
@@ -913,18 +958,22 @@ class TeacherSearchViewController: UITableViewController {
             for i in 0...(filteredData.count - 1) {
                 if indexPath[1] == i {
                     selectedTeacher = filteredData[i]
+                    print(selectedTeacher)
                 }
             }
         } else {
             for i in 0...(teacherNames.count - 1) {
                 if indexPath[1] == i {
                     selectedTeacher = teacherNames[i]
+                    print(selectedTeacher)
                 }
             }
         }
         self.dismiss(animated: true)
         isSelected = true
     }
+    
+    
     
 
     /*
