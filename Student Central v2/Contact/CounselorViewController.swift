@@ -268,23 +268,23 @@ func createAdmins() {
 
     var admin = Admin(imgStr: "Springer_crop", adminType: AdminType.Principal, lastName: "Springer", firstName: "Laura", username: "lspringer", callExt: 6104, adminTypeDetailed: "Principal")
     adminList.append(admin)
-
-    admin = Admin(imgStr: "Arnold_crop", adminType: AdminType.Principal, lastName: "Arnold", firstName: "Melissa", username: "marnold", callExt: 6122, adminTypeDetailed: "Associate Principal")
+    
+    admin = Admin(imgStr: "Porter_crop", adminType: AdminType.Principal, lastName: "Porter", firstName: "Zane", username: "zporter", callExt: 0, adminTypeDetailed: "Assistant Principal")
     adminList.append(admin)
 
-    admin = Admin(imgStr: "Rix_crop", adminType: AdminType.Principal, lastName: "Rix", firstName: "Aylor", username: "arix", callExt: 6124, adminTypeDetailed: "Assistant Principal (A-C)")
+    admin = Admin(imgStr: "Kimball_crop", adminType: AdminType.Principal, lastName: "Kimball", firstName: "Sorelle", username: "skimball", callExt: 0, adminTypeDetailed: "Assistant Principal (Students: A - Da) / Campus Behavior Coordinator")
     adminList.append(admin)
 
-    admin = Admin(imgStr: "Osborne_crop", adminType: AdminType.Principal, lastName: "Osborne", firstName: "Cindi", username: "cosborne", callExt: 6126, adminTypeDetailed: "Assistant Principal (D-J)")
+    admin = Admin(imgStr: "Helpenstill_crop", adminType: AdminType.Principal, lastName: "Helpenstill", firstName: "Justin", username: "jhelpenstill", callExt: 0, adminTypeDetailed: "Assistant Principal (Students: Db-J) / Campus Behavior Coordinator")
     adminList.append(admin)
 
-    admin = Admin(imgStr: "Gollner_crop", adminType: AdminType.Principal, lastName: "Gollner", firstName: "Chris", username: "cgollner", callExt: 6123, adminTypeDetailed: "Assistant Principal (K-M)")
+    admin = Admin(imgStr: "Hussey_crop", adminType: AdminType.Principal, lastName: "Hussey", firstName: "Brian", username: "bhussey", callExt: 0, adminTypeDetailed: "Assistant Principal (Students: Sd-Z) / Campus Behavior Coordinator")
     adminList.append(admin)
 
-    admin = Admin(imgStr: "Porter_crop", adminType: AdminType.Principal, lastName: "Porter", firstName: "Zane", username: "zporter", callExt: 0, adminTypeDetailed: "Assistant Principal (N-Sf)")
+    admin = Admin(imgStr: "Ogbeide_crop", adminType: AdminType.Principal, lastName: "Ogbeide", firstName: "Veronica", username: "vogbeide", callExt: 6123, adminTypeDetailed: "Assistant Principal (Students: N-Sc) / Campus Behavior Coordinator")
     adminList.append(admin)
 
-    admin = Admin(imgStr: "Girard_crop", adminType: AdminType.Principal, lastName: "Girard", firstName: "Brandon", username: "bgirard", callExt: 0, adminTypeDetailed: "Assistant Principal (Sg-Z)")
+    admin = Admin(imgStr: "Lowry_crop", adminType: AdminType.Principal, lastName: "Lowry", firstName: "Colleen", username: "clowry", callExt: 0, adminTypeDetailed: "Assistant Principal (Students: K-M) / Campus Behavior Coordinator")
     adminList.append(admin)
     
 //    admin = Admin(imgStr: nil, adminType: AdminType.Principal, lastName: "Yakubovsky", firstName: "Michael", username: "myakubovsky", callExt: 6237, adminTypeDetailed: "STEM Teacher")
