@@ -16,6 +16,9 @@ class MedicalViewController: UIViewController {
     @IBOutlet weak var pregnancyButton: UIButton!
     @IBOutlet weak var substanceButton: UIButton!
     
+    @IBOutlet var labelStack1: [UIButton]!
+    
+    
     @IBAction func generalTap(_ sender: Any) {
         wordd = "General Health"
     }
@@ -31,10 +34,23 @@ class MedicalViewController: UIViewController {
     @IBAction func substanceTap(_ sender: Any) {
         wordd = "Substance Abuse"
     }
-    
+    let deviceType = UIDevice.current.model
+
     override func viewDidLoad() {
         super.viewDidLoad()
         wordd = ""
+        if deviceType == "iPhone" {
+            // iPhone
+            for i in labelStack1 {
+                i.titleLabel!.font = .systemFont(ofSize: 14)
+            }
+        }
+        else if deviceType == "iPad" {
+            // iPhone
+            for i in labelStack1 {
+                i.titleLabel!.font = .systemFont(ofSize: 28)
+            }
+        }
         // Do any additional setup after loading the view.
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
