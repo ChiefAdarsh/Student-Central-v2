@@ -37,9 +37,9 @@ class LinksViewController: UIViewController {
             Clever.titleLabel!.font = .systemFont(ofSize: 70)
             // iPhone
             for i in labelStack1 {
-                let renderer = UIGraphicsImageRenderer(size: CGSize(width: 80, height: 80))
+                let renderer = UIGraphicsImageRenderer(size: CGSize(width: 70, height: 70))
                 let image = i.imageView!.image!
-                let resizedImage = renderer.image { context in image.draw(in: CGRect(origin: .zero, size: CGSize(width: 80, height: 80))) }
+                let resizedImage = renderer.image { context in image.draw(in: CGRect(origin: .zero, size: CGSize(width: 70, height: 70))) }
                 i.setImage(resizedImage.withRenderingMode(.alwaysTemplate), for: .normal)
 
             }

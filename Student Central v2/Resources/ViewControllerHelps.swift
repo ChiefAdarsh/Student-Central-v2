@@ -27,7 +27,9 @@ class HelpViewController: UIViewController {
     @IBOutlet weak var InoutButton: UIButton!
     @IBOutlet var bropLEASE: UIButton!
     
-    
+    @IBOutlet var labelStack1: [UIButton]!
+    let deviceType = UIDevice.current.model
+
     @IBAction func chekcheckTap(_ sender: Any) {
         wordd = "Psychiatrists"
     }
@@ -77,25 +79,40 @@ class HelpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if deviceType == "iPhone" {
+            for i in labelStack1 {
+                i.titleLabel!.font = .systemFont(ofSize: 12)
+            }
+        }
         wordd = ""
+        
         let size = UIScreen.main.bounds.size
         if size.height < size.width {
             stackView.axis = .horizontal
         } else {
             stackView.axis = .vertical
         }
+        
+
+        
+            
         // Do any additional setup after loading the view.
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
         guard let _ = stackView else { return }
-        
+        if deviceType == "iPhone" {
+            for i in labelStack1 {
+                i.titleLabel!.font = .systemFont(ofSize: 11)
+            }
+        }
         if UIDevice.current.orientation.isLandscape {
             stackView.axis = .horizontal
         } else {
             stackView.axis = .vertical
         }
+        
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
                 if let nextViewController = segue.destination as? ViewControllerResPage {
