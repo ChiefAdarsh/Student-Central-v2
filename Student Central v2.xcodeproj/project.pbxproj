@@ -20,13 +20,14 @@
 		65D052B629844E4600BB5A5C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D052B529844E4600BB5A5C /* SceneDelegate.swift */; };
 		65D052B829844E4600BB5A5C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D052B729844E4600BB5A5C /* ViewController.swift */; };
 		65D052BB29844E4600BB5A5C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65D052B929844E4600BB5A5C /* Main.storyboard */; };
-		65D052BD29844E4700BB5A5C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65D052BC29844E4700BB5A5C /* Assets.xcassets */; };
 		65D052C029844E4700BB5A5C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65D052BE29844E4700BB5A5C /* LaunchScreen.storyboard */; };
 		65D052C8298B2E4500BB5A5C /* MapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D052C7298B2E4500BB5A5C /* MapsViewController.swift */; };
 		65D052CA298B2FBC00BB5A5C /* QuickLinksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D052C9298B2FBC00BB5A5C /* QuickLinksViewController.swift */; };
 		65D052CC298B315500BB5A5C /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D052CB298B315500BB5A5C /* ScheduleViewController.swift */; };
 		65D052CE298B337500BB5A5C /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D052CD298B337500BB5A5C /* CalendarViewController.swift */; };
 		65D052D0298B342500BB5A5C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D052CF298B342500BB5A5C /* SettingsViewController.swift */; };
+		872EF7BE29A4BC250004B37A /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872EF7BD29A4BC250004B37A /* WelcomeViewController.swift */; };
+		872EF7E229A53A2F0004B37A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 872EF7E129A53A2F0004B37A /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,7 +45,6 @@
 		65D052B529844E4600BB5A5C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		65D052B729844E4600BB5A5C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		65D052BA29844E4600BB5A5C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		65D052BC29844E4700BB5A5C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		65D052BF29844E4700BB5A5C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		65D052C129844E4700BB5A5C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		65D052C7298B2E4500BB5A5C /* MapsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapsViewController.swift; sourceTree = "<group>"; };
@@ -52,6 +52,8 @@
 		65D052CB298B315500BB5A5C /* ScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
 		65D052CD298B337500BB5A5C /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		65D052CF298B342500BB5A5C /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		872EF7BD29A4BC250004B37A /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		872EF7E129A53A2F0004B37A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 		65D052A729844E4600BB5A5C = {
 			isa = PBXGroup;
 			children = (
+				872EF7BC29A4BB8C0004B37A /* Onboarding */,
 				65D052B229844E4600BB5A5C /* Student Central v2 */,
 				65D052B129844E4600BB5A5C /* Products */,
 			);
@@ -125,12 +128,20 @@
 				65B174742996DBFA00B8E0BD /* Resources */,
 				65C019FD29958CCC002E1AC7 /* Home Screen Buttons */,
 				65266EE229942E28001778AF /* Contact */,
+				872EF7E129A53A2F0004B37A /* Assets.xcassets */,
 				65D052B929844E4600BB5A5C /* Main.storyboard */,
-				65D052BC29844E4700BB5A5C /* Assets.xcassets */,
 				65D052BE29844E4700BB5A5C /* LaunchScreen.storyboard */,
 				65D052C129844E4700BB5A5C /* Info.plist */,
 			);
 			path = "Student Central v2";
+			sourceTree = "<group>";
+		};
+		872EF7BC29A4BB8C0004B37A /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				872EF7BD29A4BC250004B37A /* WelcomeViewController.swift */,
+			);
+			path = Onboarding;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -192,7 +203,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				65D052C029844E4700BB5A5C /* LaunchScreen.storyboard in Resources */,
-				65D052BD29844E4700BB5A5C /* Assets.xcassets in Resources */,
+				872EF7E229A53A2F0004B37A /* Assets.xcassets in Resources */,
 				65D052BB29844E4600BB5A5C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -213,6 +224,7 @@
 				65D052CC298B315500BB5A5C /* ScheduleViewController.swift in Sources */,
 				65142E262996D86D003FACC3 /* Teacher Files.swift in Sources */,
 				656FE0312992EA50002BAEEF /* CounselorViewController.swift in Sources */,
+				872EF7BE29A4BC250004B37A /* WelcomeViewController.swift in Sources */,
 				65D052CA298B2FBC00BB5A5C /* QuickLinksViewController.swift in Sources */,
 				65217586299C1AFB000A04F9 /* ViewControllerHelps.swift in Sources */,
 				65D052CE298B337500BB5A5C /* CalendarViewController.swift in Sources */,
