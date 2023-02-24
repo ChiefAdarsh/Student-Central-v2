@@ -59,6 +59,9 @@ class TeacherViewController: UIViewController, UINavigationControllerDelegate, M
     @IBOutlet var CounselorButton: UIButton!
     @IBOutlet var AdminButton: UIButton!
     
+    @IBOutlet var labelStack1: [UIButton]!
+    let deviceType = UIDevice.current.model
+
     var teacherLabels: [UILabel?] {
         return [
             teacher1Label,
@@ -700,6 +703,12 @@ class TeacherViewController: UIViewController, UINavigationControllerDelegate, M
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        if deviceType == "iPhone" {
+            for i in labelStack1 {
+                i.titleLabel!.font = .systemFont(ofSize: 16)
+            }
+        }
         
         for i in 0..<8 {
             archiveURLs.append(documentsDirectory.appendingPathComponent("teacher\(i + 1)")
