@@ -93,21 +93,21 @@ class TeacherViewController: UIViewController, UINavigationControllerDelegate, M
         if size.height < size.width {
             sv.axis = .horizontal
             sv.spacing = 66
-            teacher1Label.font = .systemFont(ofSize: 35, weight: .bold)
+            teacher1Label.font = .systemFont(ofSize: 25, weight: .bold)
             mail1Label.font = .systemFont(ofSize: 20, weight: .bold)
-            teacher2Label.font = .systemFont(ofSize: 35, weight: .bold)
+            teacher2Label.font = .systemFont(ofSize: 25, weight: .bold)
             mail2Label.font = .systemFont(ofSize: 20, weight: .bold)
-            teacher3Label.font = .systemFont(ofSize: 35, weight: .bold)
+            teacher3Label.font = .systemFont(ofSize: 25, weight: .bold)
             mail3Label.font = .systemFont(ofSize: 20, weight: .bold)
-            teacher4Label.font = .systemFont(ofSize: 35, weight: .bold)
+            teacher4Label.font = .systemFont(ofSize: 25, weight: .bold)
             mail4Label.font = .systemFont(ofSize: 20, weight: .bold)
-            teacher5Label.font = .systemFont(ofSize: 35, weight: .bold)
+            teacher5Label.font = .systemFont(ofSize: 25, weight: .bold)
             mail5Label.font = .systemFont(ofSize: 20, weight: .bold)
-            teacher6Label.font = .systemFont(ofSize: 35, weight: .bold)
+            teacher6Label.font = .systemFont(ofSize: 25, weight: .bold)
             mail6Label.font = .systemFont(ofSize: 20, weight: .bold)
-            teacher7Label.font = .systemFont(ofSize: 35, weight: .bold)
+            teacher7Label.font = .systemFont(ofSize: 25, weight: .bold)
             mail7Label.font = .systemFont(ofSize: 20, weight: .bold)
-            teacher8Label.font = .systemFont(ofSize: 35, weight: .bold)
+            teacher8Label.font = .systemFont(ofSize: 25, weight: .bold)
             mail8Label.font = .systemFont(ofSize: 20, weight: .bold)
         } else {
             sv.axis = .vertical

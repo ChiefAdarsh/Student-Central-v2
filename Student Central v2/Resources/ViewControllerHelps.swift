@@ -12,7 +12,8 @@ class HelpViewController: UIViewController {
 
     var wordd : String = ""
     
-    
+    let deviceType = UIDevice.current.model
+
     
     
     @IBOutlet var stackView: UIStackView!
@@ -26,6 +27,7 @@ class HelpViewController: UIViewController {
     @IBOutlet weak var CrisisButton: UIButton!
     @IBOutlet weak var InoutButton: UIButton!
     @IBOutlet var bropLEASE: UIButton!
+    @IBOutlet var labelStack1: [UIButton]!
     
     
     @IBAction func chekcheckTap(_ sender: Any) {
@@ -78,6 +80,11 @@ class HelpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         wordd = ""
+        if deviceType == "iPhone" {
+            InoutButton.titleLabel!.font = .systemFont(ofSize: 14)
+            // iPhone
+        }
+        
         let size = UIScreen.main.bounds.size
         if size.height < size.width {
             stackView.axis = .horizontal
