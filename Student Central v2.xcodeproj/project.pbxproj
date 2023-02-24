@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		17646AC629A938D800941660 /* realtime.py in Resources */ = {isa = PBXBuildFile; fileRef = 17646AC529A938D800941660 /* realtime.py */; };
+		17646AC829A93AA600941660 /* info.py in Resources */ = {isa = PBXBuildFile; fileRef = 17646AC729A93AA600941660 /* info.py */; };
 		65142E262996D86D003FACC3 /* Teacher Files.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65142E252996D86D003FACC3 /* Teacher Files.swift */; };
 		65217574299ACEDD000A04F9 /* MedicalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65217573299ACEDD000A04F9 /* MedicalViewController.swift */; };
 		65217580299C1A85000A04F9 /* StudentHelpResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6521757F299C1A85000A04F9 /* StudentHelpResources.swift */; };
@@ -32,6 +33,7 @@
 
 /* Begin PBXFileReference section */
 		17646AC529A938D800941660 /* realtime.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = realtime.py; sourceTree = "<group>"; };
+		17646AC729A93AA600941660 /* info.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = info.py; sourceTree = "<group>"; };
 		65142E252996D86D003FACC3 /* Teacher Files.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Teacher Files.swift"; sourceTree = "<group>"; };
 		65217573299ACEDD000A04F9 /* MedicalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicalViewController.swift; sourceTree = "<group>"; };
 		6521757F299C1A85000A04F9 /* StudentHelpResources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentHelpResources.swift; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 				65217583299C1AD2000A04F9 /* ViewControllerResource.swift */,
 				65217585299C1AFB000A04F9 /* ViewControllerHelps.swift */,
 				17646AC529A938D800941660 /* realtime.py */,
+				17646AC729A93AA600941660 /* info.py */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -195,6 +198,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				65D052C029844E4700BB5A5C /* LaunchScreen.storyboard in Resources */,
+				17646AC829A93AA600941660 /* info.py in Resources */,
 				17646AC629A938D800941660 /* realtime.py in Resources */,
 				65D052BD29844E4700BB5A5C /* Assets.xcassets in Resources */,
 				65D052BB29844E4600BB5A5C /* Main.storyboard in Resources */,
