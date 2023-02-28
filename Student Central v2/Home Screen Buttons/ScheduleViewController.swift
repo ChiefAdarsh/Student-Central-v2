@@ -7,13 +7,16 @@
 
 import UIKit
 
-class ClassScheduleViewController: UIViewController {
+class ClassShuttleViewController: UIViewController {
     @IBOutlet var segue: UISegmentedControl!
     @IBOutlet var sv: UIStackView!
     @IBOutlet var sv2: UIStackView!
     @IBOutlet var viewContainer: UIView!
     @IBOutlet var svView1: UIView!
     @IBOutlet var svView2: UIView!
+    
+    @IBOutlet var classScheduleButton: UIButton!
+    @IBOutlet var shuttleScheduleButton: UIButton!
     
     // A-B day elements
     @IBOutlet var class15: UITextField!
@@ -29,12 +32,11 @@ class ClassScheduleViewController: UIViewController {
     @IBOutlet var start37: UILabel!
     @IBOutlet var class48: UITextField!
     @IBOutlet var teacher48: UITextField!
-        
+    
     @IBOutlet var p15: UILabel!
     @IBOutlet var p26: UILabel!
     @IBOutlet var p37: UILabel!
     @IBOutlet var p48: UILabel!
-    
     
     var isA: Bool = true
     var archiveURLs: [URL] = []
@@ -62,7 +64,6 @@ class ClassScheduleViewController: UIViewController {
     @IBOutlet var class6C: UITextField!
     @IBOutlet var teacher6C: UITextField!
     @IBOutlet var end6C: UILabel!
-    @IBOutlet var lunchDropdownC: UIButton!
     @IBOutlet var lunchStartC: UILabel!
     @IBOutlet var lunchEndC: UILabel!
     @IBOutlet var class3C: UITextField!
@@ -78,7 +79,6 @@ class ClassScheduleViewController: UIViewController {
     var teachersC: [String]!
     var lunchTypeC: String!
     
-    
     @IBOutlet var lunchLabelC: UILabel!
     struct Day: Codable {
         let type: String
@@ -86,11 +86,11 @@ class ClassScheduleViewController: UIViewController {
         let teachers: [String]
         let lunchType: String
     }
-    
     // A & B Day Closures
     lazy var placeholderClosureAB = { [self](action: UIAction) in
         print("link")
         self.lunchDropdown.setTitleColor(.link, for: .normal)
+
 
         lunchStart.text = "--------"
         lunchEnd.text = "--------"
@@ -102,6 +102,7 @@ class ClassScheduleViewController: UIViewController {
             lunchTypeB = "Select Lunch"
             updateDataB()
         }
+
 
         return
     }
@@ -136,46 +137,6 @@ class ClassScheduleViewController: UIViewController {
         
         return
     }
-    
-    
-    // C Day Closures
-//    lazy var placeholderClosureC = { [self](action: UIAction) in
-//        self.lunchDropdownC.setTitleColor(.link, for: .normal)
-//
-//        lunchStartC.text = "--------"
-//        lunchEndC.text = "--------"
-//        start3C.text = "12:10 PM"
-//        lunchTypeC = "Select Lunch"
-//        updateDataC()
-//
-//        return
-//    }
-//    lazy var optionClosureC = { [self](action: UIAction) in
-//        self.lunchDropdownC.setTitleColor(.black, for: .normal)
-//
-//        switch(action.title) {
-//        case "A Lunch":
-//            lunchStartC.text = "12:05 PM"
-//            lunchEndC.text = "12:35 PM"
-//            start3C.text = "12:35 PM"
-//            break;
-//        case "B Lunch":
-//            lunchStartC.text = "12:40 PM"
-//            lunchEndC.text = "1:10 PM"
-//            start3C.text = "1:10 PM"
-//            break;
-//        default:
-//            lunchStartC.text = "1:15 PM"
-//            lunchEndC.text = "1:45 PM"
-//            start3C.text = "1:45 PM"
-//            break;
-//        }
-//
-//        lunchTypeC = action.title
-//        updateDataC()
-//
-//        return
-//    }
     
     // Change Period Column Labels for B Day
     
@@ -213,6 +174,7 @@ class ClassScheduleViewController: UIViewController {
         }
     }
 
+
     func reloadDataAB() {
         var lunchType = "Select Lunch"
         if isA {
@@ -244,32 +206,31 @@ class ClassScheduleViewController: UIViewController {
             
             lunchType = lunchTypeB
         }
-        
         var actionArr: [UIAction] = []
-        if "Select Lunch" != lunchType {
-            actionArr.append(UIAction(title: "Select Lunch", handler: placeholderClosureAB))
-        }
-        if "A Lunch" != lunchType {
-            actionArr.append(UIAction(title: "A Lunch", handler: optionClosureAB))
-        }
-        if "B Lunch" != lunchType {
-            actionArr.append(UIAction(title: "B Lunch", handler: optionClosureAB))
-        }
-        if "C Lunch" != lunchType {
-            actionArr.append(UIAction(title: "C Lunch", handler: optionClosureAB))
+            if "Select Lunch" != lunchType {
+                actionArr.append(UIAction(title: "Select Lunch", handler: placeholderClosureAB))
+            }
+            if "A Lunch" != lunchType {
+                actionArr.append(UIAction(title: "A Lunch", handler: optionClosureAB))
+            }
+            if "B Lunch" != lunchType {
+                actionArr.append(UIAction(title: "B Lunch", handler: optionClosureAB))
+            }
+            if "C Lunch" != lunchType {
+                actionArr.append(UIAction(title: "C Lunch", handler: optionClosureAB))
+            }
+            
+            let newAction = UIAction(title: lunchType, state: .on, handler: lunchType == "Select Lunch" ? placeholderClosureAB : optionClosureAB)
+            actionArr.append(newAction)
+            lunchDropdown.menu = UIMenu(children: actionArr)
+            
+            if(lunchType == "Select Lunch") {
+                placeholderClosureAB(newAction)
+            } else {
+                optionClosureAB(newAction)
+            }
         }
         
-        let newAction = UIAction(title: lunchType, state: .on, handler: lunchType == "Select Lunch" ? placeholderClosureAB : optionClosureAB)
-        actionArr.append(newAction)
-        lunchDropdown.menu = UIMenu(children: actionArr)
-        
-        if(lunchType == "Select Lunch") {
-            placeholderClosureAB(newAction)
-        } else {
-            optionClosureAB(newAction)
-        }
-    }
-    
     func reloadDataC() {
         classesC[0] = classesA[0]
         classesC[1] = classesA[1]
@@ -307,269 +268,256 @@ class ClassScheduleViewController: UIViewController {
         teacher7C.text = teachersC[6]
         teacher8C.text = teachersC[7]
     }
-//
-//        var actionArr: [UIAction] = []
-//        if "Select Lunch" != lunchTypeC {
-//            actionArr.append(UIAction(title: "Select Lunch", handler: placeholderClosureC))
-//        }
-//        if "A Lunch" != lunchTypeC {
-//            actionArr.append(UIAction(title: "A Lunch", handler: optionClosureC))
-//        }
-//        if "B Lunch" != lunchTypeC {
-//            actionArr.append(UIAction(title: "B Lunch", handler: optionClosureC))
-//        }
-//        if "C Lunch" != lunchTypeC {
-//            actionArr.append(UIAction(title: "C Lunch", handler: optionClosureC))
-//        }
-//
-//        let newAction = UIAction(title: lunchTypeC, state: .on, handler: lunchTypeC == "Select Lunch" ? placeholderClosureC : optionClosureC)
-//        actionArr.append(newAction)
-//        lunchDropdownC.menu = UIMenu(children: actionArr)
-//
-//        if(lunchTypeC == "Select Lunch") {
-//            placeholderClosureC(newAction)
-//        } else {
-//            optionClosureC(newAction)
-//        }
-//    }
     
     func updateDataA() {
-        let newDay = Day(type: "A", classes: classesA, teachers: teachersA, lunchType: lunchTypeA)
-        let jsonEncoder = JSONEncoder()
-        if let jsonData = try? jsonEncoder.encode(newDay),
-            let jsonString = String(data: jsonData, encoding: .utf8) {
-            print(jsonString)
-            
-            try? jsonData.write(to: self.archiveURLs[0],
-               options: .noFileProtection)
-        }
-    }
-    
-    func updateDataB() {
-        let newDay = Day(type: "B", classes: classesB, teachers: teachersB, lunchType: lunchTypeB)
-        let jsonEncoder = JSONEncoder()
-        if let jsonData = try? jsonEncoder.encode(newDay),
-            let jsonString = String(data: jsonData, encoding: .utf8) {
-            print(jsonString)
-            
-            try? jsonData.write(to: self.archiveURLs[1],
-               options: .noFileProtection)
-        }
-    }
-    
-    func updateDataC() {
-        let newDay = Day(type: "C", classes: classesC, teachers: teachersC, lunchType: lunchTypeC)
-        let jsonEncoder = JSONEncoder()
-        if let jsonData = try? jsonEncoder.encode(newDay),
-            let jsonString = String(data: jsonData, encoding: .utf8) {
-            print(jsonString)
-            
-            try? jsonData.write(to: self.archiveURLs[2],
-               options: .noFileProtection)
-        }
-    }
-    
-    @IBAction func class15Edited(_ sender: UITextField) {
-        if(isA) {
-            classesA[0] = sender.text!
-            updateDataA()
-        } else {
-            classesB[0] = sender.text!
-            updateDataB()
-        }
-    }
-    
-    @IBAction func class26Edited(_ sender: UITextField) {
-        if(isA) {
-            classesA[1] = sender.text!
-            updateDataA()
-        } else {
-            classesB[1] = sender.text!
-            updateDataB()
-        }
-    }
-    
-    @IBAction func class37Edited(_ sender: UITextField) {
-        if(isA) {
-            classesA[2] = sender.text!
-            updateDataA()
-        } else {
-            classesB[2] = sender.text!
-            updateDataB()
-        }
-    }
-    
-    @IBAction func class48Edited(_ sender: UITextField) {
-        if(isA) {
-            classesA[3] = sender.text!
-            updateDataA()
-        } else {
-            classesB[3] = sender.text!
-            updateDataB()
-        }
-    }
-    
-    @IBAction func teacher15Edited(_ sender: UITextField) {
-        if(isA) {
-            teachersA[0] = sender.text!
-            updateDataA()
-        } else {
-            teachersB[0] = sender.text!
-            updateDataB()
-        }
-    }
-    
-    @IBAction func teacher26Edited(_ sender: UITextField) {
-        if(isA) {
-            teachersA[1] = sender.text!
-            updateDataA()
-        } else {
-            teachersB[1] = sender.text!
-            updateDataB()
-        }
-    }
-    
-    @IBAction func teacher37Edited(_ sender: UITextField) {
-        if(isA) {
-            teachersA[2] = sender.text!
-            updateDataA()
-        } else {
-            teachersB[2] = sender.text!
-            updateDataB()
-        }
-    }
-    
-    @IBAction func teacher48Edited(_ sender: UITextField) {
-        if(isA) {
-            teachersA[3] = sender.text!
-            updateDataA()
-        } else {
-            teachersB[3] = sender.text!
-            updateDataB()
-        }
-    }
-        
-    @IBAction func seguePressed(_ sender: UISegmentedControl) {
-        switch sender.selectedSegmentIndex {
-        case 0:
-            svView1.isOpaque = true
-            svView1.isHidden = true
-            svView2.isOpaque = false
-            svView2.isHidden = false
-            isA = true
-            viewContainer.bringSubviewToFront(svView2)
-            setPeriodTextA()
-            reloadDataAB()
-            break;
-        case 1:
-            svView1.isOpaque = true
-            svView1.isHidden = true
-            svView2.isOpaque = false
-            svView2.isHidden = false
-            isA = false
-            viewContainer.bringSubviewToFront(svView2)
-            setPeriodTextB()
-            reloadDataAB()
-            break;
-        case 2:
-            svView1.isOpaque = false
-            svView1.isHidden = false
-            svView2.isOpaque = true
-            svView2.isHidden = true
-            isA = false
-            updateLunchC()
-            viewContainer.bringSubviewToFront(svView1)
-            reloadDataAB()
-            break;
-        default:
-            break;
-        }
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        viewContainer.bringSubviewToFront(svView2)
-        svView1.isOpaque = true
-        svView1.isHidden = true
-        
-        classesA = ["Class 1", "Class 2", "Class 3", "Class 4"]
-        teachersA = ["Teacher 1", "Teacher 2", "Teacher 3", "Teacher 4"]
-        lunchTypeA = "Select Lunch"
-        
-        classesB = ["Class 5", "Class 6", "Class 7", "Class 8"]
-        teachersB = ["Teacher 5", "Teacher 6", "Teacher 7", "Teacher 8"]
-        lunchTypeB = "Select Lunch"
-        
-        classesC = ["Class 1", "Class 2", "Class 3", "Class 4", "Class 5", "Class 6", "Class 7", "Class 8"]
-        teachersC = ["Teacher 1", "Teacher 2", "Teacher 3", "Teacher 4", "Teacher 5", "Teacher 6", "Teacher 7", "Teacher 8"]
-        //lunchTypeC = "Select Lunch"
-        
-        // A & B Day Lunch Dropdown
-        
-        lunchDropdown.showsMenuAsPrimaryAction = true
-        lunchDropdown.changesSelectionAsPrimaryAction = true
-        lunchDropdown.menu = UIMenu(children: [
-            UIAction(title: "Select Lunch", state: .on, handler: placeholderClosureAB),
-            UIAction(title: "A Lunch", handler: optionClosureAB),
-            UIAction(title: "B Lunch", handler: optionClosureAB),
-            UIAction(title: "C Lunch", handler: optionClosureAB)
-        ])
-        
-        // C Day Lunch Dropdown
-        
-//        lunchDropdownC.showsMenuAsPrimaryAction = true
-//        lunchDropdownC.changesSelectionAsPrimaryAction = true
-//        lunchDropdownC.menu = UIMenu(children: [
-//            UIAction(title: "Select Lunch", state: .on, handler: placeholderClosureC),
-//            UIAction(title: "A Lunch", handler: optionClosureC),
-//            UIAction(title: "B Lunch", handler: optionClosureC),
-//            UIAction(title: "C Lunch", handler: optionClosureC)
-//        ])
-        
-        for i in 0..<3 {
-            let url = documentsDirectory.appendingPathComponent("day\(i + 1)")
-                .appendingPathExtension("plist")
-            archiveURLs.append(url)
-            
-            let jsonDecoder = JSONDecoder()
-            if let retrievedData = try? Data(contentsOf: url),
-                let decodedData = try?
-               jsonDecoder.decode(Day.self,
-               from: retrievedData) {
-                print(decodedData)
+            let newDay = Day(type: "A", classes: classesA, teachers: teachersA, lunchType: lunchTypeA)
+            let jsonEncoder = JSONEncoder()
+            if let jsonData = try? jsonEncoder.encode(newDay),
+                let jsonString = String(data: jsonData, encoding: .utf8) {
+                print(jsonString)
                 
-                switch(decodedData.type) {
-                case "A":
-                    classesA = decodedData.classes
-                    teachersA = decodedData.teachers
-                    lunchTypeA = decodedData.lunchType
-                    break;
-                case "B":
-                    classesB = decodedData.classes
-                    teachersB = decodedData.teachers
-                    lunchTypeB = decodedData.lunchType
-                    break;
-                default:
-                    classesC = decodedData.classes
-                    teachersC = decodedData.teachers
-                    lunchTypeC = decodedData.lunchType
-                    break;
-                }
+                try? jsonData.write(to: self.archiveURLs[0],
+                   options: .noFileProtection)
             }
         }
         
-        // Reload data
-        reloadDataAB()
-        reloadDataC()
-    }
-}
-
-class ShuttleViewController: UIViewController {
-    @IBOutlet var route1: UILabel!
-    @IBOutlet var sv: UIStackView!
-    @IBOutlet var route2: UILabel!
-    @IBOutlet var scheduleSwitch: UISegmentedControl!
+        func updateDataB() {
+            let newDay = Day(type: "B", classes: classesB, teachers: teachersB, lunchType: lunchTypeB)
+            let jsonEncoder = JSONEncoder()
+            if let jsonData = try? jsonEncoder.encode(newDay),
+                let jsonString = String(data: jsonData, encoding: .utf8) {
+                print(jsonString)
+                
+                try? jsonData.write(to: self.archiveURLs[1],
+                   options: .noFileProtection)
+            }
+        }
+        
+        func updateDataC() {
+            let newDay = Day(type: "C", classes: classesC, teachers: teachersC, lunchType: lunchTypeC)
+            let jsonEncoder = JSONEncoder()
+            if let jsonData = try? jsonEncoder.encode(newDay),
+                let jsonString = String(data: jsonData, encoding: .utf8) {
+                print(jsonString)
+                
+                try? jsonData.write(to: self.archiveURLs[2],
+                   options: .noFileProtection)
+            }
+        }
+        
+        @IBAction func class15Edited(_ sender: UITextField) {
+            if(isA) {
+                classesA[0] = sender.text!
+                updateDataA()
+            } else {
+                classesB[0] = sender.text!
+                updateDataB()
+            }
+        }
+        
+        @IBAction func class26Edited(_ sender: UITextField) {
+            if(isA) {
+                classesA[1] = sender.text!
+                updateDataA()
+            } else {
+                classesB[1] = sender.text!
+                updateDataB()
+            }
+        }
+        
+        @IBAction func class37Edited(_ sender: UITextField) {
+            if(isA) {
+                classesA[2] = sender.text!
+                updateDataA()
+            } else {
+                classesB[2] = sender.text!
+                updateDataB()
+            }
+        }
+        
+        @IBAction func class48Edited(_ sender: UITextField) {
+            if(isA) {
+                classesA[3] = sender.text!
+                updateDataA()
+            } else {
+                classesB[3] = sender.text!
+                updateDataB()
+            }
+        }
+        
+        @IBAction func teacher15Edited(_ sender: UITextField) {
+            if(isA) {
+                teachersA[0] = sender.text!
+                updateDataA()
+            } else {
+                teachersB[0] = sender.text!
+                updateDataB()
+            }
+        }
+        
+        @IBAction func teacher26Edited(_ sender: UITextField) {
+            if(isA) {
+                teachersA[1] = sender.text!
+                updateDataA()
+            } else {
+                teachersB[1] = sender.text!
+                updateDataB()
+            }
+        }
+        
+        @IBAction func teacher37Edited(_ sender: UITextField) {
+            if(isA) {
+                teachersA[2] = sender.text!
+                updateDataA()
+            } else {
+                teachersB[2] = sender.text!
+                updateDataB()
+            }
+        }
+        
+        @IBAction func teacher48Edited(_ sender: UITextField) {
+            if(isA) {
+                teachersA[3] = sender.text!
+                updateDataA()
+            } else {
+                teachersB[3] = sender.text!
+                updateDataB()
+            }
+        }
+            
+        @IBAction func seguePressed(_ sender: UISegmentedControl) {
+            switch sender.selectedSegmentIndex {
+            case 0:
+                svView1.isOpaque = true
+                svView1.isHidden = true
+                svView2.isOpaque = false
+                svView2.isHidden = false
+                isA = true
+                viewContainer.bringSubviewToFront(svView2)
+                setPeriodTextA()
+                reloadDataAB()
+                break;
+            case 1:
+                svView1.isOpaque = true
+                svView1.isHidden = true
+                svView2.isOpaque = false
+                svView2.isHidden = false
+                isA = false
+                viewContainer.bringSubviewToFront(svView2)
+                setPeriodTextB()
+                reloadDataAB()
+                break;
+            case 2:
+                svView1.isOpaque = false
+                svView1.isHidden = false
+                svView2.isOpaque = true
+                svView2.isHidden = true
+                isA = false
+                updateLunchC()
+                viewContainer.bringSubviewToFront(svView1)
+                reloadDataAB()
+                break;
+            default:
+                break;
+            }
+        }
     
+    //sd
+    override func viewDidLoad() {
+      super.viewDidLoad()
+      viewContainer.bringSubviewToFront(svView2)
+      svView1.isOpaque = true
+      svView1.isHidden = true
+      rotation()
+      
+      //viewContainer.bringSubviewToFront(toggleView)
+      //mainView.bringSubviewToFront(toggleView)
+      
+      shuttleView.isHidden = true
+      classScheduleView.isHidden = false
+      //toggleView.isHidden = false
+      //toggleView.isOpaque = true
+      
+      
+      
+      
+      
+      let textRange1 = NSMakeRange(0, route1.text!.count)
+      let attributedText1 = NSMutableAttributedString(string: route1.text!)
+      attributedText1.addAttribute(NSAttributedString.Key.underlineStyle, value: NSUnderlineStyle.single.rawValue, range: textRange1)
+      route1.attributedText = attributedText1
+      
+      let textRange2 = NSMakeRange(0, route2.text!.count)
+      let attributedText2 = NSMutableAttributedString(string: route2.text!)
+      attributedText2.addAttribute(NSAttributedString.Key.underlineStyle, value: NSUnderlineStyle.single.rawValue, range: textRange2)
+      route2.attributedText = attributedText2
+      
+      classesA = ["Class 1", "Class 2", "Class 3", "Class 4"]
+      teachersA = ["Teacher 1", "Teacher 2", "Teacher 3", "Teacher 4"]
+      lunchTypeA = "Select Lunch"
+      
+      classesB = ["Class 5", "Class 6", "Class 7", "Class 8"]
+      teachersB = ["Teacher 5", "Teacher 6", "Teacher 7", "Teacher 8"]
+      lunchTypeB = "Select Lunch"
+      
+      classesC = ["Class 1", "Class 2", "Class 3", "Class 4", "Class 5", "Class 6", "Class 7", "Class 8"]
+      teachersC = ["Teacher 1", "Teacher 2", "Teacher 3", "Teacher 4", "Teacher 5", "Teacher 6", "Teacher 7", "Teacher 8"]
+      
+      // A & B Day Lunch Dropdown
+      
+      lunchDropdown.showsMenuAsPrimaryAction = true
+      lunchDropdown.changesSelectionAsPrimaryAction = true
+      lunchDropdown.menu = UIMenu(children: [
+          UIAction(title: "Select Lunch", state: .on, handler: placeholderClosureAB),
+          UIAction(title: "A Lunch", handler: optionClosureAB),
+          UIAction(title: "B Lunch", handler: optionClosureAB),
+          UIAction(title: "C Lunch", handler: optionClosureAB)
+      ])
+
+
+      
+      for i in 0..<3 {
+          let url = documentsDirectory.appendingPathComponent("day\(i + 1)")
+              .appendingPathExtension("plist")
+          archiveURLs.append(url)
+          
+          let jsonDecoder = JSONDecoder()
+          if let retrievedData = try? Data(contentsOf: url),
+              let decodedData = try?
+             jsonDecoder.decode(Day.self,
+             from: retrievedData) {
+              print(decodedData)
+              
+              switch(decodedData.type) {
+              case "A":
+                  classesA = decodedData.classes
+                  teachersA = decodedData.teachers
+                  lunchTypeA = decodedData.lunchType
+                  break;
+              case "B":
+                  classesB = decodedData.classes
+                  teachersB = decodedData.teachers
+                  lunchTypeB = decodedData.lunchType
+                  break;
+              default:
+                  classesC = decodedData.classes
+                  teachersC = decodedData.teachers
+                  lunchTypeC = decodedData.lunchType
+                  break;
+              }
+          }
+      }
+      
+      // Reload data
+      reloadDataAB()
+      reloadDataC()
+  }
+    // Shuttle Schedule Information
+    @IBOutlet var route1: UILabel!
+    //@IBOutlet var sv: UIStackView!
+    @IBOutlet var svShuttle: UIStackView!
+    @IBOutlet var route2: UILabel!
+
     // Periods
     @IBOutlet var period1: UILabel!
     @IBOutlet var period2: UILabel!
@@ -590,14 +538,34 @@ class ShuttleViewController: UIViewController {
     @IBOutlet var departure7: UILabel!
     @IBOutlet var departure8: UILabel!
     
+    @IBOutlet var shuttleView: UIView!
+    @IBOutlet var classScheduleView: UIView!
+    
+    
+    @IBAction func cSButtonClicked(_ sender: UIButton) {
+        shuttleView.isHidden = true
+        classScheduleView.isHidden = false
+        classScheduleButton.backgroundColor = .gray
+        shuttleScheduleButton.backgroundColor = .white
+    }
+
+    
+    @IBAction func sSButtonClicked(_ sender: UIButton) {
+        shuttleView.isHidden = false
+        classScheduleView.isHidden = true
+        classScheduleButton.backgroundColor = .white
+        shuttleScheduleButton.backgroundColor = .gray
+    }
+    
+    
     func rotation() {
         let size = UIScreen.main.bounds.size
         if size.height < size.width {
-            sv.axis = .horizontal
-            sv.spacing = 97
+            svShuttle.axis = .horizontal
+            svShuttle.spacing = 97
         } else {
-            sv.axis = .vertical
-            sv.spacing = 50
+            svShuttle.axis = .vertical
+            svShuttle.spacing = 50
         }
     }
     
@@ -687,21 +655,5 @@ class ShuttleViewController: UIViewController {
         super.viewWillTransition(to: size, with: coordinator)
         rotation()
     }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        rotation()
-        
-        let textRange1 = NSMakeRange(0, route1.text!.count)
-        let attributedText1 = NSMutableAttributedString(string: route1.text!)
-        attributedText1.addAttribute(NSAttributedString.Key.underlineStyle, value: NSUnderlineStyle.single.rawValue, range: textRange1)
-        route1.attributedText = attributedText1
-        
-        let textRange2 = NSMakeRange(0, route2.text!.count)
-        let attributedText2 = NSMutableAttributedString(string: route2.text!)
-        attributedText2.addAttribute(NSAttributedString.Key.underlineStyle, value: NSUnderlineStyle.single.rawValue, range: textRange2)
-        route2.attributedText = attributedText2
-    }
 }
-
 
