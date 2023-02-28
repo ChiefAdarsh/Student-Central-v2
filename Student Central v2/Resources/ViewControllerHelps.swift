@@ -27,6 +27,8 @@ class HelpViewController: UIViewController {
     @IBOutlet weak var CrisisButton: UIButton!
     @IBOutlet weak var InoutButton: UIButton!
     @IBOutlet var bropLEASE: UIButton!
+    
+    @IBOutlet weak var ShelterButton: UIButton!
     @IBOutlet var labelStack1: [UIButton]!
     
     
@@ -71,11 +73,10 @@ class HelpViewController: UIViewController {
     @IBAction func housingTap(_ sender: Any) {
         wordd = "Housing"
     }
+    
     @IBAction func shelterTap(_ sender: Any) {
         wordd = "Shelter"
     }
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
