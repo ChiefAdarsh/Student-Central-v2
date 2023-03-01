@@ -21,18 +21,22 @@ class MedicalViewController: UIViewController {
     
     @IBAction func generalTap(_ sender: Any) {
         wordd = "General Health"
+        ViewControllerResPage.category = "General Health"
     }
     @IBAction func AIDSHIVTap(_ sender: Any) {
         wordd = "Aids and HIV"
+        ViewControllerResPage.category = "Aids and HIV"
     }
     @IBAction func mentalTap(_ sender: Any) {
         wordd = "Mental Health"
+        ViewControllerResPage.category = "Mental Health"
     }
     @IBAction func pregnancyTap(_ sender: Any) {
         wordd = "Pregnancy"
-    }
+        ViewControllerResPage.category = "Pregnancy"    }
     @IBAction func substanceTap(_ sender: Any) {
         wordd = "Substance Abuse"
+        ViewControllerResPage.category = "Substance Abuse"
     }
     let deviceType = UIDevice.current.model
 

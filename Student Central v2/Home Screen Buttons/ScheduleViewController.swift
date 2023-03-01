@@ -426,6 +426,8 @@ class ClassShuttleViewController: UIViewController {
     override func viewDidLoad() {
       super.viewDidLoad()
       viewContainer.bringSubviewToFront(svView2)
+      classScheduleButton.backgroundColor = .gray
+      shuttleScheduleButton.backgroundColor = .white
       svView1.isOpaque = true
       svView1.isHidden = true
       rotation()

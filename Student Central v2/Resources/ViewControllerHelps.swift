@@ -34,49 +34,62 @@ class HelpViewController: UIViewController {
     
     @IBAction func chekcheckTap(_ sender: Any) {
         wordd = "Psychiatrists"
+        ViewControllerResPage.category = "Psychiatrists"
     }
     @IBAction func CrisisTap(_ sender: Any) {
         wordd = "Crisis Lines"
+        ViewControllerResPage.category = "Crisis Lines"
     }
     
     @IBAction func bropLEASETap(_ sender: Any) {
         wordd = "Support Groups and Resources"
-    }
-    
-    
-    @IBAction func InoutTap(_ sender: Any) {
-        wordd = "Inpatient/Outpatient Mental Health Facilities"
-    }
-    
-    @IBAction func CounselingTap(_ sender: Any) {
-        wordd = "Counseling Centers"
-    }
-    
-    @IBAction func EatingTap(_ sender: Any) {
-        wordd = "Eating Disorders"
-    }
-    
-    @IBAction func DrugTap(_ sender: Any) {
-        wordd = "Drug and Alcohol Abuse"
-    }
-    @IBAction func SpecialtyTap(_ sender: Any) {
-        wordd = "Specialty Counseling"
-    }
-    
-    @IBAction func domesticTap(_ sender: Any) {
-        wordd = "Domestic Violence"
-    }
-    
-    @IBAction func familyTap(_ sender: Any) {
-        wordd = "Family Assistance"
-    }
-    @IBAction func housingTap(_ sender: Any) {
-        wordd = "Housing"
+        ViewControllerResPage.category = "Support Groups and Resources"
     }
     
     @IBAction func shelterTap(_ sender: Any) {
         wordd = "Shelter"
+        ViewControllerResPage.category = "Shelter"
     }
+    
+    @IBAction func InoutTap(_ sender: Any) {
+        wordd = "Inpatient/Outpatient Mental Health Facilities"
+        ViewControllerResPage.category = "Inpatient/Outpatient Mental Health Facilities"
+    }
+    
+    @IBAction func CounselingTap(_ sender: Any) {
+        wordd = "Counseling Centers"
+        ViewControllerResPage.category = "Counseling Centers"
+    }
+    
+    @IBAction func EatingTap(_ sender: Any) {
+        wordd = "Eating Disorders"
+        ViewControllerResPage.category = "Eating Disorders"
+    }
+    
+    @IBAction func DrugTap(_ sender: Any) {
+        wordd = "Drug and Alcohol Abuse"
+        ViewControllerResPage.category = "Drug and Alcohol Abuse"
+    }
+    @IBAction func SpecialtyTap(_ sender: Any) {
+        wordd = "Specialty Counseling"
+        ViewControllerResPage.category = "Specialty Counseling"
+    }
+    
+    @IBAction func domesticTap(_ sender: Any) {
+        wordd = "Domestic Violence"
+        ViewControllerResPage.category = "Domestic Violence"
+    }
+    
+    @IBAction func familyTap(_ sender: Any) {
+        wordd = "Family Assistance"
+        ViewControllerResPage.category = "Family Assistance"
+    }
+    @IBAction func housingTap(_ sender: Any) {
+        wordd = "Housing"
+        ViewControllerResPage.category = "Housing"
+    }
+    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -85,6 +98,7 @@ class HelpViewController: UIViewController {
             InoutButton.titleLabel!.font = .systemFont(ofSize: 14)
             // iPhone
         }
+        
         
         let size = UIScreen.main.bounds.size
         if size.height < size.width {
@@ -105,10 +119,11 @@ class HelpViewController: UIViewController {
             stackView.axis = .vertical
         }
     }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-                if let nextViewController = segue.destination as? ViewControllerResPage {
-                    nextViewController.order = wordd
-                }
+//            if let nextViewController = segue.destination as? ViewControllerResPage {
+//                nextViewController.order = wordd
+//            }
         }
 
     /*

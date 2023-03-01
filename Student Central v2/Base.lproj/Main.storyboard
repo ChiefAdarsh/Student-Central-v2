@@ -3262,7 +3262,7 @@ Cg
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back" translatesAutoresizingMaskIntoConstraints="NO" id="ikq-4t-EKc">
-                                <rect key="frame" x="0.0" y="0.0" width="2264" height="1536"/>
+                                <rect key="frame" x="0.0" y="0.0" width="2264" height="834"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Calendar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Ev-ca-KUa">
                                 <rect key="frame" x="451" y="107" width="210" height="60"/>
@@ -4531,7 +4531,7 @@ Cg
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back" translatesAutoresizingMaskIntoConstraints="NO" id="hIY-5T-aQ4">
-                                <rect key="frame" x="0.0" y="0.0" width="1112" height="1536"/>
+                                <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Maps" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EUB-hp-QSX">
                                 <rect key="frame" x="497" y="51" width="118.5" height="60"/>
@@ -5944,7 +5944,7 @@ Cg
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="L6b-J9-nlL"/>
+        <segue reference="du5-cc-qEm"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Cinelli_crop" width="350" height="350"/>

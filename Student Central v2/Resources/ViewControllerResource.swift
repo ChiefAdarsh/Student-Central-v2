@@ -46,7 +46,7 @@ class ViewControllerResPage: UIViewController {
     var resources = [Resource]()
     //try adding to function on top of superview so expected declaratin doesnt arise
     
-    
+    static var category: String!
     
 
 
@@ -55,8 +55,9 @@ class ViewControllerResPage: UIViewController {
         super.viewDidLoad()
         someTableView.delegate = self
         someTableView.dataSource = self
+//        print("order:", order)
         for res in yourArray{
-            if res.category == order{
+            if res.category == ViewControllerResPage.category || res.category == order {
                 resources.append(res)
             }
         }
