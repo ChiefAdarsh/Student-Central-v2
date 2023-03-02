@@ -5,14 +5,9 @@ class PrincipalContactsTableViewController: UITableViewController {
     var backTitle: String!
     
     override func viewDidLoad() {
-        
-        
-        
-        createAdmins()
         super.viewDidLoad()
-        
-            
-        }
+        createAdmins()
+    }
     
     
     override func numberOfSections(in tableView: UITableView) -> Int {

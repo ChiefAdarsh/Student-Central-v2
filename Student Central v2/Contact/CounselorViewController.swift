@@ -14,8 +14,8 @@ class CounselorContactsTableViewController: UITableViewController, MFMailCompose
     var backTitle: String!
     
     override func viewDidLoad() {
-        createAdmins()
         super.viewDidLoad()
+        createAdmins()
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
