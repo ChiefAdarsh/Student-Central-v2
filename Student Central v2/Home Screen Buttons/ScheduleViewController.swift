@@ -426,8 +426,8 @@ class ClassShuttleViewController: UIViewController {
     override func viewDidLoad() {
       super.viewDidLoad()
       viewContainer.bringSubviewToFront(svView2)
-      classScheduleButton.backgroundColor = .gray
-      shuttleScheduleButton.backgroundColor = .white
+        classScheduleButton.backgroundColor = .lightGray
+        shuttleScheduleButton.backgroundColor = .white
       svView1.isOpaque = true
       svView1.isHidden = true
       rotation()
@@ -547,7 +547,7 @@ class ClassShuttleViewController: UIViewController {
     @IBAction func cSButtonClicked(_ sender: UIButton) {
         shuttleView.isHidden = true
         classScheduleView.isHidden = false
-        classScheduleButton.backgroundColor = .gray
+        classScheduleButton.backgroundColor = .lightGray
         shuttleScheduleButton.backgroundColor = .white
     }
 
@@ -556,7 +556,7 @@ class ClassShuttleViewController: UIViewController {
         shuttleView.isHidden = false
         classScheduleView.isHidden = true
         classScheduleButton.backgroundColor = .white
-        shuttleScheduleButton.backgroundColor = .gray
+        shuttleScheduleButton.backgroundColor = .lightGray
     }
     
     

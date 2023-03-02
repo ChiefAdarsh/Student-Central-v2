@@ -3609,7 +3609,7 @@ Cg
                     </view>
                     <navigationItem key="navigationItem" id="yyk-r7-2GB">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="Jc4-1w-gdJ">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="HvR-Sz-li8">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="HvR-Sz-li8">
                                 <rect key="frame" x="1014" y="3" width="78" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -5814,7 +5814,7 @@ Cg
                                         <rect key="frame" x="0.0" y="0.0" width="556" height="70"/>
                                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="Class Schedule" imagePadding="15" titleAlignment="trailing">
+                                        <buttonConfiguration key="configuration" style="plain" title="Class Schedule" imagePadding="15" titleAlignment="trailing">
                                             <imageReference key="image" image="list.bullet.rectangle.fill" catalog="system" symbolScale="large"/>
                                             <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="40" scale="large"/>
                                             <fontDescription key="titleFontDescription" type="system" pointSize="30"/>
@@ -5831,7 +5831,7 @@ Cg
                                         <rect key="frame" x="556" y="0.0" width="556" height="70"/>
                                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" image="bus" catalog="system" title="Shuttle Schedule" imagePadding="15">
+                                        <buttonConfiguration key="configuration" style="plain" image="bus" catalog="system" title="Shuttle Schedule" imagePadding="15">
                                             <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="40" scale="large"/>
                                             <fontDescription key="titleFontDescription" type="system" pointSize="30"/>
                                             <color key="baseForegroundColor" red="0.69019609689999994" green="0.14901961389999999" blue="0.20784312490000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
