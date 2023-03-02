@@ -2818,10 +2818,10 @@ Cg
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back" translatesAutoresizingMaskIntoConstraints="NO" id="eSz-sg-dX3">
-                                <rect key="frame" x="0.0" y="0.0" width="1112" height="1536"/>
+                                <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="O3T-2V-dwD">
-                                <rect key="frame" x="0.0" y="0.0" width="450" height="1536"/>
+                                <rect key="frame" x="0.0" y="0.0" width="450" height="834"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="450" id="ssl-oV-SkT">
@@ -2878,7 +2878,7 @@ Cg
                                 </prototypes>
                             </tableView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="58" translatesAutoresizingMaskIntoConstraints="NO" id="sFd-BC-g5r">
-                                <rect key="frame" x="470" y="98" width="622" height="1353"/>
+                                <rect key="frame" x="470" y="98" width="622" height="651"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Res Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gvY-93-w9J">
                                         <rect key="frame" x="0.0" y="0.0" width="622" height="59"/>
@@ -2944,7 +2944,7 @@ Cg
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Res Add Info" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="23" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jm4-Wf-CLh">
-                                        <rect key="frame" x="0.0" y="564" width="622" height="789"/>
+                                        <rect key="frame" x="0.0" y="564" width="622" height="87"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="365" id="Bp4-8d-CAY">
                                                 <variation key="heightClass=compact-widthClass=compact" constant="100"/>
@@ -3264,8 +3264,8 @@ Cg
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back" translatesAutoresizingMaskIntoConstraints="NO" id="ikq-4t-EKc">
                                 <rect key="frame" x="0.0" y="0.0" width="2264" height="834"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Calendar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Ev-ca-KUa">
-                                <rect key="frame" x="451" y="107" width="210" height="60"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Calendar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Ev-ca-KUa">
+                                <rect key="frame" x="451" y="50" width="210" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="wxs-4f-4Ne">
                                         <variation key="heightClass=compact-widthClass=compact" constant="40"/>
@@ -3285,11 +3285,11 @@ Cg
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                                 </variation>
                             </label>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" maximumZoomScale="10" translatesAutoresizingMaskIntoConstraints="NO" id="MWj-s5-6Co">
-                                <rect key="frame" x="95" y="217" width="922" height="855"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" maximumZoomScale="10" translatesAutoresizingMaskIntoConstraints="NO" id="MWj-s5-6Co">
+                                <rect key="frame" x="95" y="160" width="922" height="634"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lot-Nm-0a6">
-                                        <rect key="frame" x="0.0" y="0.0" width="922" height="855"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lot-Nm-0a6">
+                                        <rect key="frame" x="0.0" y="0.0" width="922" height="634"/>
                                     </imageView>
                                 </subviews>
                                 <constraints>
@@ -3303,8 +3303,8 @@ Cg
                                 <viewLayoutGuide key="contentLayoutGuide" id="cB6-u8-ssZ"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="3iu-dc-qDg"/>
                             </scrollView>
-                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="QaH-eQ-8Og">
-                                <rect key="frame" x="462" y="172" width="188" height="30"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="QaH-eQ-8Og">
+                                <rect key="frame" x="462" y="115" width="188" height="30"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hand.draw.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="QsP-Ks-R3y">
                                         <rect key="frame" x="0.0" y="1.5" width="21" height="28"/>
@@ -3325,7 +3325,7 @@ Cg
                         <viewLayoutGuide key="safeArea" id="r01-jh-h28"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="0Ev-ca-KUa" firstAttribute="top" secondItem="HXU-BY-8yj" secondAttribute="top" constant="107" id="KPf-Zk-2cj">
+                            <constraint firstItem="0Ev-ca-KUa" firstAttribute="top" secondItem="HXU-BY-8yj" secondAttribute="top" constant="50" id="KPf-Zk-2cj">
                                 <variation key="heightClass=compact-widthClass=compact" constant="20"/>
                                 <variation key="heightClass=compact-widthClass=regular" constant="20"/>
                                 <variation key="heightClass=regular-widthClass=compact" constant="70"/>
@@ -3778,6 +3778,7 @@ Cg
                                                     <fontDescription key="titleFontDescription" type="system" pointSize="17"/>
                                                 </buttonConfiguration>
                                                 <connections>
+                                                    <action selector="chekcheckTap:" destination="mCB-JK-pJl" eventType="touchUpInside" id="aOb-re-yjy"/>
                                                     <segue destination="21Z-Jl-gYg" kind="show" id="JKY-PC-Gch"/>
                                                 </connections>
                                             </button>

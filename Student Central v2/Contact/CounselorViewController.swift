@@ -277,15 +277,19 @@ func createAdmins() {
 
     admin = Admin(imgStr: "Helpenstill_crop", adminType: AdminType.Principal, lastName: "Helpenstill", firstName: "Justin", username: "jhelpenstill", callExt: 0, adminTypeDetailed: "Assistant Principal (Students: Db-J) / Campus Behavior Coordinator")
     adminList.append(admin)
+    
+    admin = Admin(imgStr: "Lowry_crop", adminType: AdminType.Principal, lastName: "Lowry", firstName: "Colleen", username: "clowry", callExt: 0, adminTypeDetailed: "Assistant Principal (Students: K-M) / Campus Behavior Coordinator")
+    adminList.append(admin)
+    
+    admin = Admin(imgStr: "Ogbeide_crop", adminType: AdminType.Principal, lastName: "Ogbeide", firstName: "Veronica", username: "vogbeide", callExt: 6123, adminTypeDetailed: "Assistant Principal (Students: N-Sc) / Campus Behavior Coordinator")
+    adminList.append(admin)
 
     admin = Admin(imgStr: "Hussey_crop", adminType: AdminType.Principal, lastName: "Hussey", firstName: "Brian", username: "bhussey", callExt: 0, adminTypeDetailed: "Assistant Principal (Students: Sd-Z) / Campus Behavior Coordinator")
     adminList.append(admin)
 
-    admin = Admin(imgStr: "Ogbeide_crop", adminType: AdminType.Principal, lastName: "Ogbeide", firstName: "Veronica", username: "vogbeide", callExt: 6123, adminTypeDetailed: "Assistant Principal (Students: N-Sc) / Campus Behavior Coordinator")
-    adminList.append(admin)
+    
 
-    admin = Admin(imgStr: "Lowry_crop", adminType: AdminType.Principal, lastName: "Lowry", firstName: "Colleen", username: "clowry", callExt: 0, adminTypeDetailed: "Assistant Principal (Students: K-M) / Campus Behavior Coordinator")
-    adminList.append(admin)
+    
     
 //    admin = Admin(imgStr: nil, adminType: AdminType.Principal, lastName: "Yakubovsky", firstName: "Michael", username: "myakubovsky", callExt: 6237, adminTypeDetailed: "STEM Teacher")
 //    adminList.append(admin)
