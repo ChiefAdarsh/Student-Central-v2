@@ -13,14 +13,32 @@ class WelcomeViewController: UIViewController {
     
     let scrollView = UIScrollView()
     
+    private let pageControl: UIPageControl = {
+        let pageControl = UIPageControl()
+        pageControl.numberOfPages = 7
+        pageControl.pageIndicatorTintColor = UIColor(red: 176/255.0, green: 3/255.0, blue: 0/255.0, alpha: 1.0)
+        pageControl.currentPageIndicatorTintColor = .black
+        return pageControl
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        scrollView.delegate = self
+        pageControl.addTarget(self, action: #selector(pageControlDidChange(_:)), for: .valueChanged)
+        view.addSubview(scrollView)
+        view.addSubview(pageControl)
         // Do any additional setup after loading the view.
+    }
+    
+    @objc private func pageControlDidChange(_ sender: UIPageControl){
+        let current = sender.currentPage
+        scrollView.setContentOffset(CGPoint(x: CGFloat(current) * view.frame.size.width, y: 0), animated: true)
+        
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        pageControl.frame = CGRect(x: 10, y: 720, width: view.frame.size.width-20, height: 70)
         configure()
     }
     
@@ -38,19 +56,20 @@ class WelcomeViewController: UIViewController {
             scrollView.addSubview(pageView)
             
             //Title, Image, Button, and Description
-            let label = UILabel(frame: CGRect(x: 10, y: 400, width: pageView.frame.size.width-20, height: 120))
+            let label = UILabel(frame: CGRect(x: 10, y: 350, width: pageView.frame.size.width-20, height: 120))
             
-            let imageView = UIImageView(frame: CGRect(x: 75, y: 100, width: pageView.frame.size.width-150, height: pageView.frame.size.height - 500))
+            let imageView = UIImageView(frame: CGRect(x: 75, y: 65, width: pageView.frame.size.width-150, height: pageView.frame.size.height - 500))
             
-            let button = UIButton(frame: CGRect(x: 100, y: pageView.frame.size.height-150, width: pageView.frame.size.width-200, height: 50))
+            let button = UIButton(frame: CGRect(x: 100, y: 630, width: pageView.frame.size.width-200, height: 50))
             
-            let description = UILabel(frame: CGRect(x: 10, y: 500, width: pageView.frame.size.width-20, height: 120))
+            let skipButton = UIButton(frame: CGRect(x: 900, y: 25, width: pageView.frame.size.width-900, height: 50))
+            
+            let description = UILabel(frame: CGRect(x: 10, y: 470, width: pageView.frame.size.width-20, height: 120))
             
             label.textAlignment = .center
             label.font = UIFont(name: "Helvetica-Bold", size: 36)
             pageView.addSubview(label)
             label.text = titles[x]
-            
             
             description.textAlignment = .center
             description.font = UIFont(name: "Helvetica", size: 28)
@@ -99,6 +118,15 @@ class WelcomeViewController: UIViewController {
             button.addTarget(self, action: #selector(didTapButton(_:)), for: .touchUpInside)
             button.tag = x + 1
             pageView.addSubview(button)
+            
+            pageView.addSubview(imageView)
+            skipButton.setTitleColor(.systemBlue, for: .normal)
+            skipButton.setTitle("Skip", for: .normal)
+            skipButton.titleLabel?.font =  UIFont(name: "Helvetica", size: 30)
+            
+            skipButton.layer.cornerRadius = 10
+            skipButton.addTarget(self, action: #selector(didTapButton2(_:)), for: .touchUpInside)
+            pageView.addSubview(skipButton)
         }
         scrollView.contentSize = CGSize(width: holderView.frame.size.width * 3, height: 0)
         scrollView.isPagingEnabled = true
@@ -116,6 +144,14 @@ class WelcomeViewController: UIViewController {
         scrollView.setContentOffset(CGPoint(x: holderView.frame.size.width * CGFloat(button.tag), y: 0), animated: true)
     }
 
+    @objc func didTapButton2(_ button:UIButton) {
+        //dismiss
+        Core.shared.setIsNotNewUser()
+        dismiss(animated: true, completion: nil)
+        return
+    }
+    
+
     /*
     // MARK: - Navigation
 
@@ -127,3 +163,11 @@ class WelcomeViewController: UIViewController {
     */
 
 }
+
+extension WelcomeViewController: UIScrollViewDelegate{
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        pageControl.currentPage = Int(floorf(Float(scrollView.contentOffset.x) / Float(scrollView.frame.size.width)))
+    }
+ 
+}
+ 

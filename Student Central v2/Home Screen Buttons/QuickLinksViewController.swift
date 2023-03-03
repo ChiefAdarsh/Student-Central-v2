@@ -1,3 +1,10 @@
+//
+//  QuickLinks.swift
+//  Student Central
+//
+//  Created by Varshith Peddi on 12/07/22.
+//
+
 import UIKit
 
 class LinksViewController: UIViewController {
