@@ -26,6 +26,7 @@
 		655A7ED129B1395300961BC1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 655A7ED029B1395200961BC1 /* GoogleService-Info.plist */; };
 		656FE02F2992D0D5002BAEEF /* TeacherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656FE02E2992D0D5002BAEEF /* TeacherViewController.swift */; };
 		656FE0312992EA50002BAEEF /* CounselorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656FE0302992EA50002BAEEF /* CounselorViewController.swift */; };
+		659487D729B666A000400A9C /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659487D629B666A000400A9C /* OnboardingViewController.swift */; };
 		65D052B429844E4600BB5A5C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D052B329844E4600BB5A5C /* AppDelegate.swift */; };
 		65D052B629844E4600BB5A5C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D052B529844E4600BB5A5C /* SceneDelegate.swift */; };
 		65D052B829844E4600BB5A5C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D052B729844E4600BB5A5C /* ViewController.swift */; };
@@ -50,6 +51,7 @@
 		655A7ED029B1395200961BC1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		656FE02E2992D0D5002BAEEF /* TeacherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherViewController.swift; sourceTree = "<group>"; };
 		656FE0302992EA50002BAEEF /* CounselorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounselorViewController.swift; sourceTree = "<group>"; };
+		659487D629B666A000400A9C /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		65D052B029844E4600BB5A5C /* Student Central v2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Student Central v2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		65D052B329844E4600BB5A5C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		65D052B529844E4600BB5A5C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -93,6 +95,14 @@
 				65266EE029942125001778AF /* AdminViewController.swift */,
 			);
 			path = Contact;
+			sourceTree = "<group>";
+		};
+		659487D529B6663500400A9C /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				659487D629B666A000400A9C /* OnboardingViewController.swift */,
+			);
+			path = Onboarding;
 			sourceTree = "<group>";
 		};
 		65B174742996DBFA00B8E0BD /* Resources */ = {
@@ -142,6 +152,7 @@
 				65D052B329844E4600BB5A5C /* AppDelegate.swift */,
 				65D052B529844E4600BB5A5C /* SceneDelegate.swift */,
 				65D052B729844E4600BB5A5C /* ViewController.swift */,
+				659487D529B6663500400A9C /* Onboarding */,
 				65B174742996DBFA00B8E0BD /* Resources */,
 				65C019FD29958CCC002E1AC7 /* Home Screen Buttons */,
 				65266EE229942E28001778AF /* Contact */,
@@ -247,6 +258,7 @@
 				65D052B629844E4600BB5A5C /* SceneDelegate.swift in Sources */,
 				65217580299C1A85000A04F9 /* StudentHelpResources.swift in Sources */,
 				65D052CC298B315500BB5A5C /* ScheduleViewController.swift in Sources */,
+				659487D729B666A000400A9C /* OnboardingViewController.swift in Sources */,
 				65142E262996D86D003FACC3 /* Teacher Files.swift in Sources */,
 				656FE0312992EA50002BAEEF /* CounselorViewController.swift in Sources */,
 				65D052CA298B2FBC00BB5A5C /* QuickLinksViewController.swift in Sources */,
