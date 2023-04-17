@@ -26,6 +26,7 @@ class WelcomeViewController: UIViewController {
         scrollView.delegate = self
         pageControl.addTarget(self, action: #selector(pageControlDidChange(_:)), for: .valueChanged)
         view.addSubview(pageControl)
+        
         // Do any additional setup after loading the view.
         configure()
     }
@@ -56,6 +57,7 @@ class WelcomeViewController: UIViewController {
             scrollView.addSubview(pageView)
             
             //Title, Image, Button, and Description
+            
             let label2 = UILabel(frame: label.frame)
             
             let imageView2 = UIImageView(frame: imageView.frame)
@@ -71,11 +73,29 @@ class WelcomeViewController: UIViewController {
             pageView.addSubview(label2)
             label2.text = titles[x]
             
+            label2.centerXAnchor.constraint(equalTo: label.centerXAnchor).isActive = true
+            label2.centerYAnchor.constraint(equalTo: label.centerYAnchor).isActive = true
+            label2.widthAnchor.constraint(equalTo: label.widthAnchor).isActive = true
+            label2.heightAnchor.constraint(equalTo: label.heightAnchor).isActive = true
+            label2.topAnchor.constraint(equalTo: label.topAnchor).isActive = true
+            label2.bottomAnchor.constraint(equalTo: label.bottomAnchor).isActive = true
+            label2.leftAnchor.constraint(equalTo: label.leftAnchor).isActive = true
+            label2.rightAnchor.constraint(equalTo: label.rightAnchor).isActive = true
+            
             description2.textAlignment = .center
             description2.font = UIFont(name: "Helvetica", size: 28)
             pageView.addSubview(description2)
             description2.text = taglines[x]
             description2.numberOfLines = 3
+            
+            description2.centerXAnchor.constraint(equalTo: description1.centerXAnchor).isActive = true
+            description2.centerYAnchor.constraint(equalTo: description1.centerYAnchor).isActive = true
+            description2.widthAnchor.constraint(equalTo: description1.widthAnchor).isActive = true
+            description2.heightAnchor.constraint(equalTo: description1.heightAnchor).isActive = true
+            description2.topAnchor.constraint(equalTo: description1.topAnchor).isActive = true
+            description2.bottomAnchor.constraint(equalTo: description1.bottomAnchor).isActive = true
+            description2.leftAnchor.constraint(equalTo: description1.leftAnchor).isActive = true
+            description2.rightAnchor.constraint(equalTo: description1.rightAnchor).isActive = true
             
             imageView2.contentMode = .scaleAspectFit
             
@@ -119,6 +139,15 @@ class WelcomeViewController: UIViewController {
             button2.tag = x + 1
             pageView.addSubview(button2)
             
+            button2.centerXAnchor.constraint(equalTo: button.centerXAnchor).isActive = true
+            button2.centerYAnchor.constraint(equalTo: button.centerYAnchor).isActive = true
+            button2.widthAnchor.constraint(equalTo: button.widthAnchor).isActive = true
+            button2.heightAnchor.constraint(equalTo: button.heightAnchor).isActive = true
+            button2.topAnchor.constraint(equalTo: button.topAnchor).isActive = true
+            button2.bottomAnchor.constraint(equalTo: button.bottomAnchor).isActive = true
+            button2.leftAnchor.constraint(equalTo: button.leftAnchor).isActive = true
+            button2.rightAnchor.constraint(equalTo: button.rightAnchor).isActive = true
+            
             pageView.addSubview(imageView2)
             skipButton2.setTitleColor(.systemBlue, for: .normal)
             skipButton2.setTitle("Skip", for: .normal)
@@ -127,6 +156,15 @@ class WelcomeViewController: UIViewController {
             skipButton2.layer.cornerRadius = 10
             skipButton2.addTarget(self, action: #selector(didTapButton2(_:)), for: .touchUpInside)
             pageView.addSubview(skipButton2)
+            
+            skipButton2.centerXAnchor.constraint(equalTo: skipButton.centerXAnchor).isActive = true
+            skipButton2.centerYAnchor.constraint(equalTo: skipButton.centerYAnchor).isActive = true
+            skipButton2.widthAnchor.constraint(equalTo: skipButton.widthAnchor).isActive = true
+            skipButton2.heightAnchor.constraint(equalTo: skipButton.heightAnchor).isActive = true
+            skipButton2.topAnchor.constraint(equalTo: skipButton.topAnchor).isActive = true
+            skipButton2.bottomAnchor.constraint(equalTo: skipButton.bottomAnchor).isActive = true
+            skipButton2.leftAnchor.constraint(equalTo: skipButton.leftAnchor).isActive = true
+            skipButton2.rightAnchor.constraint(equalTo: skipButton.rightAnchor).isActive = true
         }
         scrollView.contentSize = CGSize(width: holderView.frame.size.width * 3, height: 0)
         scrollView.isPagingEnabled = true
