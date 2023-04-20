@@ -1,6 +1,6 @@
 //
 //  WelcomeViewController.swift
-//  Student Central v2
+//  St udent Central v2
 //
 //  Created by Varshith Peddi on 2/21/23.
 //
@@ -19,10 +19,9 @@ class WelcomeViewController: UIViewController {
     @IBOutlet var pageControl: UIPageControl!
     
 
-
-
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUpScrollView()
         scrollView.delegate = self
         pageControl.addTarget(self, action: #selector(pageControlDidChange(_:)), for: .valueChanged)
         view.addSubview(pageControl)
@@ -30,6 +29,7 @@ class WelcomeViewController: UIViewController {
         // Do any additional setup after loading the view.
         configure()
     }
+    
 
     @objc private func pageControlDidChange(_ sender: UIPageControl){
         let current = sender.currentPage
@@ -37,7 +37,9 @@ class WelcomeViewController: UIViewController {
         
     }
 
-     
+    func setUpScrollView() {
+        scrollView.delegate = self
+    }
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
@@ -55,7 +57,8 @@ class WelcomeViewController: UIViewController {
         for x in 0..<7 {
             let pageView = UIView(frame: CGRect(x: CGFloat(x) * (holderView.frame.size.width), y: 0, width: holderView.frame.size.width, height: holderView.frame.size.height))
             scrollView.addSubview(pageView)
-            
+
+
             //Title, Image, Button, and Description
             
             let label2 = UILabel(frame: label.frame)
@@ -209,4 +212,6 @@ extension WelcomeViewController: UIScrollViewDelegate{
     }
  
 }
+
+
  
