@@ -59,7 +59,7 @@ class ViewController: UIViewController {
         super.viewDidLayoutSubviews()
         if Core.shared.isNewUser() {
             // show onboarding
-            let vc = storyboard?.instantiateViewController(identifier: "welcome") as! WelcomeViewController
+            let vc = storyboard?.instantiateViewController(identifier: "welcome") as! Onboarding_v2ViewController
             vc.modalPresentationStyle = .fullScreen
             present(vc, animated: true)
         }

@@ -38,6 +38,7 @@
 		65D052CC298B315500BB5A5C /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D052CB298B315500BB5A5C /* ScheduleViewController.swift */; };
 		65D052CE298B337500BB5A5C /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D052CD298B337500BB5A5C /* CalendarViewController.swift */; };
 		65D052D0298B342500BB5A5C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D052CF298B342500BB5A5C /* SettingsViewController.swift */; };
+		F6AA9EA929F9A670006474FD /* Onboarding-v2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6AA9EA829F9A670006474FD /* Onboarding-v2ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +66,7 @@
 		65D052CB298B315500BB5A5C /* ScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
 		65D052CD298B337500BB5A5C /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		65D052CF298B342500BB5A5C /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		F6AA9EA829F9A670006474FD /* Onboarding-v2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Onboarding-v2ViewController.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				659487D629B666A000400A9C /* OnboardingViewController.swift */,
+				F6AA9EA829F9A670006474FD /* Onboarding-v2ViewController.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -259,6 +262,7 @@
 				65217580299C1A85000A04F9 /* StudentHelpResources.swift in Sources */,
 				65D052CC298B315500BB5A5C /* ScheduleViewController.swift in Sources */,
 				659487D729B666A000400A9C /* OnboardingViewController.swift in Sources */,
+				F6AA9EA929F9A670006474FD /* Onboarding-v2ViewController.swift in Sources */,
 				65142E262996D86D003FACC3 /* Teacher Files.swift in Sources */,
 				656FE0312992EA50002BAEEF /* CounselorViewController.swift in Sources */,
 				65D052CA298B2FBC00BB5A5C /* QuickLinksViewController.swift in Sources */,

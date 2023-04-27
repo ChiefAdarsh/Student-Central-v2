@@ -188,7 +188,7 @@ class WelcomeViewController: UIViewController {
 
     @objc func didTapButton2(_ button:UIButton) {
         //dismiss
-//        Core.shared.setIsNotNewUser()
+        Core.shared.setIsNotNewUser()
         dismiss(animated: true, completion: nil)
         return
     }
