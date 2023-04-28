@@ -53,6 +53,7 @@ class Onboarding_v2ViewController: UIViewController {
     
     
     @IBAction func nextButtonPressed(_ sender: Any) {
+        let config = UIImage.SymbolConfiguration(paletteColors: [UIColor(red: 176/255.0, green: 3/255.0, blue: 0/255.0, alpha: 1.0)])
         if num != 0{
             backButton.isHidden = false
         }
@@ -103,11 +104,13 @@ class Onboarding_v2ViewController: UIViewController {
             Core.shared.setIsNotNewUser()
             dismiss(animated: true, completion: nil)
         }
-        
+        imageView.preferredSymbolConfiguration = config
+
     }
     
     
     @IBAction func backButtonPressed(_ sender: Any) {
+        let config = UIImage.SymbolConfiguration(paletteColors: [UIColor(red: 176/255.0, green: 3/255.0, blue: 0/255.0, alpha: 1.0)])
         num -= 1
         if (num == 6)
         {
@@ -138,7 +141,8 @@ class Onboarding_v2ViewController: UIViewController {
             }
         }
         
-        
+        imageView.preferredSymbolConfiguration = config
+
     }
     
     @IBAction func skipButton(_ sender: Any) {
